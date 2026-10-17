@@ -66,13 +66,17 @@ def score_doc(truth: dict, norm) -> dict:
     header_ok = (_name_key(norm.patient_name) == _name_key(truth["patient_name"])
                  and norm.collected_at == date.fromisoformat(truth["collected_at"]))
     perfect = cats["correct_auto"] + cats["correct_review"] == len(truth["results"]) and not extras and header_ok
+    header = {"patient_name": norm.patient_name, "collected_at": str(norm.collected_at or ""),
+              "truth_name": truth["patient_name"], "truth_collected_at": truth["collected_at"]}
     return {"cats": dict(cats), "n": len(truth["results"]), "extras": extras, "silent_extras": silent_extras,
-            "header_ok": header_ok, "perfect": perfect, "auto": not norm.needs_review, "errors": rows}
+            "header_ok": header_ok, "header": header, "perfect": perfect, "auto": not norm.needs_review, "errors": rows}
 
 
-def run(engine: str, data: Path, limit: int | None) -> dict:
+
+def run(engine: str, data: Path, limit: int | None, only: list[str] | None = None) -> dict:
     ex = get_extractor(engine)
-    ids = json.loads((data / "index.json").read_text())[:limit]
+    ids = json.loads((data / "index.json").read_text())
+    ids = [i for i in ids if i in only] if only else ids[:limit]
     per_doc, total_cost, total_sec, total_pages = [], 0.0, 0.0, 0
     for doc_id in ids:
         truth = json.loads((data / f"{doc_id}.json").read_text(encoding="utf-8"))
@@ -94,7 +98,9 @@ def run(engine: str, data: Path, limit: int | None) -> dict:
         s = score_doc(truth, normalize_report(result.report))
         s.update(doc_id=doc_id, kind=truth["kind"], layout=truth["layout"])
         per_doc.append(s)
-        print(f"{doc_id}: {s['cats']}{' лишние: ' + str(s['extras']) if s['extras'] else ''}")
+        print(f"{doc_id}: {s['cats']}{' лишние: ' + str(s['extras']) if s['extras'] else ''}"
+              + ("" if s["header_ok"] else f" шапка: {s['header']['patient_name']!r} / {s['header']['collected_at']!r}"
+                 f" (эталон {s['header']['truth_name']!r} / {s['header']['truth_collected_at']})"))
     return {"engine": getattr(ex, "model", None) and f"{ex.name}:{ex.model}" or ex.name, "docs": per_doc,
             "seconds_per_page": total_sec / max(total_pages, 1), "cost_per_page": total_cost / max(total_pages, 1),
             "pages": total_pages}
@@ -159,9 +165,10 @@ def main() -> None:
     ap.add_argument("--engine", default="tesseract")
     ap.add_argument("--data", type=Path, default=Path("data/synth"))
     ap.add_argument("--limit", type=int)
+    ap.add_argument("--only", help="id бланков через запятую, например 002_senim_scan,007_citolab_scan")
     ap.add_argument("--out", type=Path, default=Path("evals/results"))
     args = ap.parse_args()
-    res = run(args.engine, args.data, args.limit)
+    res = run(args.engine, args.data, args.limit, args.only.split(",") if args.only else None)
     md = summarize(res)
     args.out.mkdir(parents=True, exist_ok=True)
     tag = res["engine"].replace(":", "_").replace("/", "_")

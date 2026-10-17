@@ -22,11 +22,36 @@ from .llm_common import SYSTEM_PROMPT, USER_PROMPT, report_json_schema
 
 DEFAULT_MODEL = "qwen/qwen2.5-vl-72b-instruct"
 URL = "https://openrouter.ai/api/v1/chat/completions"
+MODELS_URL = "https://openrouter.ai/api/v1/models"
+# Переписывание бланка — не задача на рассуждение. Рассуждающие модели (Nemotron, Qwen3-thinking, Gemini)
+# без этого тратят весь max_tokens на размышления и отдают пустой JSON. off | low | on
+REASONING = os.getenv("LABSCAN_OPENROUTER_REASONING", "off")
+_supported_params: dict[str, set[str]] = {}
 RETRIES = 3
 RETRY_CODES = {408, 429, 500, 502, 503, 504}
 # Бланк на 20 строк — это ~1000 токенов JSON. Без явного max_tokens OpenRouter резервирует весь лимит модели
 # (100k+ токенов) и отказывает при маленьком балансе: «requires more credits, or fewer max_tokens».
 MAX_TOKENS = int(os.getenv("LABSCAN_OPENROUTER_MAX_TOKENS", "4000"))
+
+
+def supported_parameters(model: str) -> set[str]:
+    """Какие параметры принимает модель (по каталогу OpenRouter). Пусто, если каталог недоступен."""
+    if model not in _supported_params:
+        try:
+            with urllib.request.urlopen(MODELS_URL, timeout=15) as resp:
+                for m in json.loads(resp.read())["data"]:
+                    _supported_params[m["id"]] = set(m.get("supported_parameters") or [])
+        except (OSError, ValueError, KeyError):
+            pass
+        _supported_params.setdefault(model, set())
+    return _supported_params[model]
+
+
+def reasoning_param(model: str) -> dict | None:
+    """Параметр reasoning только для моделей, которые его понимают: иначе require_parameters отсечёт провайдеров."""
+    if REASONING == "on" or "reasoning" not in supported_parameters(model):
+        return None
+    return {"enabled": False} if REASONING == "off" else {"effort": REASONING}
 
 
 class OpenRouterExtractor:
@@ -64,10 +89,12 @@ class OpenRouterExtractor:
 
     def _page(self, img: Image.Image) -> tuple[RawReport, dict]:
         data_url = "data:image/png;base64," + base64.b64encode(to_png_bytes(img)).decode()
+        reasoning = reasoning_param(self.model)
         data = self._post({
             "model": self.model,
             "temperature": 0,
             "max_tokens": MAX_TOKENS,
+            **({"reasoning": reasoning} if reasoning else {}),
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": [

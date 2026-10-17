@@ -95,9 +95,12 @@ def test_tesseract_on_clean_scan(tmp_path: Path):
 def test_openrouter_request_and_parse(monkeypatch):
     from PIL import Image
 
+    from labscan.extractors import openrouter
     from labscan.extractors.openrouter import OpenRouterExtractor
 
     sent = []
+    monkeypatch.setattr(openrouter, "_supported_params", {"qwen/qwen2.5-vl-72b-instruct": {"response_format"},
+                                                          "nvidia/nemotron-3.5-super-vl:free": {"reasoning"}})
     ex = OpenRouterExtractor(model="qwen/qwen2.5-vl-72b-instruct", api_key="k")
     monkeypatch.setattr(ex, "_post", lambda payload: sent.append(payload) or {
         "choices": [{"message": {"content": json.dumps(PAYLOAD)}, "finish_reason": "stop"}],
@@ -110,6 +113,13 @@ def test_openrouter_request_and_parse(monkeypatch):
     assert body["messages"][1]["content"][0]["image_url"]["url"].startswith("data:image/png;base64,")
     assert res.cost_usd == pytest.approx(0.0012) and len(res.report.results) == 2
     assert res.meta == {"input_tokens": 1800, "output_tokens": 300}
+    assert "reasoning" not in body  # модель без reasoning: параметр не шлём, иначе провайдеров не останется
+    # Рассуждающая модель: без reasoning.enabled=false она тратит весь max_tokens на размышления
+    ex2 = OpenRouterExtractor(model="nvidia/nemotron-3.5-super-vl:free", api_key="k")
+    monkeypatch.setattr(ex2, "_post", lambda payload: sent.append(payload) or {
+        "choices": [{"message": {"content": json.dumps(PAYLOAD)}, "finish_reason": "stop"}], "usage": {}})
+    ex2.extract([Image.new("RGB", (50, 50), "white")])
+    assert sent[-1]["reasoning"] == {"enabled": False}
 
 
 def test_openrouter_http_error_is_readable(monkeypatch):
@@ -122,10 +132,11 @@ def test_openrouter_http_error_is_readable(monkeypatch):
     from labscan.extractors import openrouter
 
     def boom(req, timeout):
-        raise urllib.error.HTTPError(req.full_url, 402, "Payment Required", {}, io.BytesIO(b'{"error":"no credits"}'))
+        raise urllib.error.HTTPError(openrouter.URL, 402, "Payment Required", {}, io.BytesIO(b'{"error":"no credits"}'))
 
     monkeypatch.setattr(urllib.request, "urlopen", boom)
     monkeypatch.setattr(openrouter, "RETRIES", 0)
+    monkeypatch.setattr(openrouter, "_supported_params", {openrouter.DEFAULT_MODEL: set()})  # без похода за каталогом
     with pytest.raises(RuntimeError, match="HTTP 402.*no credits"):
         openrouter.OpenRouterExtractor(api_key="k").extract([Image.new("RGB", (10, 10), "white")])
 

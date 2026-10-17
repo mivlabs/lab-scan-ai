@@ -1,0 +1,456 @@
+{
+ "engine": "openrouter:nvidia/nemotron-3.5-super-vl:free",
+ "docs": [
+  {
+   "cats": {
+    "correct_review": 1,
+    "correct_auto": 5
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "HGB",
+     "truth": 132.0,
+     "got": 132.0,
+     "cat": "correct_review",
+     "issues": [
+      "неуверенное сопоставление названия (0.81)"
+     ],
+     "raw": {
+      "name": "Гемаглобин",
+      "value": "132",
+      "unit": "г/л",
+      "reference": "120 - 160",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    }
+   ],
+   "doc_id": "001_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab"
+  },
+  {
+   "doc_id": "002_senim_scan",
+   "kind": "scan",
+   "layout": "senim",
+   "failed": "ответ обрезан по max_tokens",
+   "cats": {
+    "missed": 7
+   },
+   "n": 7,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "cats": {
+    "correct_auto": 6
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "003_labone_photo",
+   "kind": "photo",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 8
+   },
+   "n": 8,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "004_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 14
+   },
+   "n": 14,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": true,
+   "errors": [],
+   "doc_id": "005_senim_pdf",
+   "kind": "pdf",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 15
+   },
+   "n": 15,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "006_labone_pdf",
+   "kind": "pdf",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 7
+   },
+   "n": 7,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": true,
+   "errors": [],
+   "doc_id": "007_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 9
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": true,
+   "errors": [],
+   "doc_id": "008_senim_photo",
+   "kind": "photo",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 8
+   },
+   "n": 8,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "009_labone_photo",
+   "kind": "photo",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 6
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "010_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 9
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "011_senim_scan",
+   "kind": "scan",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 9
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "012_labone_scan",
+   "kind": "scan",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_review": 1,
+    "correct_auto": 6
+   },
+   "n": 7,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": false,
+   "errors": [
+    {
+     "code": "HGB",
+     "truth": 159.0,
+     "got": 159.0,
+     "cat": "correct_review",
+     "issues": [
+      "неуверенное сопоставление названия (0.81)"
+     ],
+     "raw": {
+      "name": "Гемаглобин",
+      "value": "159",
+      "unit": "г/л",
+      "reference": "120 - 160",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    }
+   ],
+   "doc_id": "013_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 10
+   },
+   "n": 10,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "014_senim_scan",
+   "kind": "scan",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 20
+   },
+   "n": 20,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "015_labone_pdf",
+   "kind": "pdf",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 13
+   },
+   "n": 13,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": true,
+   "errors": [],
+   "doc_id": "016_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 15
+   },
+   "n": 15,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "017_senim_pdf",
+   "kind": "pdf",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 11
+   },
+   "n": 11,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "018_labone_photo",
+   "kind": "photo",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 12
+   },
+   "n": 12,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": true,
+   "errors": [],
+   "doc_id": "019_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 10
+   },
+   "n": 10,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "020_senim_photo",
+   "kind": "photo",
+   "layout": "senim"
+  }
+ ],
+ "seconds_per_page": 37.18315446956346,
+ "cost_per_page": 0.0,
+ "pages": 23,
+ "summary": {
+  "все": {
+   "n_fields": 202,
+   "correct_auto": 0.9554455445544554,
+   "correct_review": 0.009900990099009901,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 0.034653465346534656,
+   "silent_extras": 0,
+   "perfect": 0.65,
+   "auto": 0.85,
+   "auto_and_perfect": 0.6,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.65,
+   "docs": 20
+  },
+  "PDF": {
+   "n_fields": 64,
+   "correct_auto": 1.0,
+   "correct_review": 0.0,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 0.0,
+   "silent_extras": 0,
+   "perfect": 0.75,
+   "auto": 1.0,
+   "auto_and_perfect": 0.75,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.75,
+   "docs": 4
+  },
+  "citolab": {
+   "n_fields": 59,
+   "correct_auto": 0.9661016949152542,
+   "correct_review": 0.03389830508474576,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 0.0,
+   "silent_extras": 0,
+   "perfect": 0.42857142857142855,
+   "auto": 0.7142857142857143,
+   "auto_and_perfect": 0.2857142857142857,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.42857142857142855,
+   "docs": 7
+  },
+  "labone": {
+   "n_fields": 69,
+   "correct_auto": 1.0,
+   "correct_review": 0.0,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 0.0,
+   "silent_extras": 0,
+   "perfect": 1.0,
+   "auto": 1.0,
+   "auto_and_perfect": 1.0,
+   "auto_but_missed": 0.0,
+   "header_ok": 1.0,
+   "docs": 6
+  },
+  "senim": {
+   "n_fields": 74,
+   "correct_auto": 0.9054054054054054,
+   "correct_review": 0.0,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 0.0945945945945946,
+   "silent_extras": 0,
+   "perfect": 0.5714285714285714,
+   "auto": 0.8571428571428571,
+   "auto_and_perfect": 0.5714285714285714,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.5714285714285714,
+   "docs": 7
+  },
+  "скан": {
+   "n_fields": 81,
+   "correct_auto": 0.9135802469135802,
+   "correct_review": 0.0,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 0.08641975308641975,
+   "silent_extras": 0,
+   "perfect": 0.5555555555555556,
+   "auto": 0.8888888888888888,
+   "auto_and_perfect": 0.5555555555555556,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.5555555555555556,
+   "docs": 9
+  },
+  "фото": {
+   "n_fields": 57,
+   "correct_auto": 0.9649122807017544,
+   "correct_review": 0.03508771929824561,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 0.0,
+   "silent_extras": 0,
+   "perfect": 0.7142857142857143,
+   "auto": 0.7142857142857143,
+   "auto_and_perfect": 0.5714285714285714,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.7142857142857143,
+   "docs": 7
+  }
+ }
+}
