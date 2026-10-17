@@ -116,3 +116,22 @@ def test_homoglyphs_in_units():
     assert normalize_unit("попугаи") is None
     o = normalize_result(RawResult(name="ТТГ (TSH)", value="2.72", unit="мME/л", reference="0.4 - 4.0"))
     assert o.code == "TSH" and o.value == 2.72 and o.status == "ok"
+
+
+@pytest.mark.parametrize("raw, code, min_score", [
+    ("Гликозированный гемоглобин", "HBA1C", 0.85),  # другая форма слова, Qwen2.5-VL на скане
+    ("Гемоглобин гликированный", "HBA1C", 0.9),  # те же слова в другом порядке
+    ("Гликогемоглобин", "HBA1C", 0.9),
+    ("Гемоглобин", "HGB", 1.0),
+    ("Холестерин ЛПВП", "HDL", 0.9),
+    ("Общий холестерин", "CHOL", 0.9),
+])
+def test_long_names_not_captured_by_single_word(raw, code, min_score):
+    analyte, score = match_analyte(raw)
+    assert analyte is not None and analyte.code == code and score >= min_score
+
+
+def test_ambiguous_abbreviation_stays_unknown():
+    # «ЛППН» одинаково похоже на ЛПНП и ЛПВП: лучше вопрос человеку, чем угадывание
+    analyte, score = match_analyte("ЛППН")
+    assert analyte is None or score < 0.85

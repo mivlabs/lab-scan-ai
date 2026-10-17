@@ -75,7 +75,8 @@ ANALYTES: tuple[Analyte, ...] = (
     Analyte("CRP", "1988-5", "С-реактивный белок", "mg/L",
             ("с-реактивный белок", "срб", "crp", "c-reactive protein"), (0, 500), (0, 5), 1, {}, "bio"),
     Analyte("HBA1C", "4548-4", "Гликированный гемоглобин", "%",
-            ("гликированный гемоглобин", "hba1c", "гликозилированный гемоглобин"), (3, 20), (4.0, 6.0), 1, {}, "bio"),
+            ("гликированный гемоглобин", "hba1c", "гликозилированный гемоглобин", "гликозированный гемоглобин",
+             "гликогемоглобин", "hb a1c", "гемоглобин a1c"), (3, 20), (4.0, 6.0), 1, {}, "bio"),
     Analyte("TSH", "3016-3", "ТТГ", "mIU/L", ("ттг", "tsh", "тиреотропный гормон"),
             (0.005, 150), (0.4, 4.0), 2, {}, "bio"),
 )
@@ -170,6 +171,9 @@ for _a in ANALYTES:
     _SYNONYM_INDEX[_a.code.lower()] = _a.code
     for _s in _a.synonyms:
         _SYNONYM_INDEX[_norm_text(_s)] = _a.code
+# Многословные синонимы: по ним ищем опечатки в полном названии и совпадение слов в любом порядке
+_LONG_SYNONYMS = [k for k in _SYNONYM_INDEX if " " in k]
+_WORDSET_INDEX = {" ".join(sorted(k.split())): v for k, v in _SYNONYM_INDEX.items() if " " in k}
 
 
 def match_analyte(raw_name: str) -> tuple[Analyte | None, float]:
@@ -196,8 +200,17 @@ def _match_analyte(raw_name: str) -> tuple[Analyte | None, float]:
         t = _norm_text(token)
         if t in _SYNONYM_INDEX:
             return BY_CODE[_SYNONYM_INDEX[t]], 0.95
-    # Любое слово/пара слов совпадает с синонимом целиком
     words = name.split()
+    # Те же слова в другом порядке: «Гемоглобин гликированный» — это HbA1c, а не гемоглобин
+    key = " ".join(sorted(words))
+    if key in _WORDSET_INDEX:
+        return BY_CODE[_WORDSET_INDEX[key]], 0.95
+    # Опечатка или другая форма в полном названии («гликозированный» вместо «гликированного»):
+    # сначала сравниваем название целиком и только потом режем на слова, иначе «гемоглобин» перетянет
+    best = difflib.get_close_matches(name, _LONG_SYNONYMS, n=1, cutoff=0.85)
+    if best and len(words) > 1:
+        return BY_CODE[_SYNONYM_INDEX[best[0]]], round(difflib.SequenceMatcher(None, name, best[0]).ratio() * 0.95, 3)
+    # Любое слово/пара слов совпадает с синонимом целиком
     for n in (3, 2, 1):
         for i in range(len(words) - n + 1):
             chunk = " ".join(words[i:i + n])
