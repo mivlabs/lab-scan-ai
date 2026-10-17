@@ -27,6 +27,17 @@ def parse_number(s: str | None) -> float | None:
     return float(m.group(1).replace(",", "."))
 
 
+def split_value_unit(value: str | None, unit: str | None) -> tuple[str | None, str | None]:
+    """Модель иногда пишет «156 г/л» в value, а unit оставляет пустым (видно в eval на фото).
+    Число впереди однозначно; хвост становится единицей и проходит обычную проверку."""
+    if unit or not value:
+        return value, unit
+    m = re.fullmatch(rf"\s*([<>≤≥]?{_NUM})\s+(\S.*?)\s*", value)
+    if not m:
+        return value, unit
+    return m.group(1), m.group(2)
+
+
 def parse_reference(s: str | None) -> tuple[float | None, float | None]:
     if not s:
         return None, None
@@ -79,8 +90,9 @@ def normalize_result(raw: RawResult) -> Observation:
             raw=raw,
         )
 
-    value = parse_number(raw.value)
-    unit = normalize_unit(raw.unit) if raw.unit else analyte.unit if analyte.unit == "%" else None
+    raw_value, raw_unit = split_value_unit(raw.value, raw.unit)
+    value = parse_number(raw_value)
+    unit = normalize_unit(raw_unit) if raw_unit else analyte.unit if analyte.unit == "%" else None
     if value is None:
         issues.append("значение не читается")
     if not raw.legible:

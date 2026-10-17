@@ -12,8 +12,9 @@ class RawResult(BaseModel):
     """Строка бланка как она напечатана, до нормализации."""
 
     name: str = Field(description="Название показателя ровно как на бланке, например 'Гемоглобин (HGB)'")
-    value: str = Field(description="Значение как напечатано, например '135' или '4,52'. Пустая строка, если не читается")
-    unit: str | None = Field(default=None, description="Единица как напечатана, например 'г/л' или 'x10^9/л'")
+    value: str = Field(description="Только число как напечатано, например '135' или '4,52', без единицы. "
+                       "Пустая строка, если не читается")
+    unit: str | None = Field(default=None, description="Единица отдельно от числа, как напечатана, например 'г/л' или 'x10^9/л'")
     reference: str | None = Field(default=None, description="Референсный интервал как напечатан, например '120 - 160'")
     legible: bool = Field(default=True, description="false, если значение читается неуверенно")
     box: list[float] | None = Field(default=None, description="Где строка на странице: [x0, y0, x1, y1] в долях "
