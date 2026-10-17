@@ -1,0 +1,121 @@
+{
+  "doc_id": "041_senim_photo",
+  "file": "041_senim_photo.jpg",
+  "layout": "senim",
+  "kind": "photo",
+  "patient_name": "Сериков Ерлан Петрович",
+  "birth_date": "1983-05-30",
+  "collected_at": "2026-08-01",
+  "results": [
+    {
+      "code": "GLU",
+      "value": 4.7,
+      "printed": {
+        "name": "Глюкоза (GLU)",
+        "value": "4.7",
+        "unit": "ммоль/л",
+        "reference": "3.9 - 6.1"
+      }
+    },
+    {
+      "code": "CHOL",
+      "value": 4.89,
+      "printed": {
+        "name": "Холестерин общий (CHOL)",
+        "value": "4.89",
+        "unit": "ммоль/л",
+        "reference": "3.00 - 5.20"
+      }
+    },
+    {
+      "code": "HDL",
+      "value": 3.12,
+      "printed": {
+        "name": "ЛПВП (HDL)",
+        "value": "3.12",
+        "unit": "ммоль/л",
+        "reference": "1.00 - 2.20"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 2.17,
+      "printed": {
+        "name": "ЛПНП (LDL)",
+        "value": "2.17",
+        "unit": "ммоль/л",
+        "reference": "1.50 - 3.30"
+      }
+    },
+    {
+      "code": "TG",
+      "value": 0.51,
+      "printed": {
+        "name": "Триглицериды (TG)",
+        "value": "0.51",
+        "unit": "ммоль/л",
+        "reference": "0.40 - 1.70"
+      }
+    },
+    {
+      "code": "UREA",
+      "value": 2.7,
+      "printed": {
+        "name": "Мочевина (UREA)",
+        "value": "2.7",
+        "unit": "ммоль/л",
+        "reference": "2.5 - 8.3"
+      }
+    },
+    {
+      "code": "ALT",
+      "value": 27.0,
+      "printed": {
+        "name": "АЛТ (ALT)",
+        "value": "27",
+        "unit": "Ед/л",
+        "reference": "5 - 41"
+      }
+    },
+    {
+      "code": "AST",
+      "value": 5.0,
+      "printed": {
+        "name": "АСТ (AST)",
+        "value": "5",
+        "unit": "Ед/л",
+        "reference": "5 - 40"
+      }
+    },
+    {
+      "code": "TBIL",
+      "value": 13.4,
+      "printed": {
+        "name": "Билирубин общий (TBIL)",
+        "value": "13.4",
+        "unit": "мкмоль/л",
+        "reference": "3.4 - 20.5"
+      }
+    },
+    {
+      "code": "CRP",
+      "value": 6.3,
+      "printed": {
+        "name": "С-реактивный белок (CRP)",
+        "value": "6.3",
+        "unit": "мг/л",
+        "reference": "до 5.0"
+      }
+    },
+    {
+      "code": "HBA1C",
+      "value": 3.2,
+      "printed": {
+        "name": "Гликированный гемоглобин (HBA1C)",
+        "value": "3.2",
+        "unit": "%",
+        "reference": "4.0 - 6.0"
+      }
+    }
+  ]
+}

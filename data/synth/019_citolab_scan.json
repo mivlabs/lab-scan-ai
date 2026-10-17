@@ -1,0 +1,131 @@
+{
+  "doc_id": "019_citolab_scan",
+  "file": "019_citolab_scan.png",
+  "layout": "citolab",
+  "kind": "scan",
+  "patient_name": "Иванов Тимур Серикович",
+  "birth_date": "1980-07-07",
+  "collected_at": "2026-09-05",
+  "results": [
+    {
+      "code": "GLU",
+      "value": 5.6,
+      "printed": {
+        "name": "Глюкоза",
+        "value": "5,6",
+        "unit": "ммоль/л",
+        "reference": "3,9 - 6,1"
+      }
+    },
+    {
+      "code": "CHOL",
+      "value": 4.13,
+      "printed": {
+        "name": "Холестерин общий",
+        "value": "4,13",
+        "unit": "ммоль/л",
+        "reference": "3,00 - 5,20"
+      }
+    },
+    {
+      "code": "HDL",
+      "value": 1.19,
+      "printed": {
+        "name": "ЛПВП",
+        "value": "1,19",
+        "unit": "ммоль/л",
+        "reference": "1,00 - 2,20"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 2.67,
+      "printed": {
+        "name": "ЛПНП",
+        "value": "2,67",
+        "unit": "ммоль/л",
+        "reference": "1,50 - 3,30"
+      }
+    },
+    {
+      "code": "TG",
+      "value": 1.11,
+      "printed": {
+        "name": "Триглицериды",
+        "value": "1,11",
+        "unit": "ммоль/л",
+        "reference": "0,40 - 1,70"
+      }
+    },
+    {
+      "code": "CREA",
+      "value": 39.0,
+      "printed": {
+        "name": "Креатинин",
+        "value": "39",
+        "unit": "мкмоль/л",
+        "reference": "62 - 106"
+      }
+    },
+    {
+      "code": "UREA",
+      "value": 10.0,
+      "printed": {
+        "name": "Мочевина",
+        "value": "10,0",
+        "unit": "ммоль/л",
+        "reference": "2,5 - 8,3"
+      }
+    },
+    {
+      "code": "ALT",
+      "value": 41.0,
+      "printed": {
+        "name": "АЛТ",
+        "value": "41",
+        "unit": "Ед/л",
+        "reference": "5 - 41"
+      }
+    },
+    {
+      "code": "TBIL",
+      "value": 6.4,
+      "printed": {
+        "name": "Билирубин общий",
+        "value": "6,4",
+        "unit": "мкмоль/л",
+        "reference": "3,4 - 20,5"
+      }
+    },
+    {
+      "code": "CRP",
+      "value": 8.6,
+      "printed": {
+        "name": "С-реактивный белок",
+        "value": "8,6",
+        "unit": "мг/л",
+        "reference": "до 5,0"
+      }
+    },
+    {
+      "code": "HBA1C",
+      "value": 7.2,
+      "printed": {
+        "name": "Гликированный гемоглобин",
+        "value": "7,2",
+        "unit": "%",
+        "reference": "4,0 - 6,0"
+      }
+    },
+    {
+      "code": "TSH",
+      "value": 3.21,
+      "printed": {
+        "name": "ТТГ",
+        "value": "3,21",
+        "unit": "мМЕ/л",
+        "reference": "0,40 - 4,00"
+      }
+    }
+  ]
+}

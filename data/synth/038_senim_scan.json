@@ -1,0 +1,101 @@
+{
+  "doc_id": "038_senim_scan",
+  "file": "038_senim_scan.png",
+  "layout": "senim",
+  "kind": "scan",
+  "patient_name": "Ахметов Тимур Петрович",
+  "birth_date": "1975-12-25",
+  "collected_at": "2026-03-02",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 96.0,
+      "printed": {
+        "name": "Гемоглобин (HGB)",
+        "value": "96",
+        "unit": "г/л",
+        "reference": "120 - 160"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 5.17,
+      "printed": {
+        "name": "Эритроциты (RBC)",
+        "value": "5.17",
+        "unit": "×10¹²/л",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 6.6,
+      "printed": {
+        "name": "Лейкоциты (WBC)",
+        "value": "6.6",
+        "unit": "×10⁹/л",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 288.0,
+      "printed": {
+        "name": "Тромбоциты (PLT)",
+        "value": "288",
+        "unit": "×10⁹/л",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 44.3,
+      "printed": {
+        "name": "Гематокрит (HCT)",
+        "value": "44.3",
+        "unit": "%",
+        "reference": "36.0 - 48.0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 81.3,
+      "printed": {
+        "name": "Средний объём эритроцита (MCV)",
+        "value": "81.3",
+        "unit": "фл",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 61.8,
+      "printed": {
+        "name": "Нейтрофилы (NEUT)",
+        "value": "61.8",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 30.9,
+      "printed": {
+        "name": "Лимфоциты (LYMPH)",
+        "value": "30.9",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 22.0,
+      "printed": {
+        "name": "СОЭ (ESR)",
+        "value": "22",
+        "unit": "мм/ч",
+        "reference": "2 - 15"
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ p.full_name }}{% endblock %}
+{% block body %}
+<section class="card">
+  <h1>{{ p.full_name }}</h1>
+  <p class="muted">Дата рождения: {{ p.birth_date or "не указана" }} · показателей в карте: {{ p.observations|length }}</p>
+  <table class="obs card-table">
+    <thead><tr><th>Показатель</th><th>Последнее</th><th>Референс</th><th>Дата</th><th>Динамика</th><th>История</th></tr></thead>
+    <tbody>
+    {% for code in order %}
+      {% set rows = series[code] %}{% set last = rows[-1] %}
+      <tr>
+        <td>{{ by_code[code].name_ru }}<div class="muted small">LOINC {{ last.loinc }}</div></td>
+        <td class="num flag-{{ last.flag or 'none' }}"><b>{{ last.value|fmt(code) }}</b> {{ last.unit|unit_ru }}{% if last.flag in ('H','L') %} <span class="pill warn">{{ '↑' if last.flag == 'H' else '↓' }}</span>{% endif %}</td>
+        <td class="muted small">{% if last.ref_low is not none or last.ref_high is not none %}{{ last.ref_low|fmt(code) }}–{{ last.ref_high|fmt(code) }}{% endif %}</td>
+        <td class="small">{{ last.collected_at or "" }}</td>
+        <td>{{ sparkline(rows)|safe }}</td>
+        <td class="small muted">{% for r in rows[:-1]|reverse %}{{ r.value|fmt(code) }} ({{ r.collected_at or "?" }}){% if not loop.last %}, {% endif %}{% endfor %}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

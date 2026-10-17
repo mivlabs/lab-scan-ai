@@ -1,0 +1,71 @@
+{
+  "doc_id": "010_citolab_scan",
+  "file": "010_citolab_scan.png",
+  "layout": "citolab",
+  "kind": "scan",
+  "patient_name": "Иванов Данияр Болатович",
+  "birth_date": "1995-07-11",
+  "collected_at": "2026-09-02",
+  "results": [
+    {
+      "code": "LDL",
+      "value": 4.0,
+      "printed": {
+        "name": "ЛПНП",
+        "value": "4,00",
+        "unit": "ммоль/л",
+        "reference": "1,50 - 3,30"
+      }
+    },
+    {
+      "code": "TG",
+      "value": 0.25,
+      "printed": {
+        "name": "Триглицериды",
+        "value": "0,25",
+        "unit": "ммоль/л",
+        "reference": "0,40 - 1,70"
+      }
+    },
+    {
+      "code": "CREA",
+      "value": 91.0,
+      "printed": {
+        "name": "Креатинин",
+        "value": "91",
+        "unit": "мкмоль/л",
+        "reference": "62 - 106"
+      }
+    },
+    {
+      "code": "AST",
+      "value": 45.0,
+      "printed": {
+        "name": "АСТ",
+        "value": "45",
+        "unit": "Ед/л",
+        "reference": "5 - 40"
+      }
+    },
+    {
+      "code": "CRP",
+      "value": 0.7,
+      "printed": {
+        "name": "С-реактивный белок",
+        "value": "0,7",
+        "unit": "мг/л",
+        "reference": "до 5,0"
+      }
+    },
+    {
+      "code": "HBA1C",
+      "value": 4.8,
+      "printed": {
+        "name": "Гликированный гемоглобин",
+        "value": "4,8",
+        "unit": "%",
+        "reference": "4,0 - 6,0"
+      }
+    }
+  ]
+}

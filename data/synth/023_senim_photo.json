@@ -1,0 +1,101 @@
+{
+  "doc_id": "023_senim_photo",
+  "file": "023_senim_photo.jpg",
+  "layout": "senim",
+  "kind": "photo",
+  "patient_name": "Ахметов Тимур Петрович",
+  "birth_date": "1975-12-25",
+  "collected_at": "2026-05-03",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 225.0,
+      "printed": {
+        "name": "Гемоглобин (HGB)",
+        "value": "225",
+        "unit": "г/л",
+        "reference": "120 - 160"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 8.1,
+      "printed": {
+        "name": "Эритроциты (RBC)",
+        "value": "8.10",
+        "unit": "×10¹²/л",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 7.3,
+      "printed": {
+        "name": "Лейкоциты (WBC)",
+        "value": "7.3",
+        "unit": "×10⁹/л",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 235.0,
+      "printed": {
+        "name": "Тромбоциты (PLT)",
+        "value": "235",
+        "unit": "×10⁹/л",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 46.2,
+      "printed": {
+        "name": "Гематокрит (HCT)",
+        "value": "46.2",
+        "unit": "%",
+        "reference": "36.0 - 48.0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 93.0,
+      "printed": {
+        "name": "Средний объём эритроцита (MCV)",
+        "value": "93.0",
+        "unit": "фл",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 53.2,
+      "printed": {
+        "name": "Нейтрофилы (NEUT)",
+        "value": "53.2",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 25.6,
+      "printed": {
+        "name": "Лимфоциты (LYMPH)",
+        "value": "25.6",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 4.0,
+      "printed": {
+        "name": "СОЭ (ESR)",
+        "value": "4",
+        "unit": "мм/ч",
+        "reference": "2 - 15"
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "doc_id": "003_labone_photo",
+  "file": "003_labone_photo.jpg",
+  "layout": "labone",
+  "kind": "photo",
+  "patient_name": "Zhumabaeva Aygerim Bolatovna",
+  "birth_date": "1970-01-11",
+  "collected_at": "2026-09-13",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 225.0,
+      "printed": {
+        "name": "HGB",
+        "value": "22.5",
+        "unit": "g/dL",
+        "reference": "12.0 - 16.0"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 4.72,
+      "printed": {
+        "name": "RBC",
+        "value": "4.72",
+        "unit": "x10^6/uL",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 2.9,
+      "printed": {
+        "name": "WBC",
+        "value": "2.9",
+        "unit": "x10^3/uL",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 314.0,
+      "printed": {
+        "name": "PLT",
+        "value": "314",
+        "unit": "x10^3/uL",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 89.5,
+      "printed": {
+        "name": "MCV",
+        "value": "89.5",
+        "unit": "fL",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 17.9,
+      "printed": {
+        "name": "LYMPH %",
+        "value": "17.9",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    }
+  ]
+}

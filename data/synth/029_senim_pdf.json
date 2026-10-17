@@ -1,0 +1,221 @@
+{
+  "doc_id": "029_senim_pdf",
+  "file": "029_senim_pdf.pdf",
+  "layout": "senim",
+  "kind": "pdf",
+  "patient_name": "Сериков Алексей Ахметович",
+  "birth_date": "1953-07-08",
+  "collected_at": "2026-04-09",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 157.0,
+      "printed": {
+        "name": "Гемоглобин (HGB)",
+        "value": "157",
+        "unit": "г/л",
+        "reference": "120 - 160"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 4.24,
+      "printed": {
+        "name": "Эритроциты (RBC)",
+        "value": "4.24",
+        "unit": "×10¹²/л",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 8.5,
+      "printed": {
+        "name": "Лейкоциты (WBC)",
+        "value": "8.5",
+        "unit": "×10⁹/л",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 377.0,
+      "printed": {
+        "name": "Тромбоциты (PLT)",
+        "value": "377",
+        "unit": "×10⁹/л",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 46.1,
+      "printed": {
+        "name": "Гематокрит (HCT)",
+        "value": "46.1",
+        "unit": "%",
+        "reference": "36.0 - 48.0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 73.6,
+      "printed": {
+        "name": "Средний объём эритроцита (MCV)",
+        "value": "73.6",
+        "unit": "фл",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 38.1,
+      "printed": {
+        "name": "Нейтрофилы (NEUT)",
+        "value": "38.1",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 34.3,
+      "printed": {
+        "name": "Лимфоциты (LYMPH)",
+        "value": "34.3",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "GLU",
+      "value": 2.5,
+      "printed": {
+        "name": "Глюкоза (GLU)",
+        "value": "2.5",
+        "unit": "ммоль/л",
+        "reference": "3.9 - 6.1"
+      }
+    },
+    {
+      "code": "CHOL",
+      "value": 3.76,
+      "printed": {
+        "name": "Холестерин общий (CHOL)",
+        "value": "3.76",
+        "unit": "ммоль/л",
+        "reference": "3.00 - 5.20"
+      }
+    },
+    {
+      "code": "HDL",
+      "value": 0.61,
+      "printed": {
+        "name": "ЛПВП (HDL)",
+        "value": "0.61",
+        "unit": "ммоль/л",
+        "reference": "1.00 - 2.20"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 2.64,
+      "printed": {
+        "name": "ЛПНП (LDL)",
+        "value": "2.64",
+        "unit": "ммоль/л",
+        "reference": "1.50 - 3.30"
+      }
+    },
+    {
+      "code": "TG",
+      "value": 1.36,
+      "printed": {
+        "name": "Триглицериды (TG)",
+        "value": "1.36",
+        "unit": "ммоль/л",
+        "reference": "0.40 - 1.70"
+      }
+    },
+    {
+      "code": "CREA",
+      "value": 140.0,
+      "printed": {
+        "name": "Креатинин (CREA)",
+        "value": "140",
+        "unit": "мкмоль/л",
+        "reference": "62 - 106"
+      }
+    },
+    {
+      "code": "UREA",
+      "value": 7.3,
+      "printed": {
+        "name": "Мочевина (UREA)",
+        "value": "7.3",
+        "unit": "ммоль/л",
+        "reference": "2.5 - 8.3"
+      }
+    },
+    {
+      "code": "ALT",
+      "value": 7.0,
+      "printed": {
+        "name": "АЛТ (ALT)",
+        "value": "7",
+        "unit": "Ед/л",
+        "reference": "5 - 41"
+      }
+    },
+    {
+      "code": "AST",
+      "value": 37.0,
+      "printed": {
+        "name": "АСТ (AST)",
+        "value": "37",
+        "unit": "Ед/л",
+        "reference": "5 - 40"
+      }
+    },
+    {
+      "code": "TBIL",
+      "value": 5.2,
+      "printed": {
+        "name": "Билирубин общий (TBIL)",
+        "value": "5.2",
+        "unit": "мкмоль/л",
+        "reference": "3.4 - 20.5"
+      }
+    },
+    {
+      "code": "CRP",
+      "value": 5.4,
+      "printed": {
+        "name": "С-реактивный белок (CRP)",
+        "value": "5.4",
+        "unit": "мг/л",
+        "reference": "до 5.0"
+      }
+    },
+    {
+      "code": "HBA1C",
+      "value": 5.6,
+      "printed": {
+        "name": "Гликированный гемоглобин (HBA1C)",
+        "value": "5.6",
+        "unit": "%",
+        "reference": "4.0 - 6.0"
+      }
+    },
+    {
+      "code": "TSH",
+      "value": 3.37,
+      "printed": {
+        "name": "ТТГ (TSH)",
+        "value": "3.37",
+        "unit": "мМЕ/л",
+        "reference": "0.40 - 4.00"
+      }
+    }
+  ]
+}

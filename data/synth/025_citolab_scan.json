@@ -1,0 +1,91 @@
+{
+  "doc_id": "025_citolab_scan",
+  "file": "025_citolab_scan.png",
+  "layout": "citolab",
+  "kind": "scan",
+  "patient_name": "Ахметов Тимур Петрович",
+  "birth_date": "1975-12-25",
+  "collected_at": "2026-06-24",
+  "results": [
+    {
+      "code": "HDL",
+      "value": 0.66,
+      "printed": {
+        "name": "ЛПВП",
+        "value": "0,66",
+        "unit": "ммоль/л",
+        "reference": "1,00 - 2,20"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 2.72,
+      "printed": {
+        "name": "ЛПНП",
+        "value": "2,72",
+        "unit": "ммоль/л",
+        "reference": "1,50 - 3,30"
+      }
+    },
+    {
+      "code": "TG",
+      "value": 0.62,
+      "printed": {
+        "name": "Триглицериды",
+        "value": "0,62",
+        "unit": "ммоль/л",
+        "reference": "0,40 - 1,70"
+      }
+    },
+    {
+      "code": "UREA",
+      "value": 3.2,
+      "printed": {
+        "name": "Мочевина",
+        "value": "3,2",
+        "unit": "ммоль/л",
+        "reference": "2,5 - 8,3"
+      }
+    },
+    {
+      "code": "ALT",
+      "value": 28.0,
+      "printed": {
+        "name": "АЛТ",
+        "value": "28",
+        "unit": "Ед/л",
+        "reference": "5 - 41"
+      }
+    },
+    {
+      "code": "AST",
+      "value": 36.0,
+      "printed": {
+        "name": "АСТ",
+        "value": "36",
+        "unit": "Ед/л",
+        "reference": "5 - 40"
+      }
+    },
+    {
+      "code": "TBIL",
+      "value": 13.3,
+      "printed": {
+        "name": "Билирубин общий",
+        "value": "13,3",
+        "unit": "мкмоль/л",
+        "reference": "3,4 - 20,5"
+      }
+    },
+    {
+      "code": "TSH",
+      "value": 0.78,
+      "printed": {
+        "name": "ТТГ",
+        "value": "0,78",
+        "unit": "мМЕ/л",
+        "reference": "0,40 - 4,00"
+      }
+    }
+  ]
+}

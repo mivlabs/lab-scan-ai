@@ -1,0 +1,111 @@
+{
+  "doc_id": "020_senim_photo",
+  "file": "020_senim_photo.jpg",
+  "layout": "senim",
+  "kind": "photo",
+  "patient_name": "Жумабаева Динара Ахметовна",
+  "birth_date": "2002-07-14",
+  "collected_at": "2026-06-09",
+  "results": [
+    {
+      "code": "CHOL",
+      "value": 4.27,
+      "printed": {
+        "name": "Холестерин общий (CHOL)",
+        "value": "4.27",
+        "unit": "ммоль/л",
+        "reference": "3.00 - 5.20"
+      }
+    },
+    {
+      "code": "HDL",
+      "value": 1.48,
+      "printed": {
+        "name": "ЛПВП (HDL)",
+        "value": "1.48",
+        "unit": "ммоль/л",
+        "reference": "1.00 - 2.20"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 2.41,
+      "printed": {
+        "name": "ЛПНП (LDL)",
+        "value": "2.41",
+        "unit": "ммоль/л",
+        "reference": "1.50 - 3.30"
+      }
+    },
+    {
+      "code": "TG",
+      "value": 2.62,
+      "printed": {
+        "name": "Триглицериды (TG)",
+        "value": "2.62",
+        "unit": "ммоль/л",
+        "reference": "0.40 - 1.70"
+      }
+    },
+    {
+      "code": "CREA",
+      "value": 67.0,
+      "printed": {
+        "name": "Креатинин (CREA)",
+        "value": "67",
+        "unit": "мкмоль/л",
+        "reference": "62 - 106"
+      }
+    },
+    {
+      "code": "UREA",
+      "value": 7.3,
+      "printed": {
+        "name": "Мочевина (UREA)",
+        "value": "7.3",
+        "unit": "ммоль/л",
+        "reference": "2.5 - 8.3"
+      }
+    },
+    {
+      "code": "ALT",
+      "value": 38.0,
+      "printed": {
+        "name": "АЛТ (ALT)",
+        "value": "38",
+        "unit": "Ед/л",
+        "reference": "5 - 41"
+      }
+    },
+    {
+      "code": "TBIL",
+      "value": 2.2,
+      "printed": {
+        "name": "Билирубин общий (TBIL)",
+        "value": "2.2",
+        "unit": "мкмоль/л",
+        "reference": "3.4 - 20.5"
+      }
+    },
+    {
+      "code": "CRP",
+      "value": 7.4,
+      "printed": {
+        "name": "С-реактивный белок (CRP)",
+        "value": "7.4",
+        "unit": "мг/л",
+        "reference": "до 5.0"
+      }
+    },
+    {
+      "code": "HBA1C",
+      "value": 4.7,
+      "printed": {
+        "name": "Гликированный гемоглобин (HBA1C)",
+        "value": "4.7",
+        "unit": "%",
+        "reference": "4.0 - 6.0"
+      }
+    }
+  ]
+}

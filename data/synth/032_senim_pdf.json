@@ -1,0 +1,181 @@
+{
+  "doc_id": "032_senim_pdf",
+  "file": "032_senim_pdf.pdf",
+  "layout": "senim",
+  "kind": "pdf",
+  "patient_name": "Петрова Алия Ахметовна",
+  "birth_date": "1975-11-01",
+  "collected_at": "2026-02-23",
+  "results": [
+    {
+      "code": "RBC",
+      "value": 5.13,
+      "printed": {
+        "name": "Эритроциты (RBC)",
+        "value": "5.13",
+        "unit": "×10¹²/л",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 3.1,
+      "printed": {
+        "name": "Лейкоциты (WBC)",
+        "value": "3.1",
+        "unit": "×10⁹/л",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 285.0,
+      "printed": {
+        "name": "Тромбоциты (PLT)",
+        "value": "285",
+        "unit": "×10⁹/л",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 87.0,
+      "printed": {
+        "name": "Средний объём эритроцита (MCV)",
+        "value": "87.0",
+        "unit": "фл",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 50.9,
+      "printed": {
+        "name": "Нейтрофилы (NEUT)",
+        "value": "50.9",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 30.9,
+      "printed": {
+        "name": "Лимфоциты (LYMPH)",
+        "value": "30.9",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "CHOL",
+      "value": 4.55,
+      "printed": {
+        "name": "Холестерин общий (CHOL)",
+        "value": "4.55",
+        "unit": "ммоль/л",
+        "reference": "3.00 - 5.20"
+      }
+    },
+    {
+      "code": "HDL",
+      "value": 1.19,
+      "printed": {
+        "name": "ЛПВП (HDL)",
+        "value": "1.19",
+        "unit": "ммоль/л",
+        "reference": "1.00 - 2.20"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 1.07,
+      "printed": {
+        "name": "ЛПНП (LDL)",
+        "value": "1.07",
+        "unit": "ммоль/л",
+        "reference": "1.50 - 3.30"
+      }
+    },
+    {
+      "code": "TG",
+      "value": 0.61,
+      "printed": {
+        "name": "Триглицериды (TG)",
+        "value": "0.61",
+        "unit": "ммоль/л",
+        "reference": "0.40 - 1.70"
+      }
+    },
+    {
+      "code": "CREA",
+      "value": 70.0,
+      "printed": {
+        "name": "Креатинин (CREA)",
+        "value": "70",
+        "unit": "мкмоль/л",
+        "reference": "62 - 106"
+      }
+    },
+    {
+      "code": "ALT",
+      "value": 31.0,
+      "printed": {
+        "name": "АЛТ (ALT)",
+        "value": "31",
+        "unit": "Ед/л",
+        "reference": "5 - 41"
+      }
+    },
+    {
+      "code": "AST",
+      "value": 45.0,
+      "printed": {
+        "name": "АСТ (AST)",
+        "value": "45",
+        "unit": "Ед/л",
+        "reference": "5 - 40"
+      }
+    },
+    {
+      "code": "TBIL",
+      "value": 20.2,
+      "printed": {
+        "name": "Билирубин общий (TBIL)",
+        "value": "20.2",
+        "unit": "мкмоль/л",
+        "reference": "3.4 - 20.5"
+      }
+    },
+    {
+      "code": "CRP",
+      "value": 3.7,
+      "printed": {
+        "name": "С-реактивный белок (CRP)",
+        "value": "3.7",
+        "unit": "мг/л",
+        "reference": "до 5.0"
+      }
+    },
+    {
+      "code": "HBA1C",
+      "value": 4.4,
+      "printed": {
+        "name": "Гликированный гемоглобин (HBA1C)",
+        "value": "4.4",
+        "unit": "%",
+        "reference": "4.0 - 6.0"
+      }
+    },
+    {
+      "code": "TSH",
+      "value": 0.78,
+      "printed": {
+        "name": "ТТГ (TSH)",
+        "value": "0.78",
+        "unit": "мМЕ/л",
+        "reference": "0.40 - 4.00"
+      }
+    }
+  ]
+}

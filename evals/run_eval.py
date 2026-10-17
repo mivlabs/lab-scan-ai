@@ -1,0 +1,174 @@
+"""Оценка качества распознавания на синтетических бланках с эталоном.
+
+Главная метрика для медицины — «тихие ошибки»: неверное значение, которое система
+НЕ пометила на проверку. Ошибка, пойманная проверкой, стоит врачу 5 секунд;
+тихая ошибка попадает в карту пациента.
+
+Запуск:
+  python -m evals.run_eval --engine tesseract
+  python -m evals.run_eval --engine claude --limit 20      # нужен ANTHROPIC_API_KEY
+  python -m evals.run_eval --engine ollama                  # нужен запущенный Ollama
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import time
+from collections import Counter, defaultdict
+from datetime import date
+from pathlib import Path
+
+from labscan.extractors import get_extractor
+from labscan.ingest import load_pages
+from labscan.normalize import normalize_report
+
+CATS = ("correct_auto", "correct_review", "caught", "silent", "missed")
+CAT_RU = {
+    "correct_auto": "верно, без проверки",
+    "correct_review": "верно, но отправлено на проверку",
+    "caught": "ошибка, поймана проверкой",
+    "silent": "ТИХАЯ ОШИБКА (неверно, без пометки)",
+    "missed": "показатель пропущен",
+}
+
+
+def _same(a: float | None, b: float) -> bool:
+    return a is not None and abs(a - b) <= max(0.011, abs(b) * 0.002)
+
+
+def _name_key(s: str | None) -> str:
+    return " ".join((s or "").lower().replace("ё", "е").split())
+
+
+def score_doc(truth: dict, norm) -> dict:
+    pred = {}
+    for o in norm.observations:
+        if o.code and o.code not in pred:
+            pred[o.code] = o
+    cats = Counter()
+    rows = []
+    for t in truth["results"]:
+        o = pred.get(t["code"])
+        if o is None:
+            cat = "missed"
+        elif _same(o.value, t["value"]):
+            cat = "correct_auto" if o.status == "ok" else "correct_review"
+        else:
+            cat = "caught" if o.status == "review" else "silent"
+        cats[cat] += 1
+        if cat != "correct_auto":
+            rows.append({"code": t["code"], "truth": t["value"], "got": o.value if o else None, "cat": cat,
+                         "issues": o.issues if o else [], "raw": o.raw.model_dump() if o else None})
+    truth_codes = {t["code"] for t in truth["results"]}
+    extras = [o.code or o.raw.name for o in norm.observations if (o.code or "") not in truth_codes]
+    silent_extras = [o.code for o in norm.observations if o.code and o.code not in truth_codes and o.status == "ok"]
+    header_ok = (_name_key(norm.patient_name) == _name_key(truth["patient_name"])
+                 and norm.collected_at == date.fromisoformat(truth["collected_at"]))
+    perfect = cats["correct_auto"] + cats["correct_review"] == len(truth["results"]) and not extras and header_ok
+    return {"cats": dict(cats), "n": len(truth["results"]), "extras": extras, "silent_extras": silent_extras,
+            "header_ok": header_ok, "perfect": perfect, "auto": not norm.needs_review, "errors": rows}
+
+
+def run(engine: str, data: Path, limit: int | None) -> dict:
+    ex = get_extractor(engine)
+    ids = json.loads((data / "index.json").read_text())[:limit]
+    per_doc, total_cost, total_sec, total_pages = [], 0.0, 0.0, 0
+    for doc_id in ids:
+        truth = json.loads((data / f"{doc_id}.json").read_text(encoding="utf-8"))
+        raw = (data / truth["file"]).read_bytes()
+        pages = load_pages(raw, truth["file"])
+        t0 = time.perf_counter()
+        try:
+            result = ex.extract(pages)
+        except Exception as e:  # noqa: BLE001 — в eval падение документа = все показатели пропущены
+            print(f"{doc_id}: ошибка движка: {e}")
+            per_doc.append({"doc_id": doc_id, "kind": truth["kind"], "layout": truth["layout"], "failed": str(e),
+                            "cats": {"missed": len(truth["results"])}, "n": len(truth["results"]),
+                            "extras": [], "silent_extras": [], "header_ok": False, "perfect": False,
+                            "auto": False, "errors": []})
+            continue
+        total_sec += time.perf_counter() - t0
+        total_cost += result.cost_usd
+        total_pages += len(pages)
+        s = score_doc(truth, normalize_report(result.report))
+        s.update(doc_id=doc_id, kind=truth["kind"], layout=truth["layout"])
+        per_doc.append(s)
+        print(f"{doc_id}: {s['cats']}{' лишние: ' + str(s['extras']) if s['extras'] else ''}")
+    return {"engine": getattr(ex, "model", None) and f"{ex.name}:{ex.model}" or ex.name, "docs": per_doc,
+            "seconds_per_page": total_sec / max(total_pages, 1), "cost_per_page": total_cost / max(total_pages, 1),
+            "pages": total_pages}
+
+
+def summarize(res: dict) -> str:
+    docs = res["docs"]
+
+    def block(subset: list[dict]) -> dict:
+        c = Counter()
+        for d in subset:
+            c.update(d["cats"])
+        n = sum(d["n"] for d in subset) or 1
+        return {"n_fields": n, **{k: c[k] / n for k in CATS},
+                "silent_extras": sum(len(d["silent_extras"]) for d in subset),
+                "perfect": sum(d["perfect"] for d in subset) / max(len(subset), 1),
+                "auto": sum(d["auto"] for d in subset) / max(len(subset), 1),
+                "auto_and_perfect": sum(d["auto"] and d["perfect"] for d in subset) / max(len(subset), 1),
+                "auto_but_missed": sum(d["auto"] and d["cats"].get("missed", 0) > 0 for d in subset) / max(len(subset), 1),
+                "header_ok": sum(d["header_ok"] for d in subset) / max(len(subset), 1), "docs": len(subset)}
+
+    groups = {"все": docs}
+    by = defaultdict(list)
+    for d in docs:
+        by[{"scan": "скан", "photo": "фото", "pdf": "PDF"}[d["kind"]]].append(d)
+        by[d["layout"]].append(d)
+    groups.update(dict(sorted(by.items())))
+    stats = {k: block(v) for k, v in groups.items()}
+    res["summary"] = stats
+
+    def pct(x):
+        return f"{x * 100:.1f}%"
+
+    a = stats["все"]
+    lines = [
+        f"# Eval: {res['engine']}", "",
+        f"Бланков: {a['docs']}, страниц: {res['pages']}, показателей в эталоне: {a['n_fields']}. "
+        f"Время на страницу: {res['seconds_per_page']:.1f} с"
+        + (f", стоимость на страницу: ${res['cost_per_page']:.4f}" if res["cost_per_page"] else ""), "",
+        "## Показатели", "", "| | доля |", "|---|---|",
+        *[f"| {CAT_RU[k]} | {pct(a[k])} |" for k in CATS],
+        f"| лишние строки без пометки (шт.) | {a['silent_extras']} |", "",
+        "## Бланки", "", "| | доля |", "|---|---|",
+        f"| распознан полностью верно | {pct(a['perfect'])} |",
+        f"| можно записать без проверки (нет ни одной пометки) | {pct(a['auto'])} |",
+        f"| без проверки и полностью верно | {pct(a['auto_and_perfect'])} |",
+        f"| без пометок, но часть строк молча пропущена | {pct(a['auto_but_missed'])} |",
+        f"| ФИО и дата взятия верны | {pct(a['header_ok'])} |", "",
+        "## По типу и вёрстке", "",
+        "| группа | бланков | верно всего | тихие ошибки | пропущено | бланков без проверки |", "|---|---|---|---|---|---|",
+    ]
+    for k, s in stats.items():
+        if k == "все":
+            continue
+        lines.append(f"| {k} | {s['docs']} | {pct(s['correct_auto'] + s['correct_review'])} | {pct(s['silent'])} | "
+                     f"{pct(s['missed'])} | {pct(s['auto'])} |")
+    return "\n".join(lines) + "\n"
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--engine", default="tesseract")
+    ap.add_argument("--data", type=Path, default=Path("data/synth"))
+    ap.add_argument("--limit", type=int)
+    ap.add_argument("--out", type=Path, default=Path("evals/results"))
+    args = ap.parse_args()
+    res = run(args.engine, args.data, args.limit)
+    md = summarize(res)
+    args.out.mkdir(parents=True, exist_ok=True)
+    tag = res["engine"].replace(":", "_").replace("/", "_")
+    (args.out / f"{tag}.md").write_text(md, encoding="utf-8")
+    (args.out / f"{tag}.json").write_text(json.dumps(res, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
+    print("\n" + md)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,161 @@
+{
+  "doc_id": "006_labone_pdf",
+  "file": "006_labone_pdf.pdf",
+  "layout": "labone",
+  "kind": "pdf",
+  "patient_name": "Ivanov Erlan Akhmetovich",
+  "birth_date": "1964-10-19",
+  "collected_at": "2026-03-18",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 151.0,
+      "printed": {
+        "name": "HGB",
+        "value": "15.1",
+        "unit": "g/dL",
+        "reference": "12.0 - 16.0"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 4.96,
+      "printed": {
+        "name": "RBC",
+        "value": "4.96",
+        "unit": "x10^6/uL",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 3.3,
+      "printed": {
+        "name": "WBC",
+        "value": "3.3",
+        "unit": "x10^3/uL",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 30.2,
+      "printed": {
+        "name": "HCT",
+        "value": "30.2",
+        "unit": "%",
+        "reference": "36.0 - 48.0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 89.6,
+      "printed": {
+        "name": "MCV",
+        "value": "89.6",
+        "unit": "fL",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 69.1,
+      "printed": {
+        "name": "NEUT %",
+        "value": "69.1",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 11.7,
+      "printed": {
+        "name": "LYMPH %",
+        "value": "11.7",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 1.0,
+      "printed": {
+        "name": "ESR",
+        "value": "1",
+        "unit": "mm/h",
+        "reference": "2 - 15"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 2.4,
+      "printed": {
+        "name": "LDL",
+        "value": "93",
+        "unit": "mg/dL",
+        "reference": "58 - 128"
+      }
+    },
+    {
+      "code": "CREA",
+      "value": 83.98,
+      "printed": {
+        "name": "Creatinine",
+        "value": "0.95",
+        "unit": "mg/dL",
+        "reference": "0.70 - 1.20"
+      }
+    },
+    {
+      "code": "ALT",
+      "value": 70.0,
+      "printed": {
+        "name": "ALT",
+        "value": "70",
+        "unit": "U/L",
+        "reference": "5 - 41"
+      }
+    },
+    {
+      "code": "AST",
+      "value": 37.0,
+      "printed": {
+        "name": "AST",
+        "value": "37",
+        "unit": "U/L",
+        "reference": "5 - 40"
+      }
+    },
+    {
+      "code": "TBIL",
+      "value": 6.84,
+      "printed": {
+        "name": "Bilirubin, total",
+        "value": "0.40",
+        "unit": "mg/dL",
+        "reference": "0.20 - 1.20"
+      }
+    },
+    {
+      "code": "CRP",
+      "value": 2.1,
+      "printed": {
+        "name": "CRP",
+        "value": "2.1",
+        "unit": "mg/L",
+        "reference": "0.0 - 5.0"
+      }
+    },
+    {
+      "code": "HBA1C",
+      "value": 4.6,
+      "printed": {
+        "name": "HbA1c",
+        "value": "4.6",
+        "unit": "%",
+        "reference": "4.0 - 6.0"
+      }
+    }
+  ]
+}

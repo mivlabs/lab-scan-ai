@@ -1,0 +1,211 @@
+{
+  "doc_id": "015_labone_pdf",
+  "file": "015_labone_pdf.pdf",
+  "layout": "labone",
+  "kind": "pdf",
+  "patient_name": "Zhumabaeva Dinara Akhmetovna",
+  "birth_date": "2002-07-14",
+  "collected_at": "2026-09-15",
+  "results": [
+    {
+      "code": "RBC",
+      "value": 5.26,
+      "printed": {
+        "name": "RBC",
+        "value": "5.26",
+        "unit": "x10^6/uL",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 7.3,
+      "printed": {
+        "name": "WBC",
+        "value": "7.3",
+        "unit": "x10^3/uL",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 258.0,
+      "printed": {
+        "name": "PLT",
+        "value": "258",
+        "unit": "x10^3/uL",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 38.0,
+      "printed": {
+        "name": "HCT",
+        "value": "38.0",
+        "unit": "%",
+        "reference": "36.0 - 48.0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 73.4,
+      "printed": {
+        "name": "MCV",
+        "value": "73.4",
+        "unit": "fL",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 23.0,
+      "printed": {
+        "name": "LYMPH %",
+        "value": "23.0",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 15.0,
+      "printed": {
+        "name": "ESR",
+        "value": "15",
+        "unit": "mm/h",
+        "reference": "2 - 15"
+      }
+    },
+    {
+      "code": "GLU",
+      "value": 5.16,
+      "printed": {
+        "name": "Glucose",
+        "value": "93",
+        "unit": "mg/dL",
+        "reference": "70 - 110"
+      }
+    },
+    {
+      "code": "CHOL",
+      "value": 4.65,
+      "printed": {
+        "name": "Cholesterol, total",
+        "value": "180",
+        "unit": "mg/dL",
+        "reference": "116 - 201"
+      }
+    },
+    {
+      "code": "HDL",
+      "value": 1.5,
+      "printed": {
+        "name": "HDL",
+        "value": "58",
+        "unit": "mg/dL",
+        "reference": "39 - 85"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 2.17,
+      "printed": {
+        "name": "LDL",
+        "value": "84",
+        "unit": "mg/dL",
+        "reference": "58 - 128"
+      }
+    },
+    {
+      "code": "TG",
+      "value": 0.49,
+      "printed": {
+        "name": "Triglycerides",
+        "value": "43",
+        "unit": "mg/dL",
+        "reference": "35 - 151"
+      }
+    },
+    {
+      "code": "CREA",
+      "value": 104.31,
+      "printed": {
+        "name": "Creatinine",
+        "value": "1.18",
+        "unit": "mg/dL",
+        "reference": "0.70 - 1.20"
+      }
+    },
+    {
+      "code": "UREA",
+      "value": 12.6,
+      "printed": {
+        "name": "UREA",
+        "value": "12.6",
+        "unit": "mmol/L",
+        "reference": "2.5 - 8.3"
+      }
+    },
+    {
+      "code": "ALT",
+      "value": 13.0,
+      "printed": {
+        "name": "ALT",
+        "value": "13",
+        "unit": "U/L",
+        "reference": "5 - 41"
+      }
+    },
+    {
+      "code": "AST",
+      "value": 14.0,
+      "printed": {
+        "name": "AST",
+        "value": "14",
+        "unit": "U/L",
+        "reference": "5 - 40"
+      }
+    },
+    {
+      "code": "TBIL",
+      "value": 10.94,
+      "printed": {
+        "name": "Bilirubin, total",
+        "value": "0.64",
+        "unit": "mg/dL",
+        "reference": "0.20 - 1.20"
+      }
+    },
+    {
+      "code": "CRP",
+      "value": 4.2,
+      "printed": {
+        "name": "CRP",
+        "value": "4.2",
+        "unit": "mg/L",
+        "reference": "0.0 - 5.0"
+      }
+    },
+    {
+      "code": "HBA1C",
+      "value": 4.0,
+      "printed": {
+        "name": "HbA1c",
+        "value": "4.0",
+        "unit": "%",
+        "reference": "4.0 - 6.0"
+      }
+    },
+    {
+      "code": "TSH",
+      "value": 6.89,
+      "printed": {
+        "name": "TSH",
+        "value": "6.89",
+        "unit": "mIU/L",
+        "reference": "0.40 - 4.00"
+      }
+    }
+  ]
+}

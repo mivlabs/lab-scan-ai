@@ -1,0 +1,81 @@
+{
+  "doc_id": "021_labone_scan",
+  "file": "021_labone_scan.png",
+  "layout": "labone",
+  "kind": "scan",
+  "patient_name": "Petrov Daniyar Petrovich",
+  "birth_date": "1966-02-16",
+  "collected_at": "2026-08-07",
+  "results": [
+    {
+      "code": "GLU",
+      "value": 3.11,
+      "printed": {
+        "name": "Glucose",
+        "value": "56",
+        "unit": "mg/dL",
+        "reference": "70 - 110"
+      }
+    },
+    {
+      "code": "CHOL",
+      "value": 3.21,
+      "printed": {
+        "name": "Cholesterol, total",
+        "value": "124",
+        "unit": "mg/dL",
+        "reference": "116 - 201"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 4.47,
+      "printed": {
+        "name": "LDL",
+        "value": "173",
+        "unit": "mg/dL",
+        "reference": "58 - 128"
+      }
+    },
+    {
+      "code": "ALT",
+      "value": 16.0,
+      "printed": {
+        "name": "ALT",
+        "value": "16",
+        "unit": "U/L",
+        "reference": "5 - 41"
+      }
+    },
+    {
+      "code": "AST",
+      "value": 16.0,
+      "printed": {
+        "name": "AST",
+        "value": "16",
+        "unit": "U/L",
+        "reference": "5 - 40"
+      }
+    },
+    {
+      "code": "CRP",
+      "value": 1.8,
+      "printed": {
+        "name": "CRP",
+        "value": "1.8",
+        "unit": "mg/L",
+        "reference": "0.0 - 5.0"
+      }
+    },
+    {
+      "code": "TSH",
+      "value": 3.51,
+      "printed": {
+        "name": "TSH",
+        "value": "3.51",
+        "unit": "mIU/L",
+        "reference": "0.40 - 4.00"
+      }
+    }
+  ]
+}

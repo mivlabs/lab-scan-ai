@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Проверка · {{ doc.filename }}{% endblock %}
+{% block body %}
+<div class="review">
+  <div class="scan">
+    {% for i in pages %}<img src="/documents/{{ doc.id }}/page/{{ i }}.png" alt="страница {{ i + 1 }}">{% endfor %}
+  </div>
+  <form class="fields card" method="post" action="/documents/{{ doc.id }}/confirm">
+    <h1>{{ doc.filename }}</h1>
+    <p class="muted small">{{ doc.engine }} · {{ "%.1f"|format(doc.seconds) }} с{% if doc.cost_usd %} · ${{ "%.4f"|format(doc.cost_usd) }}{% endif %}{% if n.lab_name %} · {{ n.lab_name }}{% endif %}</p>
+    {% for issue in n.issues %}<div class="alert">{{ issue }}</div>{% endfor %}
+    {% set locked = doc.status == "confirmed" %}
+    <div class="meta">
+      <label>ФИО пациента<input name="patient_name" value="{{ n.patient_name or '' }}" {{ 'disabled' if locked }}></label>
+      <label>Дата рождения<input name="birth_date" value="{{ n.birth_date or '' }}" placeholder="ГГГГ-ММ-ДД" {{ 'disabled' if locked }}></label>
+      <label>Дата взятия<input name="collected_at" value="{{ n.collected_at or '' }}" placeholder="ГГГГ-ММ-ДД" {{ 'disabled' if locked }}></label>
+    </div>
+    <table class="obs">
+      <thead><tr><th></th><th>Показатель</th><th>Значение</th><th>Ед.</th><th>Референс</th><th>На бланке</th></tr></thead>
+      <tbody>
+      {% for o in n.observations %}
+      <tr class="{{ 'need' if o.status == 'review' }}">
+        <td><input type="checkbox" name="include_{{ loop.index0 }}" {{ 'checked' if o.code }} {{ 'disabled' if locked }}></td>
+        <td><select name="code_{{ loop.index0 }}" {{ 'disabled' if locked }}>
+              <option value="">— выбрать —</option>
+              {% for a in analytes %}<option value="{{ a.code }}" {{ 'selected' if a.code == o.code }}>{{ a.name_ru }}</option>{% endfor %}
+            </select>
+            {% for issue in o.issues %}<div class="issue">{{ issue }}</div>{% endfor %}</td>
+        <td><input class="num {{ 'flag-' ~ o.flag if o.flag }}" name="value_{{ loop.index0 }}" value="{{ o.value|fmt(o.code) }}" {{ 'disabled' if locked }}></td>
+        <td class="muted">{{ o.unit|unit_ru }}</td>
+        <td class="muted small">{% if o.ref_low is not none or o.ref_high is not none %}{{ o.ref_low|fmt(o.code) }}–{{ o.ref_high|fmt(o.code) }}{% endif %}</td>
+        <td class="raw small">{{ o.raw.name }}: {{ o.raw.value }} {{ o.raw.unit or '' }}</td>
+      </tr>
+      {% endfor %}
+      {% if not locked %}
+      {% for k in extra %}
+      <tr class="extra">
+        <td class="muted small">+</td>
+        <td><select name="code_x{{ k }}"><option value="">— добавить пропущенный показатель —</option>
+              {% for a in analytes %}<option value="{{ a.code }}">{{ a.name_ru }} ({{ a.unit|unit_ru }})</option>{% endfor %}</select></td>
+        <td><input class="num" name="value_x{{ k }}" placeholder="значение"></td>
+        <td colspan="3" class="muted small">{% if loop.first %}если на скане есть строка, которой нет в таблице{% endif %}</td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+      </tbody>
+    </table>
+    {% if locked %}
+      <p><span class="pill ok">Записано в карту</span> <a href="/patients/{{ doc.patient_id }}">Открыть карту пациента</a> · <a href="/api/documents/{{ doc.id }}/fhir">FHIR Bundle</a></p>
+    {% else %}
+      <p class="muted small">Строки с жёлтым фоном система не уверена, что прочитала верно. Сверьте со сканом слева.</p>
+      <button class="primary">Подтвердить и записать в карту</button>
+    {% endif %}
+  </form>
+</div>
+{% endblock %}

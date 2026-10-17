@@ -1,0 +1,23 @@
+services:
+  app:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      LABSCAN_ENGINE: ${LABSCAN_ENGINE:-auto}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      LABSCAN_OPENROUTER_MODEL: ${LABSCAN_OPENROUTER_MODEL:-qwen/qwen2.5-vl-72b-instruct}
+      OLLAMA_HOST: http://ollama:11434
+    volumes: ["labscan-data:/data"]
+
+  # Локальная модель: docker compose --profile local-llm up
+  # затем один раз: docker compose exec ollama ollama pull qwen2.5vl:7b
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["local-llm"]
+    volumes: ["ollama-models:/root/.ollama"]
+    ports: ["11434:11434"]
+
+volumes:
+  labscan-data:
+  ollama-models:

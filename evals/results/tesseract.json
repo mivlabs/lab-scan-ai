@@ -1,0 +1,3437 @@
+{
+ "engine": "tesseract",
+ "docs": [
+  {
+   "cats": {
+    "correct_auto": 6
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "001_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "missed": 1,
+    "correct_auto": 4,
+    "caught": 2
+   },
+   "n": 7,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "HGB",
+     "truth": 88.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "WBC",
+     "truth": 6.6,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "распознавание отметило значение как неуверенное",
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Лейкоциты (WBC)",
+      "value": "6.6",
+      "unit": "ХТОЗ/д",
+      "reference": "4.0 - 9.0",
+      "legible": false
+     }
+    },
+    {
+     "code": "HCT",
+     "truth": 44.1,
+     "got": 441.0,
+     "cat": "caught",
+     "issues": [
+      "значение вне физиологических пределов (10–70 %), вероятна ошибка чтения"
+     ],
+     "raw": {
+      "name": "Гематокрит (НСТ)",
+      "value": "441",
+      "unit": "%",
+      "reference": "36.0 - 48.0",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "002_senim_scan",
+   "kind": "scan",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 6
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "003_labone_photo",
+   "kind": "photo",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 7,
+    "caught": 1
+   },
+   "n": 8,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "ESR",
+     "truth": 1.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "СОЭ",
+      "value": "1",
+      "unit": "MM/4",
+      "reference": "2-15",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "004_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 8,
+    "missed": 3,
+    "silent": 1,
+    "caught": 1,
+    "correct_review": 1
+   },
+   "n": 14,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "HCT",
+     "truth": 41.7,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "ESR",
+     "truth": 11.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "HDL",
+     "truth": 1.66,
+     "got": 1.06,
+     "cat": "silent",
+     "issues": [],
+     "raw": {
+      "name": "ЛПВП (HDL)",
+      "value": "1.06",
+      "unit": "ммоль/л",
+      "reference": "1.00 - 2.20",
+      "legible": true
+     }
+    },
+    {
+     "code": "TG",
+     "truth": 0.38,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Триглицериды (TG)",
+      "value": "0.38",
+      "unit": "ммолыл",
+      "reference": "0.40 - 1.70",
+      "legible": true
+     }
+    },
+    {
+     "code": "UREA",
+     "truth": 5.6,
+     "got": 5.6,
+     "cat": "correct_review",
+     "issues": [
+      "неуверенное сопоставление названия (0.85)"
+     ],
+     "raw": {
+      "name": "Моечевина (ЫВЕА)",
+      "value": "5.6",
+      "unit": "ммоль/л",
+      "reference": "2.5 - 8.3",
+      "legible": true
+     }
+    },
+    {
+     "code": "TSH",
+     "truth": 4.98,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "005_senim_pdf",
+   "kind": "pdf",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 13,
+    "caught": 1,
+    "correct_review": 1
+   },
+   "n": 15,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "RBC",
+     "truth": 4.96,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "RBC",
+      "value": "4.96",
+      "unit": "xX10%6/uL",
+      "reference": "3.80 - 5.30",
+      "legible": true
+     }
+    },
+    {
+     "code": "HBA1C",
+     "truth": 4.6,
+     "got": 4.6,
+     "cat": "correct_review",
+     "issues": [
+      "неуверенное сопоставление названия (0.72)"
+     ],
+     "raw": {
+      "name": "HbAic",
+      "value": "4.6",
+      "unit": "%",
+      "reference": "4.0 - 6.0",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "006_labone_pdf",
+   "kind": "pdf",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 6,
+    "missed": 1
+   },
+   "n": 7,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": true,
+   "errors": [
+    {
+     "code": "TSH",
+     "truth": 3.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "007_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 3,
+    "caught": 3,
+    "missed": 2,
+    "correct_review": 1
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "RBC",
+     "truth": 8.1,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "распознавание отметило значение как неуверенное",
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Эритроциты (ВВС)",
+      "value": "8.10",
+      "unit": "ХО (3;80:-",
+      "reference": "5.30",
+      "legible": false
+     }
+    },
+    {
+     "code": "WBC",
+     "truth": 7.4,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Лейкоциты (WBC)",
+      "value": "7.4",
+      "unit": "X109%/n",
+      "reference": "4.0 - 9.0",
+      "legible": true
+     }
+    },
+    {
+     "code": "PLT",
+     "truth": 237.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Тромбоциты (PLT)",
+      "value": "237",
+      "unit": "X109/m",
+      "reference": "180 - 320",
+      "legible": true
+     }
+    },
+    {
+     "code": "NEUT%",
+     "truth": 67.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "LYMPH%",
+     "truth": 40.8,
+     "got": 40.8,
+     "cat": "correct_review",
+     "issues": [
+      "распознавание отметило значение как неуверенное"
+     ],
+     "raw": {
+      "name": "Лимфоциты (LYMPH)",
+      "value": "40.8",
+      "unit": "%",
+      "reference": "19.0 - 37.0",
+      "legible": false
+     }
+    },
+    {
+     "code": "ESR",
+     "truth": 1.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "008_senim_photo",
+   "kind": "photo",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 8
+   },
+   "n": 8,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "009_labone_photo",
+   "kind": "photo",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "missed": 1,
+    "correct_auto": 5
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": true,
+   "errors": [
+    {
+     "code": "LDL",
+     "truth": 4.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "010_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 4,
+    "caught": 3,
+    "missed": 1,
+    "correct_review": 1
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "RBC",
+     "truth": 5.02,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Эритроциты (RBC)",
+      "value": "5.02",
+      "unit": "X1022/",
+      "reference": "3.80 - 5.30",
+      "legible": true
+     }
+    },
+    {
+     "code": "WBC",
+     "truth": 14.8,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Лейкоциты (WBC)",
+      "value": "14.8",
+      "unit": "x10°/n",
+      "reference": "4.0 - 9.0",
+      "legible": true
+     }
+    },
+    {
+     "code": "PLT",
+     "truth": 314.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Тромбоциты (PLT)",
+      "value": "314",
+      "unit": "х103/л",
+      "reference": "180 - 320",
+      "legible": true
+     }
+    },
+    {
+     "code": "HCT",
+     "truth": 37.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "ESR",
+     "truth": 2.0,
+     "got": 2.0,
+     "cat": "correct_review",
+     "issues": [
+      "распознавание отметило значение как неуверенное"
+     ],
+     "raw": {
+      "name": "СОЭ (ESR)",
+      "value": "2",
+      "unit": "ММ/Ч",
+      "reference": "2-15",
+      "legible": false
+     }
+    }
+   ],
+   "doc_id": "011_senim_scan",
+   "kind": "scan",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 9
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": true,
+   "errors": [],
+   "doc_id": "012_labone_scan",
+   "kind": "scan",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "missed": 7
+   },
+   "n": 7,
+   "extras": [
+    "ESR"
+   ],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "HGB",
+     "truth": 159.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "RBC",
+     "truth": 4.2,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "WBC",
+     "truth": 10.9,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "PLT",
+     "truth": 200.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "HCT",
+     "truth": 47.4,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "MCV",
+     "truth": 117.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "NEUT%",
+     "truth": 64.6,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "013_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "caught": 1,
+    "correct_auto": 6,
+    "silent": 2,
+    "missed": 1
+   },
+   "n": 10,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "GLU",
+     "truth": 7.7,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Глюкоза (GLU)",
+      "value": "7.7",
+      "unit": "ММОоЛЬ/л",
+      "reference": "3.9 - 6.1",
+      "legible": true
+     }
+    },
+    {
+     "code": "HDL",
+     "truth": 1.61,
+     "got": 1.01,
+     "cat": "silent",
+     "issues": [],
+     "raw": {
+      "name": "ЛПВП (HDL)",
+      "value": "1.01",
+      "unit": "ммоль/л",
+      "reference": "1.00 - 2.20",
+      "legible": true
+     }
+    },
+    {
+     "code": "ALT",
+     "truth": 25.0,
+     "got": 20.0,
+     "cat": "silent",
+     "issues": [],
+     "raw": {
+      "name": "AJIT (ALT)",
+      "value": "20",
+      "unit": "Ед/л",
+      "reference": "5 - 41",
+      "legible": true
+     }
+    },
+    {
+     "code": "HBA1C",
+     "truth": 4.9,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "014_senim_scan",
+   "kind": "scan",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 15,
+    "caught": 4,
+    "correct_review": 1
+   },
+   "n": 20,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "PLT",
+     "truth": 258.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "PLT",
+      "value": "258",
+      "unit": "xX10“3/uL",
+      "reference": "180 - 320",
+      "legible": true
+     }
+    },
+    {
+     "code": "TG",
+     "truth": 0.49,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Triglycerides",
+      "value": "43",
+      "unit": "mg/dL ЗБ -",
+      "reference": "151",
+      "legible": true
+     }
+    },
+    {
+     "code": "ALT",
+     "truth": 13.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "ALT",
+      "value": "13",
+      "unit": "V/L",
+      "reference": "5-41",
+      "legible": true
+     }
+    },
+    {
+     "code": "HBA1C",
+     "truth": 4.0,
+     "got": 4.0,
+     "cat": "correct_review",
+     "issues": [
+      "неуверенное сопоставление названия (0.72)"
+     ],
+     "raw": {
+      "name": "HbAic",
+      "value": "4.0",
+      "unit": "%",
+      "reference": "4.0 - 6.0",
+      "legible": true
+     }
+    },
+    {
+     "code": "TSH",
+     "truth": 6.89,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "TSH",
+      "value": "6.89",
+      "unit": "mlIU/L",
+      "reference": "0.40 - 4.00",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "015_labone_pdf",
+   "kind": "pdf",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 10,
+    "missed": 3
+   },
+   "n": 13,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": true,
+   "errors": [
+    {
+     "code": "LDL",
+     "truth": 2.65,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "AST",
+     "truth": 21.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TSH",
+     "truth": 1.51,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "016_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 7,
+    "missed": 5,
+    "caught": 2,
+    "correct_review": 1
+   },
+   "n": 15,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "RBC",
+     "truth": 4.39,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "WBC",
+     "truth": 3.6,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "PLT",
+     "truth": 121.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Тромбоцить (PLT) опасна",
+      "value": "121",
+      "unit": "х103/л",
+      "reference": "180 - 320",
+      "legible": true
+     }
+    },
+    {
+     "code": "HCT",
+     "truth": 38.3,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "NEUT%",
+     "truth": 49.7,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "HDL",
+     "truth": 0.74,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "ЛПВП (HDL)",
+      "value": "0.74",
+      "unit": "ммолы/л",
+      "reference": "1.00 - 2.20",
+      "legible": true
+     }
+    },
+    {
+     "code": "TBIL",
+     "truth": 9.0,
+     "got": 9.0,
+     "cat": "correct_review",
+     "issues": [
+      "распознавание отметило значение как неуверенное"
+     ],
+     "raw": {
+      "name": "Билирубин общий (TBIL)",
+      "value": "9.0",
+      "unit": "мкмоль/л",
+      "reference": "3.4 - 20.5",
+      "legible": false
+     }
+    },
+    {
+     "code": "TSH",
+     "truth": 6.44,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "017_senim_pdf",
+   "kind": "pdf",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "missed": 11
+   },
+   "n": 11,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "GLU",
+     "truth": 4.33,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "CHOL",
+     "truth": 4.81,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "HDL",
+     "truth": 1.53,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "LDL",
+     "truth": 1.09,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TG",
+     "truth": 0.65,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "CREA",
+     "truth": 101.66,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "UREA",
+     "truth": 2.2,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "ALT",
+     "truth": 6.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TBIL",
+     "truth": 3.08,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "CRP",
+     "truth": 3.7,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "HBA1C",
+     "truth": 4.7,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "018_labone_photo",
+   "kind": "photo",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 10,
+    "missed": 2
+   },
+   "n": 12,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": true,
+   "errors": [
+    {
+     "code": "LDL",
+     "truth": 2.67,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TSH",
+     "truth": 3.21,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "019_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "missed": 6,
+    "caught": 3,
+    "correct_auto": 1
+   },
+   "n": 10,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "CHOL",
+     "truth": 4.27,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "HDL",
+     "truth": 1.48,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "LDL",
+     "truth": 2.41,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TG",
+     "truth": 2.62,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Триглицериды (ТС). еее ene",
+      "value": "2.62",
+      "unit": "ммолыл (0.40 - ее -",
+      "reference": null,
+      "legible": true
+     }
+    },
+    {
+     "code": "UREA",
+     "truth": 7.3,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Мочевина (ОВЕА)",
+      "value": "7.3",
+      "unit": "ммолыл (2.5. 2) ee - a",
+      "reference": null,
+      "legible": true
+     }
+    },
+    {
+     "code": "ALT",
+     "truth": 38.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TBIL",
+     "truth": 2.2,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "CRP",
+     "truth": 7.4,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "распознавание отметило значение как неуверенное",
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Е С-реактивный белок (CRP)",
+      "value": "7.4",
+      "unit": "мг/л (до 5.0 о На",
+      "reference": null,
+      "legible": false
+     }
+    },
+    {
+     "code": "HBA1C",
+     "truth": 4.7,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "020_senim_photo",
+   "kind": "photo",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 6,
+    "caught": 1
+   },
+   "n": 7,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "AST",
+     "truth": 16.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "AST",
+      "value": "16",
+      "unit": "V/L",
+      "reference": "5-40",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "021_labone_scan",
+   "kind": "scan",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 4,
+    "caught": 2
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "WBC",
+     "truth": 4.6,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Лейкоциты",
+      "value": "4,6",
+      "unit": "х10°/л",
+      "reference": "4,0 - 9,0",
+      "legible": true
+     }
+    },
+    {
+     "code": "PLT",
+     "truth": 159.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Тромбоциты",
+      "value": "159",
+      "unit": "х10°/л",
+      "reference": "180 - 320",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "022_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 3,
+    "caught": 3,
+    "missed": 3
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "RBC",
+     "truth": 8.1,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Эритроциты (RBC)",
+      "value": "8.10",
+      "unit": "Х10/л",
+      "reference": "3.80 - 5.30",
+      "legible": true
+     }
+    },
+    {
+     "code": "WBC",
+     "truth": 7.3,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Лейкоциты (WBC)",
+      "value": "7.3",
+      "unit": "X109%/m",
+      "reference": "4.0 - 9.0",
+      "legible": true
+     }
+    },
+    {
+     "code": "PLT",
+     "truth": 235.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Тромбоциты (PLT)",
+      "value": "235",
+      "unit": "X10%n",
+      "reference": "180 - 320",
+      "legible": true
+     }
+    },
+    {
+     "code": "NEUT%",
+     "truth": 53.2,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "LYMPH%",
+     "truth": 25.6,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "ESR",
+     "truth": 4.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "023_senim_photo",
+   "kind": "photo",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 6
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "024_labone_scan",
+   "kind": "scan",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 6,
+    "missed": 2
+   },
+   "n": 8,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": true,
+   "errors": [
+    {
+     "code": "AST",
+     "truth": 36.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TSH",
+     "truth": 0.78,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "025_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 5,
+    "correct_review": 1,
+    "silent": 1,
+    "missed": 1
+   },
+   "n": 8,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "LDL",
+     "truth": 3.07,
+     "got": 3.07,
+     "cat": "correct_review",
+     "issues": [
+      "распознавание отметило значение как неуверенное"
+     ],
+     "raw": {
+      "name": "ЛПНП (LDL)",
+      "value": "3.07",
+      "unit": "ммоль/л",
+      "reference": "1.50 - 3.30",
+      "legible": false
+     }
+    },
+    {
+     "code": "TG",
+     "truth": 1.56,
+     "got": 1.06,
+     "cat": "silent",
+     "issues": [],
+     "raw": {
+      "name": "Триглицериды (TG)",
+      "value": "1.06",
+      "unit": "ммоль/л",
+      "reference": "0.40 - 1.70",
+      "legible": true
+     }
+    },
+    {
+     "code": "HBA1C",
+     "truth": 4.7,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "026_senim_scan",
+   "kind": "scan",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 6,
+    "caught": 3,
+    "correct_review": 1
+   },
+   "n": 10,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "TG",
+     "truth": 1.41,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Triglycerides",
+      "value": "125",
+      "unit": "mg/dL ЗБ -",
+      "reference": "151",
+      "legible": true
+     }
+    },
+    {
+     "code": "ALT",
+     "truth": 28.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "ALT",
+      "value": "28",
+      "unit": "V/L",
+      "reference": "5-41",
+      "legible": true
+     }
+    },
+    {
+     "code": "AST",
+     "truth": 38.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "AST",
+      "value": "38",
+      "unit": "V/L",
+      "reference": "5 - 40",
+      "legible": true
+     }
+    },
+    {
+     "code": "HBA1C",
+     "truth": 4.5,
+     "got": 4.5,
+     "cat": "correct_review",
+     "issues": [
+      "неуверенное сопоставление названия (0.82)"
+     ],
+     "raw": {
+      "name": "HbA1ic",
+      "value": "4.5",
+      "unit": "%",
+      "reference": "4.0 - 6.0",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "027_labone_scan",
+   "kind": "scan",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 5,
+    "caught": 1
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "RBC",
+     "truth": 4.25,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Эритроциты",
+      "value": "4,25",
+      "unit": "х10:2/л",
+      "reference": "3,80 - 5,30",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "028_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 12,
+    "caught": 4,
+    "missed": 5
+   },
+   "n": 21,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "RBC",
+     "truth": 4.24,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Эрятроциты (RBC) иене",
+      "value": "4.24",
+      "unit": "х101?/л",
+      "reference": "3.80 - 5.30",
+      "legible": true
+     }
+    },
+    {
+     "code": "WBC",
+     "truth": 8.5,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Лейкоциты (WBC)",
+      "value": "8.5",
+      "unit": "%109/m",
+      "reference": "4.0 - 9.0",
+      "legible": true
+     }
+    },
+    {
+     "code": "HCT",
+     "truth": 46.1,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "CHOL",
+     "truth": 3.76,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "LDL",
+     "truth": 2.64,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана",
+      "референс перевёрнут, проверить"
+     ],
+     "raw": {
+      "name": "ЛИВНИ (LDL) screenees,",
+      "value": "2.64",
+      "unit": "ММОЛЬ/Л (1:",
+      "reference": "50-3.30",
+      "legible": true
+     }
+    },
+    {
+     "code": "TG",
+     "truth": 1.36,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Триглицериды (TG)",
+      "value": "1.36",
+      "unit": "ммолы/л",
+      "reference": "0.40 - 1.70",
+      "legible": true
+     }
+    },
+    {
+     "code": "ALT",
+     "truth": 7.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "AST",
+     "truth": 37.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "HBA1C",
+     "truth": 5.6,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "029_senim_pdf",
+   "kind": "pdf",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 8
+   },
+   "n": 8,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "030_labone_scan",
+   "kind": "scan",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 7,
+    "caught": 1
+   },
+   "n": 8,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "ESR",
+     "truth": 1.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "СОЭ",
+      "value": "1",
+      "unit": "MM/4",
+      "reference": "2-15",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "031_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "caught": 5,
+    "correct_auto": 10,
+    "missed": 2
+   },
+   "n": 17,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "RBC",
+     "truth": 5.13,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "распознавание отметило значение как неуверенное",
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Эритроциты (RBC)",
+      "value": "0.13",
+      "unit": "ХТО/л",
+      "reference": "3.80 - 5.30",
+      "legible": false
+     }
+    },
+    {
+     "code": "WBC",
+     "truth": 3.1,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Лейкоциты (WBC) зо",
+      "value": "3.1",
+      "unit": "x10%n",
+      "reference": "4.0 -9.0",
+      "legible": true
+     }
+    },
+    {
+     "code": "PLT",
+     "truth": 285.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Тромбоциты (PLT)",
+      "value": "285",
+      "unit": "Ж109/л",
+      "reference": "180 - 320",
+      "legible": true
+     }
+    },
+    {
+     "code": "HDL",
+     "truth": 1.19,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TG",
+     "truth": 0.61,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Триглицериды (TG) «0.0",
+      "value": "0.61",
+      "unit": "ммолыЫ/л",
+      "reference": "0.40 - 1.70",
+      "legible": true
+     }
+    },
+    {
+     "code": "ALT",
+     "truth": 31.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TBIL",
+     "truth": 20.2,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Билирубин общий (TBIL)",
+      "value": "20.2",
+      "unit": "мкмолы/л",
+      "reference": "3.4 - 20.5",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "032_senim_pdf",
+   "kind": "pdf",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 8,
+    "caught": 3,
+    "correct_review": 1
+   },
+   "n": 12,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "TG",
+     "truth": 1.31,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Triglycerides",
+      "value": "116",
+      "unit": "mg/dL ЗБ -",
+      "reference": "151",
+      "legible": true
+     }
+    },
+    {
+     "code": "ALT",
+     "truth": 21.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "ALT",
+      "value": "21",
+      "unit": "V/L",
+      "reference": "5-41",
+      "legible": true
+     }
+    },
+    {
+     "code": "HBA1C",
+     "truth": 4.8,
+     "got": 4.8,
+     "cat": "correct_review",
+     "issues": [
+      "неуверенное сопоставление названия (0.82)"
+     ],
+     "raw": {
+      "name": "HbA1ic",
+      "value": "4.8",
+      "unit": "%",
+      "reference": "4.0 - 6.0",
+      "legible": true
+     }
+    },
+    {
+     "code": "TSH",
+     "truth": 2.64,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "TSH",
+      "value": "2.64",
+      "unit": "mlU/L",
+      "reference": "0.40 - 4.00",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "033_labone_scan",
+   "kind": "scan",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 7,
+    "caught": 1
+   },
+   "n": 8,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "RBC",
+     "truth": 3.95,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Эритроциты",
+      "value": "3,95",
+      "unit": "x1022/n",
+      "reference": "3,80 - 5,30",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "034_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 10,
+    "missed": 5,
+    "caught": 1,
+    "silent": 1,
+    "correct_review": 1
+   },
+   "n": 18,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "RBC",
+     "truth": 5.02,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "WBC",
+     "truth": 5.5,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "PLT",
+     "truth": 198.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Тромбоцить (PLT) опасна",
+      "value": "198",
+      "unit": "x109/m",
+      "reference": "180 - 320",
+      "legible": true
+     }
+    },
+    {
+     "code": "HCT",
+     "truth": 40.3,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "NEUT%",
+     "truth": 53.3,
+     "got": 3.3,
+     "cat": "silent",
+     "issues": [],
+     "raw": {
+      "name": "Нейтрофилы (NEUT)",
+      "value": "03.3",
+      "unit": "%",
+      "reference": "47.0 - 72.0",
+      "legible": true
+     }
+    },
+    {
+     "code": "ESR",
+     "truth": 19.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "UREA",
+     "truth": 3.3,
+     "got": 3.3,
+     "cat": "correct_review",
+     "issues": [
+      "неуверенное сопоставление названия (0.79)"
+     ],
+     "raw": {
+      "name": "Мечевина (ИВЕА)",
+      "value": "3.3",
+      "unit": "ммоль/л",
+      "reference": "2.5 - 8.3",
+      "legible": true
+     }
+    },
+    {
+     "code": "HBA1C",
+     "truth": 3.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "035_senim_pdf",
+   "kind": "pdf",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "missed": 6
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "HGB",
+     "truth": 138.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "RBC",
+     "truth": 4.63,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "PLT",
+     "truth": 213.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "HCT",
+     "truth": 22.3,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "NEUT%",
+     "truth": 50.6,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "ESR",
+     "truth": 8.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "036_labone_photo",
+   "kind": "photo",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 14,
+    "caught": 2,
+    "correct_review": 1,
+    "missed": 1
+   },
+   "n": 18,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "RBC",
+     "truth": 5.17,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Эритроциты",
+      "value": "5,17",
+      "unit": "х10:2/л",
+      "reference": "3,80 - 5,30",
+      "legible": true
+     }
+    },
+    {
+     "code": "MCV",
+     "truth": 86.7,
+     "got": 7.0,
+     "cat": "caught",
+     "issues": [
+      "значение вне физиологических пределов (50–130 fL), вероятна ошибка чтения"
+     ],
+     "raw": {
+      "name": "Средний объём эритроцита 86,",
+      "value": "7",
+      "unit": "фл",
+      "reference": "80,0 - 100,0",
+      "legible": true
+     }
+    },
+    {
+     "code": "LDL",
+     "truth": 2.92,
+     "got": 2.92,
+     "cat": "correct_review",
+     "issues": [
+      "неуверенное сопоставление названия (0.77)"
+     ],
+     "raw": {
+      "name": "ЛНП",
+      "value": "2,92",
+      "unit": "ммоль/л",
+      "reference": "1,50 - 3,30",
+      "legible": true
+     }
+    },
+    {
+     "code": "TSH",
+     "truth": 2.05,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "037_citolab_pdf",
+   "kind": "pdf",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "missed": 2,
+    "caught": 3,
+    "correct_auto": 4
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "HGB",
+     "truth": 96.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "RBC",
+     "truth": 5.17,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Эритроциты (RBC)",
+      "value": "5.17",
+      "unit": "X1022/n",
+      "reference": "3.80 - 5.30",
+      "legible": true
+     }
+    },
+    {
+     "code": "WBC",
+     "truth": 6.6,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "распознавание отметило значение как неуверенное",
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Лейкоциты (WBC)",
+      "value": "6.6",
+      "unit": "ХТОЗ/д",
+      "reference": "4.0 - 9.0",
+      "legible": false
+     }
+    },
+    {
+     "code": "PLT",
+     "truth": 288.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Тромбоциты (PLT)",
+      "value": "288",
+      "unit": "х103/л",
+      "reference": "180 - 320",
+      "legible": true
+     }
+    },
+    {
+     "code": "HCT",
+     "truth": 44.3,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "038_senim_scan",
+   "kind": "scan",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 16,
+    "missed": 1,
+    "caught": 1,
+    "correct_review": 1
+   },
+   "n": 19,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "HCT",
+     "truth": 42.8,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TG",
+     "truth": 2.25,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Triglycerides",
+      "value": "199",
+      "unit": "mg/dL ЗБ -",
+      "reference": "151",
+      "legible": true
+     }
+    },
+    {
+     "code": "HBA1C",
+     "truth": 4.7,
+     "got": 4.7,
+     "cat": "correct_review",
+     "issues": [
+      "неуверенное сопоставление названия (0.72)"
+     ],
+     "raw": {
+      "name": "HbAic",
+      "value": "4.7",
+      "unit": "%",
+      "reference": "4.0 - 6.0",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "039_labone_pdf",
+   "kind": "pdf",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "caught": 3,
+    "correct_auto": 5,
+    "correct_review": 1
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "HGB",
+     "truth": 137.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Гемоглобин",
+      "value": "137",
+      "unit": "гул",
+      "reference": "120 - 160",
+      "legible": true
+     }
+    },
+    {
+     "code": "WBC",
+     "truth": 4.2,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Лейкоциты",
+      "value": "4,2",
+      "unit": "х103/л",
+      "reference": "4,0 - 9,0",
+      "legible": true
+     }
+    },
+    {
+     "code": "PLT",
+     "truth": 294.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Тромбоциты",
+      "value": "294",
+      "unit": "x10%/n",
+      "reference": "180 - 320",
+      "legible": true
+     }
+    },
+    {
+     "code": "ESR",
+     "truth": 25.0,
+     "got": 25.0,
+     "cat": "correct_review",
+     "issues": [
+      "распознавание отметило значение как неуверенное"
+     ],
+     "raw": {
+      "name": "соэ",
+      "value": "25",
+      "unit": "мм/ч",
+      "reference": "2-15",
+      "legible": false
+     }
+    }
+   ],
+   "doc_id": "040_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "caught": 3,
+    "correct_auto": 3,
+    "missed": 5
+   },
+   "n": 11,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "GLU",
+     "truth": 4.7,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "распознавание отметило значение как неуверенное",
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Глюкоза (GLU) soos ccsesesntnessescssscucerenesssseseasctarsseessncsits",
+      "value": "47",
+      "unit": "ММОЛЫЙ",
+      "reference": "39-61",
+      "legible": false
+     }
+    },
+    {
+     "code": "HDL",
+     "truth": 3.12,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "LDL",
+     "truth": 2.17,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TG",
+     "truth": 0.51,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Триглицериды (TG)",
+      "value": "0.51",
+      "unit": "ммолыл",
+      "reference": "0.40 - 1.70",
+      "legible": true
+     }
+    },
+    {
+     "code": "UREA",
+     "truth": 2.7,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Мочевина (UREA)",
+      "value": "2.7",
+      "unit": "ммолЫЬ/л",
+      "reference": "2.5 - 8.3",
+      "legible": true
+     }
+    },
+    {
+     "code": "ALT",
+     "truth": 27.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "AST",
+     "truth": 5.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "HBA1C",
+     "truth": 3.2,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "041_senim_photo",
+   "kind": "photo",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "caught": 8,
+    "missed": 1
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "HGB",
+     "truth": 87.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Es? HGB",
+      "value": "8.7",
+      "unit": "g/dL 2 12.0 - 16.0 Sane Е: a ee ie",
+      "reference": null,
+      "legible": true
+     }
+    },
+    {
+     "code": "RBC",
+     "truth": 5.16,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "S RBC",
+      "value": "5.16",
+      "unit": "х1о^вли.",
+      "reference": "380-530",
+      "legible": true
+     }
+    },
+    {
+     "code": "WBC",
+     "truth": 4.2,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "ыы WBC",
+      "value": "4.2",
+      "unit": "‘xorsiulL— 4.0-90 о ee",
+      "reference": null,
+      "legible": true
+     }
+    },
+    {
+     "code": "PLT",
+     "truth": 279.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Fa PLT",
+      "value": "279",
+      "unit": "ХЗ в о а",
+      "reference": null,
+      "legible": true
+     }
+    },
+    {
+     "code": "HCT",
+     "truth": 47.8,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "aH HCT",
+      "value": "47.8",
+      "unit": "% АС 36.0 - 480 ~— АННОЙ",
+      "reference": null,
+      "legible": true
+     }
+    },
+    {
+     "code": "MCV",
+     "truth": 69.1,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "5 MCV",
+      "value": "69.1",
+      "unit": "ee Shee - _ 800-1000 ее",
+      "reference": null,
+      "legible": true
+     }
+    },
+    {
+     "code": "NEUT%",
+     "truth": 63.9,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "С NEUT %",
+      "value": "63.9",
+      "unit": "> > ` % С ATO 2.0 Я =: ИЕ",
+      "reference": null,
+      "legible": true
+     }
+    },
+    {
+     "code": "LYMPH%",
+     "truth": 29.6,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "LYMPH %",
+      "value": "29.6",
+      "unit": "ine ба _ 19.0",
+      "reference": "9",
+      "legible": true
+     }
+    },
+    {
+     "code": "ESR",
+     "truth": 3.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "042_labone_photo",
+   "kind": "photo",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "missed": 9
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "HGB",
+     "truth": 74.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "RBC",
+     "truth": 4.63,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "WBC",
+     "truth": 11.2,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "PLT",
+     "truth": 202.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "HCT",
+     "truth": 46.1,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "MCV",
+     "truth": 83.4,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "NEUT%",
+     "truth": 55.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "LYMPH%",
+     "truth": 21.1,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "ESR",
+     "truth": 3.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "043_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "correct_auto": 6,
+    "correct_review": 1,
+    "missed": 1
+   },
+   "n": 8,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "AST",
+     "truth": 30.0,
+     "got": 30.0,
+     "cat": "correct_review",
+     "issues": [
+      "распознавание отметило значение как неуверенное"
+     ],
+     "raw": {
+      "name": "ACT (AST)",
+      "value": "30",
+      "unit": "Ед/л",
+      "reference": "5-40",
+      "legible": false
+     }
+    },
+    {
+     "code": "HBA1C",
+     "truth": 5.2,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "044_senim_scan",
+   "kind": "scan",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 3,
+    "caught": 2,
+    "correct_review": 1
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "TG",
+     "truth": 0.75,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Triglycerides",
+      "value": "66",
+      "unit": "mg/dL.",
+      "reference": "35-151",
+      "legible": true
+     }
+    },
+    {
+     "code": "ALT",
+     "truth": 4.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "ALT",
+      "value": "4",
+      "unit": "ЦА.",
+      "reference": "5-41",
+      "legible": true
+     }
+    },
+    {
+     "code": "HBA1C",
+     "truth": 4.2,
+     "got": 4.2,
+     "cat": "correct_review",
+     "issues": [
+      "неуверенное сопоставление названия (0.72)"
+     ],
+     "raw": {
+      "name": "HbAic",
+      "value": "4.2",
+      "unit": "%",
+      "reference": "4.0 - 6.0",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "045_labone_photo",
+   "kind": "photo",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "missed": 6
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "HGB",
+     "truth": 150.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "HCT",
+     "truth": 46.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "MCV",
+     "truth": 89.3,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "NEUT%",
+     "truth": 34.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "LYMPH%",
+     "truth": 13.2,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "ESR",
+     "truth": 10.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "046_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "caught": 2,
+    "missed": 6,
+    "correct_auto": 4
+   },
+   "n": 12,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "GLU",
+     "truth": 6.0,
+     "got": 9.9,
+     "cat": "caught",
+     "issues": [
+      "неуверенное сопоставление названия (0.84)"
+     ],
+     "raw": {
+      "name": "Глмюкоза (СЕЙ)",
+      "value": "9.9",
+      "unit": "МОЛЬ (ОИ",
+      "reference": null,
+      "legible": false
+     }
+    },
+    {
+     "code": "HDL",
+     "truth": 0.82,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "LDL",
+     "truth": 2.46,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TG",
+     "truth": 0.31,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Триглицериды (TG)",
+      "value": "0.31",
+      "unit": "ммолЫ/л",
+      "reference": "0.40 - 1.70",
+      "legible": true
+     }
+    },
+    {
+     "code": "ALT",
+     "truth": 34.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "AST",
+     "truth": 36.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "HBA1C",
+     "truth": 5.8,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TSH",
+     "truth": 1.3,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "047_senim_photo",
+   "kind": "photo",
+   "layout": "senim"
+  },
+  {
+   "cats": {
+    "correct_auto": 15,
+    "caught": 2
+   },
+   "n": 17,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "TG",
+     "truth": 0.94,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Triglycerides",
+      "value": "83",
+      "unit": "mg/dL ЗБ -",
+      "reference": "151",
+      "legible": true
+     }
+    },
+    {
+     "code": "AST",
+     "truth": 8.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "AST",
+      "value": "8",
+      "unit": "V/L",
+      "reference": "5-40",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "048_labone_pdf",
+   "kind": "pdf",
+   "layout": "labone"
+  },
+  {
+   "cats": {
+    "correct_auto": 6,
+    "caught": 3
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "RBC",
+     "truth": 4.71,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Эритроциты",
+      "value": "4,71",
+      "unit": "х10'?/л",
+      "reference": "3,80 - 5,30",
+      "legible": true
+     }
+    },
+    {
+     "code": "WBC",
+     "truth": 6.3,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Лейкоциты",
+      "value": "6,3",
+      "unit": "x10°%/n",
+      "reference": "4,0 - 9,0",
+      "legible": true
+     }
+    },
+    {
+     "code": "PLT",
+     "truth": 281.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Тромбоциты",
+      "value": "281",
+      "unit": "x10%/n",
+      "reference": "180 - 320",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "049_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab"
+  },
+  {
+   "cats": {
+    "caught": 5,
+    "correct_auto": 9,
+    "missed": 3,
+    "silent": 2
+   },
+   "n": 19,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "RBC",
+     "truth": 4.69,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Эритроциты (RBC)",
+      "value": "4.69",
+      "unit": "ХТОТ/л",
+      "reference": "3.80 - 5.30",
+      "legible": true
+     }
+    },
+    {
+     "code": "WBC",
+     "truth": 8.7,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Лейкоциты (WBC)",
+      "value": "8.7",
+      "unit": "ХТОЗ/л",
+      "reference": "4.0 - 9.0",
+      "legible": true
+     }
+    },
+    {
+     "code": "PLT",
+     "truth": 254.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "Тромбоциты (PLT)",
+      "value": "254",
+      "unit": "Ж109/л",
+      "reference": "180 - 320",
+      "legible": true
+     }
+    },
+    {
+     "code": "NEUT%",
+     "truth": 71.1,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "ESR",
+     "truth": 15.0,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "распознавание отметило значение как неуверенное",
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "СОЭ (ESR) ssc",
+      "value": "15",
+      "unit": "ММ/ЯЧ (2",
+      "reference": "15",
+      "legible": false
+     }
+    },
+    {
+     "code": "CHOL",
+     "truth": 5.06,
+     "got": 9.06,
+     "cat": "silent",
+     "issues": [],
+     "raw": {
+      "name": "Холестерин общий (CHOL)",
+      "value": "9.06",
+      "unit": "ммоль/л",
+      "reference": "3.00 - 5.20",
+      "legible": true
+     }
+    },
+    {
+     "code": "ALT",
+     "truth": 20.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "CRP",
+     "truth": 3.5,
+     "got": 3.9,
+     "cat": "silent",
+     "issues": [],
+     "raw": {
+      "name": "С-реактивный белок (CRP)",
+      "value": "3.9",
+      "unit": "МГ/Л",
+      "reference": "До 5.0",
+      "legible": true
+     }
+    },
+    {
+     "code": "HBA1C",
+     "truth": 3.4,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    },
+    {
+     "code": "TSH",
+     "truth": 3.7,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "единица не распознана"
+     ],
+     "raw": {
+      "name": "TIT (TSH)",
+      "value": "3.70",
+      "unit": "ММЕ/",
+      "reference": "0.40 - 4.00",
+      "legible": true
+     }
+    }
+   ],
+   "doc_id": "050_senim_pdf",
+   "kind": "pdf",
+   "layout": "senim"
+  }
+ ],
+ "seconds_per_page": 3.319500888442619,
+ "cost_per_page": 0.0,
+ "pages": 61,
+ "summary": {
+  "все": {
+   "n_fields": 521,
+   "correct_auto": 0.6065259117082533,
+   "correct_review": 0.028790786948176585,
+   "caught": 0.15355086372360843,
+   "silent": 0.013435700575815739,
+   "missed": 0.19769673704414586,
+   "silent_extras": 0,
+   "perfect": 0.1,
+   "auto": 0.22,
+   "auto_and_perfect": 0.1,
+   "auto_but_missed": 0.1,
+   "header_ok": 0.72,
+   "docs": 50
+  },
+  "PDF": {
+   "n_fields": 193,
+   "correct_auto": 0.6683937823834197,
+   "correct_review": 0.03626943005181347,
+   "caught": 0.14507772020725387,
+   "silent": 0.02072538860103627,
+   "missed": 0.12953367875647667,
+   "silent_extras": 0,
+   "perfect": 0.0,
+   "auto": 0.0,
+   "auto_and_perfect": 0.0,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.8181818181818182,
+   "docs": 11
+  },
+  "citolab": {
+   "n_fields": 146,
+   "correct_auto": 0.6712328767123288,
+   "correct_review": 0.0136986301369863,
+   "caught": 0.0958904109589041,
+   "silent": 0.0,
+   "missed": 0.2191780821917808,
+   "silent_extras": 0,
+   "perfect": 0.058823529411764705,
+   "auto": 0.35294117647058826,
+   "auto_and_perfect": 0.058823529411764705,
+   "auto_but_missed": 0.29411764705882354,
+   "header_ok": 0.8235294117647058,
+   "docs": 17
+  },
+  "labone": {
+   "n_fields": 169,
+   "correct_auto": 0.7041420118343196,
+   "correct_review": 0.03550295857988166,
+   "caught": 0.14792899408284024,
+   "silent": 0.0,
+   "missed": 0.11242603550295859,
+   "silent_extras": 0,
+   "perfect": 0.25,
+   "auto": 0.3125,
+   "auto_and_perfect": 0.25,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.4375,
+   "docs": 16
+  },
+  "senim": {
+   "n_fields": 206,
+   "correct_auto": 0.48058252427184467,
+   "correct_review": 0.03398058252427184,
+   "caught": 0.19902912621359223,
+   "silent": 0.03398058252427184,
+   "missed": 0.2524271844660194,
+   "silent_extras": 0,
+   "perfect": 0.0,
+   "auto": 0.0,
+   "auto_and_perfect": 0.0,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.8823529411764706,
+   "docs": 17
+  },
+  "скан": {
+   "n_fields": 171,
+   "correct_auto": 0.7485380116959064,
+   "correct_review": 0.029239766081871343,
+   "caught": 0.1111111111111111,
+   "silent": 0.017543859649122806,
+   "missed": 0.0935672514619883,
+   "silent_extras": 0,
+   "perfect": 0.1,
+   "auto": 0.4,
+   "auto_and_perfect": 0.1,
+   "auto_but_missed": 0.25,
+   "header_ok": 0.85,
+   "docs": 20
+  },
+  "фото": {
+   "n_fields": 157,
+   "correct_auto": 0.37579617834394907,
+   "correct_review": 0.01910828025477707,
+   "caught": 0.21019108280254778,
+   "silent": 0.0,
+   "missed": 0.39490445859872614,
+   "silent_extras": 0,
+   "perfect": 0.15789473684210525,
+   "auto": 0.15789473684210525,
+   "auto_and_perfect": 0.15789473684210525,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.5263157894736842,
+   "docs": 19
+  }
+ }
+}

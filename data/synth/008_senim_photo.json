@@ -1,0 +1,101 @@
+{
+  "doc_id": "008_senim_photo",
+  "file": "008_senim_photo.jpg",
+  "layout": "senim",
+  "kind": "photo",
+  "patient_name": "Серикова Елена Болатовна",
+  "birth_date": "1956-07-01",
+  "collected_at": "2026-07-02",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 156.0,
+      "printed": {
+        "name": "Гемоглобин (HGB)",
+        "value": "156",
+        "unit": "г/л",
+        "reference": "120 - 160"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 8.1,
+      "printed": {
+        "name": "Эритроциты (RBC)",
+        "value": "8.10",
+        "unit": "×10¹²/л",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 7.4,
+      "printed": {
+        "name": "Лейкоциты (WBC)",
+        "value": "7.4",
+        "unit": "×10⁹/л",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 237.0,
+      "printed": {
+        "name": "Тромбоциты (PLT)",
+        "value": "237",
+        "unit": "×10⁹/л",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 42.2,
+      "printed": {
+        "name": "Гематокрит (HCT)",
+        "value": "42.2",
+        "unit": "%",
+        "reference": "36.0 - 48.0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 86.5,
+      "printed": {
+        "name": "Средний объём эритроцита (MCV)",
+        "value": "86.5",
+        "unit": "фл",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 67.0,
+      "printed": {
+        "name": "Нейтрофилы (NEUT)",
+        "value": "67.0",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 40.8,
+      "printed": {
+        "name": "Лимфоциты (LYMPH)",
+        "value": "40.8",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 1.0,
+      "printed": {
+        "name": "СОЭ (ESR)",
+        "value": "1",
+        "unit": "мм/ч",
+        "reference": "2 - 15"
+      }
+    }
+  ]
+}

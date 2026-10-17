@@ -1,0 +1,161 @@
+{
+  "doc_id": "017_senim_pdf",
+  "file": "017_senim_pdf.pdf",
+  "layout": "senim",
+  "kind": "pdf",
+  "patient_name": "Серикова Елена Болатовна",
+  "birth_date": "1956-07-01",
+  "collected_at": "2026-04-19",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 149.0,
+      "printed": {
+        "name": "Гемоглобин (HGB)",
+        "value": "149",
+        "unit": "г/л",
+        "reference": "120 - 160"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 4.39,
+      "printed": {
+        "name": "Эритроциты (RBC)",
+        "value": "4.39",
+        "unit": "×10¹²/л",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 3.6,
+      "printed": {
+        "name": "Лейкоциты (WBC)",
+        "value": "3.6",
+        "unit": "×10⁹/л",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 121.0,
+      "printed": {
+        "name": "Тромбоциты (PLT)",
+        "value": "121",
+        "unit": "×10⁹/л",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 38.3,
+      "printed": {
+        "name": "Гематокрит (HCT)",
+        "value": "38.3",
+        "unit": "%",
+        "reference": "36.0 - 48.0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 85.3,
+      "printed": {
+        "name": "Средний объём эритроцита (MCV)",
+        "value": "85.3",
+        "unit": "фл",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 49.7,
+      "printed": {
+        "name": "Нейтрофилы (NEUT)",
+        "value": "49.7",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 30.0,
+      "printed": {
+        "name": "Лимфоциты (LYMPH)",
+        "value": "30.0",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 8.0,
+      "printed": {
+        "name": "СОЭ (ESR)",
+        "value": "8",
+        "unit": "мм/ч",
+        "reference": "2 - 15"
+      }
+    },
+    {
+      "code": "GLU",
+      "value": 4.2,
+      "printed": {
+        "name": "Глюкоза (GLU)",
+        "value": "4.2",
+        "unit": "ммоль/л",
+        "reference": "3.9 - 6.1"
+      }
+    },
+    {
+      "code": "HDL",
+      "value": 0.74,
+      "printed": {
+        "name": "ЛПВП (HDL)",
+        "value": "0.74",
+        "unit": "ммоль/л",
+        "reference": "1.00 - 2.20"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 3.09,
+      "printed": {
+        "name": "ЛПНП (LDL)",
+        "value": "3.09",
+        "unit": "ммоль/л",
+        "reference": "1.50 - 3.30"
+      }
+    },
+    {
+      "code": "UREA",
+      "value": 8.3,
+      "printed": {
+        "name": "Мочевина (UREA)",
+        "value": "8.3",
+        "unit": "ммоль/л",
+        "reference": "2.5 - 8.3"
+      }
+    },
+    {
+      "code": "TBIL",
+      "value": 9.0,
+      "printed": {
+        "name": "Билирубин общий (TBIL)",
+        "value": "9.0",
+        "unit": "мкмоль/л",
+        "reference": "3.4 - 20.5"
+      }
+    },
+    {
+      "code": "TSH",
+      "value": 6.44,
+      "printed": {
+        "name": "ТТГ (TSH)",
+        "value": "6.44",
+        "unit": "мМЕ/л",
+        "reference": "0.40 - 4.00"
+      }
+    }
+  ]
+}

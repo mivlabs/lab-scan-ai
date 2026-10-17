@@ -1,0 +1,71 @@
+{
+  "doc_id": "001_citolab_photo",
+  "file": "001_citolab_photo.jpg",
+  "layout": "citolab",
+  "kind": "photo",
+  "patient_name": "Ким Ерлан Серикович",
+  "birth_date": "1997-02-12",
+  "collected_at": "2026-09-21",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 132.0,
+      "printed": {
+        "name": "Гемоглобин",
+        "value": "132",
+        "unit": "г/л",
+        "reference": "120 - 160"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 44.2,
+      "printed": {
+        "name": "Гематокрит",
+        "value": "44,2",
+        "unit": "%",
+        "reference": "36,0 - 48,0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 94.3,
+      "printed": {
+        "name": "Средний объём эритроцита",
+        "value": "94,3",
+        "unit": "фл",
+        "reference": "80,0 - 100,0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 55.7,
+      "printed": {
+        "name": "Нейтрофилы, %",
+        "value": "55,7",
+        "unit": "%",
+        "reference": "47,0 - 72,0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 25.4,
+      "printed": {
+        "name": "Лимфоциты, %",
+        "value": "25,4",
+        "unit": "%",
+        "reference": "19,0 - 37,0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 8.0,
+      "printed": {
+        "name": "СОЭ",
+        "value": "8",
+        "unit": "мм/ч",
+        "reference": "2 - 15"
+      }
+    }
+  ]
+}

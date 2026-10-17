@@ -1,0 +1,91 @@
+{
+  "doc_id": "034_citolab_photo",
+  "file": "034_citolab_photo.jpg",
+  "layout": "citolab",
+  "kind": "photo",
+  "patient_name": "Иванов Ерлан Ахметович",
+  "birth_date": "1964-10-19",
+  "collected_at": "2026-10-02",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 225.0,
+      "printed": {
+        "name": "Гемоглобин",
+        "value": "225",
+        "unit": "г/л",
+        "reference": "120 - 160"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 3.95,
+      "printed": {
+        "name": "Эритроциты",
+        "value": "3,95",
+        "unit": "×10¹²/л",
+        "reference": "3,80 - 5,30"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 256.0,
+      "printed": {
+        "name": "Тромбоциты",
+        "value": "256",
+        "unit": "×10⁹/л",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 42.1,
+      "printed": {
+        "name": "Гематокрит",
+        "value": "42,1",
+        "unit": "%",
+        "reference": "36,0 - 48,0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 96.6,
+      "printed": {
+        "name": "Средний объём эритроцита",
+        "value": "96,6",
+        "unit": "фл",
+        "reference": "80,0 - 100,0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 57.3,
+      "printed": {
+        "name": "Нейтрофилы, %",
+        "value": "57,3",
+        "unit": "%",
+        "reference": "47,0 - 72,0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 22.8,
+      "printed": {
+        "name": "Лимфоциты, %",
+        "value": "22,8",
+        "unit": "%",
+        "reference": "19,0 - 37,0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 7.0,
+      "printed": {
+        "name": "СОЭ",
+        "value": "7",
+        "unit": "мм/ч",
+        "reference": "2 - 15"
+      }
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "doc_id": "030_labone_scan",
+  "file": "030_labone_scan.png",
+  "layout": "labone",
+  "kind": "scan",
+  "patient_name": "Zhumabaeva Dinara Akhmetovna",
+  "birth_date": "2002-07-14",
+  "collected_at": "2026-09-11",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 225.0,
+      "printed": {
+        "name": "HGB",
+        "value": "22.5",
+        "unit": "g/dL",
+        "reference": "12.0 - 16.0"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 4.7,
+      "printed": {
+        "name": "RBC",
+        "value": "4.70",
+        "unit": "x10^6/uL",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 5.4,
+      "printed": {
+        "name": "WBC",
+        "value": "5.4",
+        "unit": "x10^3/uL",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 290.0,
+      "printed": {
+        "name": "PLT",
+        "value": "290",
+        "unit": "x10^3/uL",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 112.4,
+      "printed": {
+        "name": "MCV",
+        "value": "112.4",
+        "unit": "fL",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 48.2,
+      "printed": {
+        "name": "NEUT %",
+        "value": "48.2",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 31.9,
+      "printed": {
+        "name": "LYMPH %",
+        "value": "31.9",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 9.0,
+      "printed": {
+        "name": "ESR",
+        "value": "9",
+        "unit": "mm/h",
+        "reference": "2 - 15"
+      }
+    }
+  ]
+}

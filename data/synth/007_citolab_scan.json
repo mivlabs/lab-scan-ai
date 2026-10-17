@@ -1,0 +1,81 @@
+{
+  "doc_id": "007_citolab_scan",
+  "file": "007_citolab_scan.png",
+  "layout": "citolab",
+  "kind": "scan",
+  "patient_name": "Сериков Ерлан Петрович",
+  "birth_date": "1983-05-30",
+  "collected_at": "2026-08-17",
+  "results": [
+    {
+      "code": "CHOL",
+      "value": 3.48,
+      "printed": {
+        "name": "Холестерин общий",
+        "value": "3,48",
+        "unit": "ммоль/л",
+        "reference": "3,00 - 5,20"
+      }
+    },
+    {
+      "code": "HDL",
+      "value": 1.48,
+      "printed": {
+        "name": "ЛПВП",
+        "value": "1,48",
+        "unit": "ммоль/л",
+        "reference": "1,00 - 2,20"
+      }
+    },
+    {
+      "code": "TG",
+      "value": 1.69,
+      "printed": {
+        "name": "Триглицериды",
+        "value": "1,69",
+        "unit": "ммоль/л",
+        "reference": "0,40 - 1,70"
+      }
+    },
+    {
+      "code": "CREA",
+      "value": 69.0,
+      "printed": {
+        "name": "Креатинин",
+        "value": "69",
+        "unit": "мкмоль/л",
+        "reference": "62 - 106"
+      }
+    },
+    {
+      "code": "CRP",
+      "value": 2.6,
+      "printed": {
+        "name": "С-реактивный белок",
+        "value": "2,6",
+        "unit": "мг/л",
+        "reference": "до 5,0"
+      }
+    },
+    {
+      "code": "HBA1C",
+      "value": 4.4,
+      "printed": {
+        "name": "Гликированный гемоглобин",
+        "value": "4,4",
+        "unit": "%",
+        "reference": "4,0 - 6,0"
+      }
+    },
+    {
+      "code": "TSH",
+      "value": 3.0,
+      "printed": {
+        "name": "ТТГ",
+        "value": "3,00",
+        "unit": "мМЕ/л",
+        "reference": "0,40 - 4,00"
+      }
+    }
+  ]
+}

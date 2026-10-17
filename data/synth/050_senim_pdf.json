@@ -1,0 +1,201 @@
+{
+  "doc_id": "050_senim_pdf",
+  "file": "050_senim_pdf.pdf",
+  "layout": "senim",
+  "kind": "pdf",
+  "patient_name": "Иванов Данияр Болатович",
+  "birth_date": "1995-07-11",
+  "collected_at": "2026-05-21",
+  "results": [
+    {
+      "code": "RBC",
+      "value": 4.69,
+      "printed": {
+        "name": "Эритроциты (RBC)",
+        "value": "4.69",
+        "unit": "×10¹²/л",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 8.7,
+      "printed": {
+        "name": "Лейкоциты (WBC)",
+        "value": "8.7",
+        "unit": "×10⁹/л",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 254.0,
+      "printed": {
+        "name": "Тромбоциты (PLT)",
+        "value": "254",
+        "unit": "×10⁹/л",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 26.7,
+      "printed": {
+        "name": "Гематокрит (HCT)",
+        "value": "26.7",
+        "unit": "%",
+        "reference": "36.0 - 48.0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 91.5,
+      "printed": {
+        "name": "Средний объём эритроцита (MCV)",
+        "value": "91.5",
+        "unit": "фл",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 71.1,
+      "printed": {
+        "name": "Нейтрофилы (NEUT)",
+        "value": "71.1",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 26.9,
+      "printed": {
+        "name": "Лимфоциты (LYMPH)",
+        "value": "26.9",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 15.0,
+      "printed": {
+        "name": "СОЭ (ESR)",
+        "value": "15",
+        "unit": "мм/ч",
+        "reference": "2 - 15"
+      }
+    },
+    {
+      "code": "GLU",
+      "value": 4.5,
+      "printed": {
+        "name": "Глюкоза (GLU)",
+        "value": "4.5",
+        "unit": "ммоль/л",
+        "reference": "3.9 - 6.1"
+      }
+    },
+    {
+      "code": "CHOL",
+      "value": 5.06,
+      "printed": {
+        "name": "Холестерин общий (CHOL)",
+        "value": "5.06",
+        "unit": "ммоль/л",
+        "reference": "3.00 - 5.20"
+      }
+    },
+    {
+      "code": "HDL",
+      "value": 2.17,
+      "printed": {
+        "name": "ЛПВП (HDL)",
+        "value": "2.17",
+        "unit": "ммоль/л",
+        "reference": "1.00 - 2.20"
+      }
+    },
+    {
+      "code": "CREA",
+      "value": 85.0,
+      "printed": {
+        "name": "Креатинин (CREA)",
+        "value": "85",
+        "unit": "мкмоль/л",
+        "reference": "62 - 106"
+      }
+    },
+    {
+      "code": "UREA",
+      "value": 3.7,
+      "printed": {
+        "name": "Мочевина (UREA)",
+        "value": "3.7",
+        "unit": "ммоль/л",
+        "reference": "2.5 - 8.3"
+      }
+    },
+    {
+      "code": "ALT",
+      "value": 20.0,
+      "printed": {
+        "name": "АЛТ (ALT)",
+        "value": "20",
+        "unit": "Ед/л",
+        "reference": "5 - 41"
+      }
+    },
+    {
+      "code": "AST",
+      "value": 45.0,
+      "printed": {
+        "name": "АСТ (AST)",
+        "value": "45",
+        "unit": "Ед/л",
+        "reference": "5 - 40"
+      }
+    },
+    {
+      "code": "TBIL",
+      "value": 14.2,
+      "printed": {
+        "name": "Билирубин общий (TBIL)",
+        "value": "14.2",
+        "unit": "мкмоль/л",
+        "reference": "3.4 - 20.5"
+      }
+    },
+    {
+      "code": "CRP",
+      "value": 3.5,
+      "printed": {
+        "name": "С-реактивный белок (CRP)",
+        "value": "3.5",
+        "unit": "мг/л",
+        "reference": "до 5.0"
+      }
+    },
+    {
+      "code": "HBA1C",
+      "value": 3.4,
+      "printed": {
+        "name": "Гликированный гемоглобин (HBA1C)",
+        "value": "3.4",
+        "unit": "%",
+        "reference": "4.0 - 6.0"
+      }
+    },
+    {
+      "code": "TSH",
+      "value": 3.7,
+      "printed": {
+        "name": "ТТГ (TSH)",
+        "value": "3.70",
+        "unit": "мМЕ/л",
+        "reference": "0.40 - 4.00"
+      }
+    }
+  ]
+}

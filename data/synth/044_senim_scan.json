@@ -1,0 +1,91 @@
+{
+  "doc_id": "044_senim_scan",
+  "file": "044_senim_scan.png",
+  "layout": "senim",
+  "kind": "scan",
+  "patient_name": "Жумабаева Динара Ахметовна",
+  "birth_date": "2002-07-14",
+  "collected_at": "2026-03-24",
+  "results": [
+    {
+      "code": "GLU",
+      "value": 4.4,
+      "printed": {
+        "name": "Глюкоза (GLU)",
+        "value": "4.4",
+        "unit": "ммоль/л",
+        "reference": "3.9 - 6.1"
+      }
+    },
+    {
+      "code": "HDL",
+      "value": 1.17,
+      "printed": {
+        "name": "ЛПВП (HDL)",
+        "value": "1.17",
+        "unit": "ммоль/л",
+        "reference": "1.00 - 2.20"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 5.23,
+      "printed": {
+        "name": "ЛПНП (LDL)",
+        "value": "5.23",
+        "unit": "ммоль/л",
+        "reference": "1.50 - 3.30"
+      }
+    },
+    {
+      "code": "TG",
+      "value": 0.25,
+      "printed": {
+        "name": "Триглицериды (TG)",
+        "value": "0.25",
+        "unit": "ммоль/л",
+        "reference": "0.40 - 1.70"
+      }
+    },
+    {
+      "code": "CREA",
+      "value": 84.0,
+      "printed": {
+        "name": "Креатинин (CREA)",
+        "value": "84",
+        "unit": "мкмоль/л",
+        "reference": "62 - 106"
+      }
+    },
+    {
+      "code": "ALT",
+      "value": 12.0,
+      "printed": {
+        "name": "АЛТ (ALT)",
+        "value": "12",
+        "unit": "Ед/л",
+        "reference": "5 - 41"
+      }
+    },
+    {
+      "code": "AST",
+      "value": 30.0,
+      "printed": {
+        "name": "АСТ (AST)",
+        "value": "30",
+        "unit": "Ед/л",
+        "reference": "5 - 40"
+      }
+    },
+    {
+      "code": "HBA1C",
+      "value": 5.2,
+      "printed": {
+        "name": "Гликированный гемоглобин (HBA1C)",
+        "value": "5.2",
+        "unit": "%",
+        "reference": "4.0 - 6.0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "doc_id": "028_citolab_scan",
+  "file": "028_citolab_scan.png",
+  "layout": "citolab",
+  "kind": "scan",
+  "patient_name": "Серикова Елена Болатовна",
+  "birth_date": "1956-07-01",
+  "collected_at": "2026-08-05",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 127.0,
+      "printed": {
+        "name": "Гемоглобин",
+        "value": "127",
+        "unit": "г/л",
+        "reference": "120 - 160"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 4.25,
+      "printed": {
+        "name": "Эритроциты",
+        "value": "4,25",
+        "unit": "×10¹²/л",
+        "reference": "3,80 - 5,30"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 524.0,
+      "printed": {
+        "name": "Тромбоциты",
+        "value": "524",
+        "unit": "×10⁹/л",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 80.1,
+      "printed": {
+        "name": "Средний объём эритроцита",
+        "value": "80,1",
+        "unit": "фл",
+        "reference": "80,0 - 100,0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 65.6,
+      "printed": {
+        "name": "Нейтрофилы, %",
+        "value": "65,6",
+        "unit": "%",
+        "reference": "47,0 - 72,0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 32.4,
+      "printed": {
+        "name": "Лимфоциты, %",
+        "value": "32,4",
+        "unit": "%",
+        "reference": "19,0 - 37,0"
+      }
+    }
+  ]
+}

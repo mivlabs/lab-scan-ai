@@ -1,0 +1,101 @@
+{
+  "doc_id": "012_labone_scan",
+  "file": "012_labone_scan.png",
+  "layout": "labone",
+  "kind": "scan",
+  "patient_name": "Ivanova Elena Akhmetovna",
+  "birth_date": "1956-04-08",
+  "collected_at": "2026-09-24",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 123.0,
+      "printed": {
+        "name": "HGB",
+        "value": "12.3",
+        "unit": "g/dL",
+        "reference": "12.0 - 16.0"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 4.23,
+      "printed": {
+        "name": "RBC",
+        "value": "4.23",
+        "unit": "x10^6/uL",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 10.8,
+      "printed": {
+        "name": "WBC",
+        "value": "10.8",
+        "unit": "x10^3/uL",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 226.0,
+      "printed": {
+        "name": "PLT",
+        "value": "226",
+        "unit": "x10^3/uL",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 44.3,
+      "printed": {
+        "name": "HCT",
+        "value": "44.3",
+        "unit": "%",
+        "reference": "36.0 - 48.0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 82.7,
+      "printed": {
+        "name": "MCV",
+        "value": "82.7",
+        "unit": "fL",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 59.1,
+      "printed": {
+        "name": "NEUT %",
+        "value": "59.1",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 20.8,
+      "printed": {
+        "name": "LYMPH %",
+        "value": "20.8",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 2.0,
+      "printed": {
+        "name": "ESR",
+        "value": "2",
+        "unit": "mm/h",
+        "reference": "2 - 15"
+      }
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "doc_id": "048_labone_pdf",
+  "file": "048_labone_pdf.pdf",
+  "layout": "labone",
+  "kind": "pdf",
+  "patient_name": "Zhumabaeva Aygerim Bolatovna",
+  "birth_date": "1970-01-11",
+  "collected_at": "2026-09-28",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 223.0,
+      "printed": {
+        "name": "HGB",
+        "value": "22.3",
+        "unit": "g/dL",
+        "reference": "12.0 - 16.0"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 4.72,
+      "printed": {
+        "name": "RBC",
+        "value": "4.72",
+        "unit": "x10^6/uL",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 5.6,
+      "printed": {
+        "name": "WBC",
+        "value": "5.6",
+        "unit": "x10^3/uL",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 140.0,
+      "printed": {
+        "name": "PLT",
+        "value": "140",
+        "unit": "x10^3/uL",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 43.0,
+      "printed": {
+        "name": "HCT",
+        "value": "43.0",
+        "unit": "%",
+        "reference": "36.0 - 48.0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 72.1,
+      "printed": {
+        "name": "MCV",
+        "value": "72.1",
+        "unit": "fL",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 82.7,
+      "printed": {
+        "name": "NEUT %",
+        "value": "82.7",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 36.8,
+      "printed": {
+        "name": "LYMPH %",
+        "value": "36.8",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 12.0,
+      "printed": {
+        "name": "ESR",
+        "value": "12",
+        "unit": "mm/h",
+        "reference": "2 - 15"
+      }
+    },
+    {
+      "code": "GLU",
+      "value": 4.66,
+      "printed": {
+        "name": "Glucose",
+        "value": "84",
+        "unit": "mg/dL",
+        "reference": "70 - 110"
+      }
+    },
+    {
+      "code": "CHOL",
+      "value": 4.14,
+      "printed": {
+        "name": "Cholesterol, total",
+        "value": "160",
+        "unit": "mg/dL",
+        "reference": "116 - 201"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 2.72,
+      "printed": {
+        "name": "LDL",
+        "value": "105",
+        "unit": "mg/dL",
+        "reference": "58 - 128"
+      }
+    },
+    {
+      "code": "TG",
+      "value": 0.94,
+      "printed": {
+        "name": "Triglycerides",
+        "value": "83",
+        "unit": "mg/dL",
+        "reference": "35 - 151"
+      }
+    },
+    {
+      "code": "CREA",
+      "value": 68.07,
+      "printed": {
+        "name": "Creatinine",
+        "value": "0.77",
+        "unit": "mg/dL",
+        "reference": "0.70 - 1.20"
+      }
+    },
+    {
+      "code": "ALT",
+      "value": 52.0,
+      "printed": {
+        "name": "ALT",
+        "value": "52",
+        "unit": "U/L",
+        "reference": "5 - 41"
+      }
+    },
+    {
+      "code": "AST",
+      "value": 8.0,
+      "printed": {
+        "name": "AST",
+        "value": "8",
+        "unit": "U/L",
+        "reference": "5 - 40"
+      }
+    },
+    {
+      "code": "TBIL",
+      "value": 19.15,
+      "printed": {
+        "name": "Bilirubin, total",
+        "value": "1.12",
+        "unit": "mg/dL",
+        "reference": "0.20 - 1.20"
+      }
+    }
+  ]
+}

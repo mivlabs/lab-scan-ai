@@ -1,0 +1,91 @@
+{
+  "doc_id": "009_labone_photo",
+  "file": "009_labone_photo.jpg",
+  "layout": "labone",
+  "kind": "photo",
+  "patient_name": "Akhmetov Timur Petrovich",
+  "birth_date": "1975-12-25",
+  "collected_at": "2026-04-23",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 225.0,
+      "printed": {
+        "name": "HGB",
+        "value": "22.5",
+        "unit": "g/dL",
+        "reference": "12.0 - 16.0"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 5.2,
+      "printed": {
+        "name": "WBC",
+        "value": "5.2",
+        "unit": "x10^3/uL",
+        "reference": "4.0 - 9.0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 272.0,
+      "printed": {
+        "name": "PLT",
+        "value": "272",
+        "unit": "x10^3/uL",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 43.9,
+      "printed": {
+        "name": "HCT",
+        "value": "43.9",
+        "unit": "%",
+        "reference": "36.0 - 48.0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 97.8,
+      "printed": {
+        "name": "MCV",
+        "value": "97.8",
+        "unit": "fL",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 54.7,
+      "printed": {
+        "name": "NEUT %",
+        "value": "54.7",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 12.7,
+      "printed": {
+        "name": "LYMPH %",
+        "value": "12.7",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 11.0,
+      "printed": {
+        "name": "ESR",
+        "value": "11",
+        "unit": "mm/h",
+        "reference": "2 - 15"
+      }
+    }
+  ]
+}

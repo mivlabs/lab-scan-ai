@@ -1,0 +1,71 @@
+{
+  "doc_id": "036_labone_photo",
+  "file": "036_labone_photo.jpg",
+  "layout": "labone",
+  "kind": "photo",
+  "patient_name": "Akhmetov Timur Akhmetovich",
+  "birth_date": "1954-06-13",
+  "collected_at": "2026-04-26",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 138.0,
+      "printed": {
+        "name": "HGB",
+        "value": "13.8",
+        "unit": "g/dL",
+        "reference": "12.0 - 16.0"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 4.63,
+      "printed": {
+        "name": "RBC",
+        "value": "4.63",
+        "unit": "x10^6/uL",
+        "reference": "3.80 - 5.30"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 213.0,
+      "printed": {
+        "name": "PLT",
+        "value": "213",
+        "unit": "x10^3/uL",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 22.3,
+      "printed": {
+        "name": "HCT",
+        "value": "22.3",
+        "unit": "%",
+        "reference": "36.0 - 48.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 50.6,
+      "printed": {
+        "name": "NEUT %",
+        "value": "50.6",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 8.0,
+      "printed": {
+        "name": "ESR",
+        "value": "8",
+        "unit": "mm/h",
+        "reference": "2 - 15"
+      }
+    }
+  ]
+}

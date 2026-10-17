@@ -1,0 +1,18 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: sudo apt-get update && sudo apt-get install -y tesseract-ocr tesseract-ocr-rus fonts-dejavu-core fonts-liberation
+      - run: pip install -e ".[dev]"
+      - run: ruff check .
+      - run: pytest -q
+      - name: Eval офлайн-движка на 15 бланках
+        run: |
+          python -m synth.generate --n 15 --out /tmp/synth
+          python -m evals.run_eval --engine tesseract --data /tmp/synth --out /tmp/eval
+          cat /tmp/eval/tesseract.md >> "$GITHUB_STEP_SUMMARY"

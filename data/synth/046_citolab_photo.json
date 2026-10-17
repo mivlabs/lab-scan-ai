@@ -1,0 +1,71 @@
+{
+  "doc_id": "046_citolab_photo",
+  "file": "046_citolab_photo.jpg",
+  "layout": "citolab",
+  "kind": "photo",
+  "patient_name": "Сериков Ерлан Петрович",
+  "birth_date": "1983-05-30",
+  "collected_at": "2026-02-24",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 150.0,
+      "printed": {
+        "name": "Гемоглобин",
+        "value": "150",
+        "unit": "г/л",
+        "reference": "120 - 160"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 46.0,
+      "printed": {
+        "name": "Гематокрит",
+        "value": "46,0",
+        "unit": "%",
+        "reference": "36,0 - 48,0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 89.3,
+      "printed": {
+        "name": "Средний объём эритроцита",
+        "value": "89,3",
+        "unit": "фл",
+        "reference": "80,0 - 100,0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 34.0,
+      "printed": {
+        "name": "Нейтрофилы, %",
+        "value": "34,0",
+        "unit": "%",
+        "reference": "47,0 - 72,0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 13.2,
+      "printed": {
+        "name": "Лимфоциты, %",
+        "value": "13,2",
+        "unit": "%",
+        "reference": "19,0 - 37,0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 10.0,
+      "printed": {
+        "name": "СОЭ",
+        "value": "10",
+        "unit": "мм/ч",
+        "reference": "2 - 15"
+      }
+    }
+  ]
+}

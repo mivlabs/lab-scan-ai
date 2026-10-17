@@ -1,0 +1,201 @@
+{
+  "doc_id": "039_labone_pdf",
+  "file": "039_labone_pdf.pdf",
+  "layout": "labone",
+  "kind": "pdf",
+  "patient_name": "Ivanova Elena Akhmetovna",
+  "birth_date": "1956-04-08",
+  "collected_at": "2026-09-08",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 92.0,
+      "printed": {
+        "name": "HGB",
+        "value": "9.2",
+        "unit": "g/dL",
+        "reference": "12.0 - 16.0"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 42.8,
+      "printed": {
+        "name": "HCT",
+        "value": "42.8",
+        "unit": "%",
+        "reference": "36.0 - 48.0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 94.9,
+      "printed": {
+        "name": "MCV",
+        "value": "94.9",
+        "unit": "fL",
+        "reference": "80.0 - 100.0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 56.1,
+      "printed": {
+        "name": "NEUT %",
+        "value": "56.1",
+        "unit": "%",
+        "reference": "47.0 - 72.0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 31.5,
+      "printed": {
+        "name": "LYMPH %",
+        "value": "31.5",
+        "unit": "%",
+        "reference": "19.0 - 37.0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 19.0,
+      "printed": {
+        "name": "ESR",
+        "value": "19",
+        "unit": "mm/h",
+        "reference": "2 - 15"
+      }
+    },
+    {
+      "code": "GLU",
+      "value": 4.27,
+      "printed": {
+        "name": "Glucose",
+        "value": "77",
+        "unit": "mg/dL",
+        "reference": "70 - 110"
+      }
+    },
+    {
+      "code": "CHOL",
+      "value": 4.06,
+      "printed": {
+        "name": "Cholesterol, total",
+        "value": "157",
+        "unit": "mg/dL",
+        "reference": "116 - 201"
+      }
+    },
+    {
+      "code": "HDL",
+      "value": 0.8,
+      "printed": {
+        "name": "HDL",
+        "value": "31",
+        "unit": "mg/dL",
+        "reference": "39 - 85"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 2.72,
+      "printed": {
+        "name": "LDL",
+        "value": "105",
+        "unit": "mg/dL",
+        "reference": "58 - 128"
+      }
+    },
+    {
+      "code": "TG",
+      "value": 2.25,
+      "printed": {
+        "name": "Triglycerides",
+        "value": "199",
+        "unit": "mg/dL",
+        "reference": "35 - 151"
+      }
+    },
+    {
+      "code": "CREA",
+      "value": 89.28,
+      "printed": {
+        "name": "Creatinine",
+        "value": "1.01",
+        "unit": "mg/dL",
+        "reference": "0.70 - 1.20"
+      }
+    },
+    {
+      "code": "UREA",
+      "value": 4.7,
+      "printed": {
+        "name": "UREA",
+        "value": "4.7",
+        "unit": "mmol/L",
+        "reference": "2.5 - 8.3"
+      }
+    },
+    {
+      "code": "ALT",
+      "value": 39.0,
+      "printed": {
+        "name": "ALT",
+        "value": "39",
+        "unit": "U/L",
+        "reference": "5 - 41"
+      }
+    },
+    {
+      "code": "AST",
+      "value": 25.0,
+      "printed": {
+        "name": "AST",
+        "value": "25",
+        "unit": "U/L",
+        "reference": "5 - 40"
+      }
+    },
+    {
+      "code": "TBIL",
+      "value": 4.45,
+      "printed": {
+        "name": "Bilirubin, total",
+        "value": "0.26",
+        "unit": "mg/dL",
+        "reference": "0.20 - 1.20"
+      }
+    },
+    {
+      "code": "CRP",
+      "value": 3.5,
+      "printed": {
+        "name": "CRP",
+        "value": "3.5",
+        "unit": "mg/L",
+        "reference": "0.0 - 5.0"
+      }
+    },
+    {
+      "code": "HBA1C",
+      "value": 4.7,
+      "printed": {
+        "name": "HbA1c",
+        "value": "4.7",
+        "unit": "%",
+        "reference": "4.0 - 6.0"
+      }
+    },
+    {
+      "code": "TSH",
+      "value": 3.92,
+      "printed": {
+        "name": "TSH",
+        "value": "3.92",
+        "unit": "mIU/L",
+        "reference": "0.40 - 4.00"
+      }
+    }
+  ]
+}

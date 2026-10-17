@@ -1,0 +1,191 @@
+{
+  "doc_id": "037_citolab_pdf",
+  "file": "037_citolab_pdf.pdf",
+  "layout": "citolab",
+  "kind": "pdf",
+  "patient_name": "Иванов Данияр Болатович",
+  "birth_date": "1995-07-11",
+  "collected_at": "2026-06-28",
+  "results": [
+    {
+      "code": "HGB",
+      "value": 151.0,
+      "printed": {
+        "name": "Гемоглобин",
+        "value": "151",
+        "unit": "г/л",
+        "reference": "120 - 160"
+      }
+    },
+    {
+      "code": "RBC",
+      "value": 5.17,
+      "printed": {
+        "name": "Эритроциты",
+        "value": "5,17",
+        "unit": "×10¹²/л",
+        "reference": "3,80 - 5,30"
+      }
+    },
+    {
+      "code": "WBC",
+      "value": 5.7,
+      "printed": {
+        "name": "Лейкоциты",
+        "value": "5,7",
+        "unit": "×10⁹/л",
+        "reference": "4,0 - 9,0"
+      }
+    },
+    {
+      "code": "PLT",
+      "value": 187.0,
+      "printed": {
+        "name": "Тромбоциты",
+        "value": "187",
+        "unit": "×10⁹/л",
+        "reference": "180 - 320"
+      }
+    },
+    {
+      "code": "HCT",
+      "value": 40.3,
+      "printed": {
+        "name": "Гематокрит",
+        "value": "40,3",
+        "unit": "%",
+        "reference": "36,0 - 48,0"
+      }
+    },
+    {
+      "code": "MCV",
+      "value": 86.7,
+      "printed": {
+        "name": "Средний объём эритроцита",
+        "value": "86,7",
+        "unit": "фл",
+        "reference": "80,0 - 100,0"
+      }
+    },
+    {
+      "code": "NEUT%",
+      "value": 68.8,
+      "printed": {
+        "name": "Нейтрофилы, %",
+        "value": "68,8",
+        "unit": "%",
+        "reference": "47,0 - 72,0"
+      }
+    },
+    {
+      "code": "LYMPH%",
+      "value": 22.7,
+      "printed": {
+        "name": "Лимфоциты, %",
+        "value": "22,7",
+        "unit": "%",
+        "reference": "19,0 - 37,0"
+      }
+    },
+    {
+      "code": "ESR",
+      "value": 4.0,
+      "printed": {
+        "name": "СОЭ",
+        "value": "4",
+        "unit": "мм/ч",
+        "reference": "2 - 15"
+      }
+    },
+    {
+      "code": "GLU",
+      "value": 5.1,
+      "printed": {
+        "name": "Глюкоза",
+        "value": "5,1",
+        "unit": "ммоль/л",
+        "reference": "3,9 - 6,1"
+      }
+    },
+    {
+      "code": "CHOL",
+      "value": 1.81,
+      "printed": {
+        "name": "Холестерин общий",
+        "value": "1,81",
+        "unit": "ммоль/л",
+        "reference": "3,00 - 5,20"
+      }
+    },
+    {
+      "code": "HDL",
+      "value": 3.31,
+      "printed": {
+        "name": "ЛПВП",
+        "value": "3,31",
+        "unit": "ммоль/л",
+        "reference": "1,00 - 2,20"
+      }
+    },
+    {
+      "code": "LDL",
+      "value": 2.92,
+      "printed": {
+        "name": "ЛПНП",
+        "value": "2,92",
+        "unit": "ммоль/л",
+        "reference": "1,50 - 3,30"
+      }
+    },
+    {
+      "code": "TG",
+      "value": 1.2,
+      "printed": {
+        "name": "Триглицериды",
+        "value": "1,20",
+        "unit": "ммоль/л",
+        "reference": "0,40 - 1,70"
+      }
+    },
+    {
+      "code": "CREA",
+      "value": 90.0,
+      "printed": {
+        "name": "Креатинин",
+        "value": "90",
+        "unit": "мкмоль/л",
+        "reference": "62 - 106"
+      }
+    },
+    {
+      "code": "CRP",
+      "value": 3.0,
+      "printed": {
+        "name": "С-реактивный белок",
+        "value": "3,0",
+        "unit": "мг/л",
+        "reference": "до 5,0"
+      }
+    },
+    {
+      "code": "HBA1C",
+      "value": 4.4,
+      "printed": {
+        "name": "Гликированный гемоглобин",
+        "value": "4,4",
+        "unit": "%",
+        "reference": "4,0 - 6,0"
+      }
+    },
+    {
+      "code": "TSH",
+      "value": 2.05,
+      "printed": {
+        "name": "ТТГ",
+        "value": "2,05",
+        "unit": "мМЕ/л",
+        "reference": "0,40 - 4,00"
+      }
+    }
+  ]
+}
