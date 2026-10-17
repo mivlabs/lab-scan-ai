@@ -100,9 +100,30 @@ def test_openrouter_request_and_parse(monkeypatch):
     sent = []
     ex = OpenRouterExtractor(model="qwen/qwen2.5-vl-72b-instruct", api_key="k")
     monkeypatch.setattr(ex, "_post", lambda payload: sent.append(payload) or {
-        "choices": [{"message": {"content": json.dumps(PAYLOAD)}}], "usage": {"cost": 0.0012}})
+        "choices": [{"message": {"content": json.dumps(PAYLOAD)}, "finish_reason": "stop"}],
+        "usage": {"cost": 0.0012, "prompt_tokens": 1800, "completion_tokens": 300}})
     res = ex.extract([Image.new("RGB", (50, 50), "white")])
     body = sent[0]
     assert body["response_format"]["json_schema"]["strict"] is True
+    assert body["provider"] == {"require_parameters": True}  # без этого OpenRouter может молча убрать схему
     assert body["messages"][1]["content"][0]["image_url"]["url"].startswith("data:image/png;base64,")
     assert res.cost_usd == pytest.approx(0.0012) and len(res.report.results) == 2
+    assert res.meta == {"input_tokens": 1800, "output_tokens": 300}
+
+
+def test_openrouter_http_error_is_readable(monkeypatch):
+    import io
+    import urllib.error
+    import urllib.request
+
+    from PIL import Image
+
+    from labscan.extractors import openrouter
+
+    def boom(req, timeout):
+        raise urllib.error.HTTPError(req.full_url, 402, "Payment Required", {}, io.BytesIO(b'{"error":"no credits"}'))
+
+    monkeypatch.setattr(urllib.request, "urlopen", boom)
+    monkeypatch.setattr(openrouter, "RETRIES", 0)
+    with pytest.raises(RuntimeError, match="HTTP 402.*no credits"):
+        openrouter.OpenRouterExtractor(api_key="k").extract([Image.new("RGB", (10, 10), "white")])
