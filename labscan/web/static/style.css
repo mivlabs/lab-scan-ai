@@ -35,6 +35,10 @@ tr.need { background:var(--warn-bg); }
 .spark .band { fill:var(--ok-bg); }
 @media (max-width: 900px) { .review, .grid2, .meta { grid-template-columns:1fr; } .scan { position:static; max-height:none; } }
 .fields { overflow-x:auto; }
-.obs select { max-width:230px; }
-.raw { word-break:break-word; max-width:170px; }
+.obs select { width:100%; max-width:240px; }
+.obs td, .obs th { padding:7px 6px; }
+input.num { width:78px; }
+.obs td.unit { white-space:nowrap; }
+.raw { word-break:break-word; margin-top:4px; }
 tr.extra td { background:#fafafa; }
+@media (max-width: 1400px) { .review { grid-template-columns:1fr; } .scan { position:static; max-height:70vh; } }

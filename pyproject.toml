@@ -19,6 +19,16 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=8", "httpx>=0.27", "ruff>=0.6"]
 
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["labscan*", "synth*", "evals*"]
+
+[tool.setuptools.package-data]
+"labscan.web" = ["templates/*.html", "static/*"]
+
 [tool.ruff]
 line-length = 130
 target-version = "py311"

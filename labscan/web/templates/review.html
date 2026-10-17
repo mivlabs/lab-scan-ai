@@ -16,7 +16,7 @@
       <label>Дата взятия<input name="collected_at" value="{{ n.collected_at or '' }}" placeholder="ГГГГ-ММ-ДД" {{ 'disabled' if locked }}></label>
     </div>
     <table class="obs">
-      <thead><tr><th></th><th>Показатель</th><th>Значение</th><th>Ед.</th><th>Референс</th><th>На бланке</th></tr></thead>
+      <thead><tr><th></th><th>Показатель</th><th>Значение</th><th>Ед.</th><th>Референс</th></tr></thead>
       <tbody>
       {% for o in n.observations %}
       <tr class="{{ 'need' if o.status == 'review' }}">
@@ -25,21 +25,21 @@
               <option value="">— выбрать —</option>
               {% for a in analytes %}<option value="{{ a.code }}" {{ 'selected' if a.code == o.code }}>{{ a.name_ru }}</option>{% endfor %}
             </select>
+            <div class="raw small" title="как напечатано на бланке">на бланке: {{ o.raw.name }} · {{ o.raw.value }} {{ o.raw.unit or '' }}</div>
             {% for issue in o.issues %}<div class="issue">{{ issue }}</div>{% endfor %}</td>
         <td><input class="num {{ 'flag-' ~ o.flag if o.flag }}" name="value_{{ loop.index0 }}" value="{{ o.value|fmt(o.code) }}" {{ 'disabled' if locked }}></td>
-        <td class="muted">{{ o.unit|unit_ru }}</td>
+        <td class="muted unit">{{ o.unit|unit_ru }}</td>
         <td class="muted small">{% if o.ref_low is not none or o.ref_high is not none %}{{ o.ref_low|fmt(o.code) }}–{{ o.ref_high|fmt(o.code) }}{% endif %}</td>
-        <td class="raw small">{{ o.raw.name }}: {{ o.raw.value }} {{ o.raw.unit or '' }}</td>
       </tr>
       {% endfor %}
       {% if not locked %}
       {% for k in extra %}
       <tr class="extra">
         <td class="muted small">+</td>
-        <td><select name="code_x{{ k }}"><option value="">— добавить пропущенный показатель —</option>
+        <td><select name="code_x{{ k }}"><option value="">+ пропущенная строка</option>
               {% for a in analytes %}<option value="{{ a.code }}">{{ a.name_ru }} ({{ a.unit|unit_ru }})</option>{% endfor %}</select></td>
-        <td><input class="num" name="value_x{{ k }}" placeholder="значение"></td>
-        <td colspan="3" class="muted small">{% if loop.first %}если на скане есть строка, которой нет в таблице{% endif %}</td>
+        <td><input class="num" name="value_x{{ k }}" placeholder="число"></td>
+        <td colspan="2" class="muted small">{% if loop.first %}если на скане есть строка, которой нет в таблице{% endif %}</td>
       </tr>
       {% endfor %}
       {% endif %}

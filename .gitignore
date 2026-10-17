@@ -8,3 +8,4 @@ data/*.db
 data/uploads/
 data/mis_outbox/
 *.egg-info/
+build/
