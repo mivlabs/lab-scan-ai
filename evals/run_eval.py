@@ -74,12 +74,19 @@ def score_doc(truth: dict, norm) -> dict:
 
 
 
-def run(engine: str, data: Path, limit: int | None, only: list[str] | None = None) -> dict:
+def run(engine: str, data: Path, limit: int | None, only: list[str] | None = None,
+        previous: dict | None = None) -> dict:
+    """previous — прошлый результат этого же движка: его удачные бланки не перепрогоняются (--retry),
+    заново идут только упавшие (сеть, лимиты) и те, которых в нём не было."""
     ex = get_extractor(engine)
     ids = json.loads((data / "index.json").read_text())
     ids = [i for i in ids if i in only] if only else ids[:limit]
-    per_doc, total_cost, total_sec, total_pages = [], 0.0, 0.0, 0
+    done = {d["doc_id"]: d for d in (previous or {}).get("docs", []) if not d.get("failed") and "seconds" in d}
+    per_doc = []
     for doc_id in ids:
+        if doc_id in done:
+            per_doc.append(done[doc_id])
+            continue
         truth = json.loads((data / f"{doc_id}.json").read_text(encoding="utf-8"))
         raw = (data / truth["file"]).read_bytes()
         pages = load_pages(raw, truth["file"])
@@ -93,18 +100,18 @@ def run(engine: str, data: Path, limit: int | None, only: list[str] | None = Non
                             "extras": [], "silent_extras": [], "header_ok": False, "perfect": False,
                             "auto": False, "errors": []})
             continue
-        total_sec += time.perf_counter() - t0
-        total_cost += result.cost_usd
-        total_pages += len(pages)
         s = score_doc(truth, normalize_report(result.report))
-        s.update(doc_id=doc_id, kind=truth["kind"], layout=truth["layout"])
+        s.update(doc_id=doc_id, kind=truth["kind"], layout=truth["layout"],
+                 seconds=time.perf_counter() - t0, cost_usd=result.cost_usd, pages=len(pages))
         per_doc.append(s)
         print(f"{doc_id}: {s['cats']}{' лишние: ' + str(s['extras']) if s['extras'] else ''}"
               + ("" if s["header_ok"] else f" шапка: {s['header']['patient_name']!r} / {s['header']['collected_at']!r}"
                  f" (эталон {s['header']['truth_name']!r} / {s['header']['truth_collected_at']})"))
+    total_pages = sum(d.get("pages", 0) for d in per_doc)
     return {"engine": getattr(ex, "model", None) and f"{ex.name}:{ex.model}" or ex.name, "docs": per_doc,
-            "seconds_per_page": total_sec / max(total_pages, 1), "cost_per_page": total_cost / max(total_pages, 1),
-            "pages": total_pages}
+            "seconds_per_page": sum(d.get("seconds", 0.0) for d in per_doc) / max(total_pages, 1),
+            "cost_per_page": sum(d.get("cost_usd", 0.0) for d in per_doc) / max(total_pages, 1),
+            "pages": total_pages, "failed": [d["doc_id"] for d in per_doc if d.get("failed")]}
 
 
 def summarize(res: dict) -> str:
@@ -136,11 +143,14 @@ def summarize(res: dict) -> str:
         return f"{x * 100:.1f}%"
 
     a = stats["все"]
+    failed = res.get("failed") or []
     lines = [
         f"# Eval: {res['engine']}", "",
         f"Бланков: {a['docs']}, страниц: {res['pages']}, показателей в эталоне: {a['n_fields']}. "
         f"Время на страницу: {res['seconds_per_page']:.1f} с"
         + (f", стоимость на страницу: ${res['cost_per_page']:.4f}" if res["cost_per_page"] else ""), "",
+        *([f"Не распознаны из-за ошибки движка (все показатели посчитаны пропущенными): {', '.join(failed)}. "
+           "Повторить только их: `--retry`.", ""] if failed else []),
         "## Показатели", "", "| | доля |", "|---|---|",
         *[f"| {CAT_RU[k]} | {pct(a[k])} |" for k in CATS],
         f"| лишние строки без пометки (шт.) | {a['silent_extras']} |", "",
@@ -167,13 +177,21 @@ def main() -> None:
     ap.add_argument("--data", type=Path, default=Path("data/synth"))
     ap.add_argument("--limit", type=int)
     ap.add_argument("--only", help="id бланков через запятую, например 002_senim_scan,007_citolab_scan")
+    ap.add_argument("--retry", action="store_true",
+                    help="взять прошлый результат этого движка из --out и перепрогнать только упавшие бланки")
     ap.add_argument("--out", type=Path, default=Path("evals/results"))
     args = ap.parse_args()
     load_dotenv()
-    res = run(args.engine, args.data, args.limit, args.only.split(",") if args.only else None)
+    ex = get_extractor(args.engine)
+    tag = (getattr(ex, "model", None) and f"{ex.name}:{ex.model}" or ex.name).replace(":", "_").replace("/", "_")
+    previous = None
+    if args.retry and (args.out / f"{tag}.json").exists():
+        previous = json.loads((args.out / f"{tag}.json").read_text(encoding="utf-8"))
+        ok = [d for d in previous["docs"] if not d.get("failed")]
+        print(f"--retry: беру {len(ok)} удачных бланков из прошлого прогона, остальные заново")
+    res = run(args.engine, args.data, args.limit, args.only.split(",") if args.only else None, previous)
     md = summarize(res)
     args.out.mkdir(parents=True, exist_ok=True)
-    tag = res["engine"].replace(":", "_").replace("/", "_")
     (args.out / f"{tag}.md").write_text(md, encoding="utf-8")
     (args.out / f"{tag}.json").write_text(json.dumps(res, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
     print("\n" + md)
