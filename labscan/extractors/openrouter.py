@@ -49,6 +49,13 @@ def supported_parameters(model: str) -> set[str]:
     return _supported_params[model]
 
 
+def temperature_param(model: str) -> dict:
+    """temperature=0 только там, где параметр поддерживается: у Claude 5.x его нет, и require_parameters
+    отсекал все endpoints с ошибкой 404 «No endpoints found that can handle the requested parameters»."""
+    params = supported_parameters(model)
+    return {"temperature": 0} if not params or "temperature" in params else {}
+
+
 def reasoning_param(model: str) -> dict | None:
     """Параметр reasoning только для моделей, которые его понимают: иначе require_parameters отсечёт провайдеров."""
     if REASONING == "on" or "reasoning" not in supported_parameters(model):
@@ -94,7 +101,7 @@ class OpenRouterExtractor:
         reasoning = reasoning_param(self.model)
         data = self._post({
             "model": self.model,
-            "temperature": 0,
+            **temperature_param(self.model),
             "max_tokens": MAX_TOKENS_REASONING if reasoning else MAX_TOKENS,
             **({"reasoning": reasoning} if reasoning else {}),
             "messages": [

@@ -99,8 +99,10 @@ def test_openrouter_request_and_parse(monkeypatch):
     from labscan.extractors.openrouter import OpenRouterExtractor
 
     sent = []
-    monkeypatch.setattr(openrouter, "_supported_params", {"qwen/qwen2.5-vl-72b-instruct": {"response_format"},
-                                                          "nvidia/nemotron-3.5-super-vl:free": {"reasoning"}})
+    monkeypatch.setattr(openrouter, "_supported_params", {
+        "qwen/qwen2.5-vl-72b-instruct": {"response_format", "temperature"},
+        "nvidia/nemotron-3.5-super-vl:free": {"reasoning", "temperature"},
+        "anthropic/claude-haiku-5.5": {"reasoning", "response_format"}})
     ex = OpenRouterExtractor(model="qwen/qwen2.5-vl-72b-instruct", api_key="k")
     monkeypatch.setattr(ex, "_post", lambda payload: sent.append(payload) or {
         "choices": [{"message": {"content": json.dumps(PAYLOAD)}, "finish_reason": "stop"}],
@@ -114,6 +116,7 @@ def test_openrouter_request_and_parse(monkeypatch):
     assert res.cost_usd == pytest.approx(0.0012) and len(res.report.results) == 2
     assert res.meta == {"input_tokens": 1800, "output_tokens": 300}
     assert "reasoning" not in body  # модель без reasoning: параметр не шлём, иначе провайдеров не останется
+    assert body["temperature"] == 0
     # Рассуждающая модель: с полным reasoning она тратит весь max_tokens на размышления, по умолчанию effort=low
     ex2 = OpenRouterExtractor(model="nvidia/nemotron-3.5-super-vl:free", api_key="k")
     monkeypatch.setattr(ex2, "_post", lambda payload: sent.append(payload) or {
@@ -123,6 +126,12 @@ def test_openrouter_request_and_parse(monkeypatch):
     monkeypatch.setattr(openrouter, "REASONING", "off")
     ex2.extract([Image.new("RGB", (50, 50), "white")])
     assert sent[-1]["reasoning"] == {"enabled": False}
+    # Claude 5.x не принимает temperature: с ним require_parameters отсекает все endpoints
+    ex3 = OpenRouterExtractor(model="anthropic/claude-haiku-5.5", api_key="k")
+    monkeypatch.setattr(ex3, "_post", lambda payload: sent.append(payload) or {
+        "choices": [{"message": {"content": json.dumps(PAYLOAD)}, "finish_reason": "stop"}], "usage": {}})
+    ex3.extract([Image.new("RGB", (50, 50), "white")])
+    assert "temperature" not in sent[-1] and sent[-1]["reasoning"] == {"enabled": False}
 
 
 def test_openrouter_http_error_is_readable(monkeypatch):

@@ -1,0 +1,435 @@
+{
+ "engine": "openrouter:anthropic/claude-haiku-5.5",
+ "docs": [
+  {
+   "doc_id": "001_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 6
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "002_senim_scan",
+   "kind": "scan",
+   "layout": "senim",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 7
+   },
+   "n": 7,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "003_labone_photo",
+   "kind": "photo",
+   "layout": "labone",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 6
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "004_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 8
+   },
+   "n": 8,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "005_senim_pdf",
+   "kind": "pdf",
+   "layout": "senim",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 14
+   },
+   "n": 14,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "006_labone_pdf",
+   "kind": "pdf",
+   "layout": "labone",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 15
+   },
+   "n": 15,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "007_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 7
+   },
+   "n": 7,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "008_senim_photo",
+   "kind": "photo",
+   "layout": "senim",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 9
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "009_labone_photo",
+   "kind": "photo",
+   "layout": "labone",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 8
+   },
+   "n": 8,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "010_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 6
+   },
+   "n": 6,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "011_senim_scan",
+   "kind": "scan",
+   "layout": "senim",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 9
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "012_labone_scan",
+   "kind": "scan",
+   "layout": "labone",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 9
+   },
+   "n": 9,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "013_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 7
+   },
+   "n": 7,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "014_senim_scan",
+   "kind": "scan",
+   "layout": "senim",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 10
+   },
+   "n": 10,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "015_labone_pdf",
+   "kind": "pdf",
+   "layout": "labone",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 20
+   },
+   "n": 20,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "016_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 13
+   },
+   "n": 13,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "017_senim_pdf",
+   "kind": "pdf",
+   "layout": "senim",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 15
+   },
+   "n": 15,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "018_labone_photo",
+   "kind": "photo",
+   "layout": "labone",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 11
+   },
+   "n": 11,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "019_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 12
+   },
+   "n": 12,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  },
+  {
+   "doc_id": "020_senim_photo",
+   "kind": "photo",
+   "layout": "senim",
+   "failed": "OpenRouter HTTP 404: {\"error\":{\"message\":\"No endpoints found that can handle the requested parameters. To learn more about provider routing, visit: https://openrouter.ai/docs/guides/routing/provider-selection\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":10},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":5}],\"failed_routing_step\":\"Filter by Parameters\"}}}",
+   "cats": {
+    "missed": 10
+   },
+   "n": 10,
+   "extras": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "perfect": false,
+   "auto": false,
+   "errors": []
+  }
+ ],
+ "seconds_per_page": 0.0,
+ "cost_per_page": 0.0,
+ "pages": 0,
+ "summary": {
+  "все": {
+   "n_fields": 202,
+   "correct_auto": 0.0,
+   "correct_review": 0.0,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 1.0,
+   "silent_extras": 0,
+   "perfect": 0.0,
+   "auto": 0.0,
+   "auto_and_perfect": 0.0,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.0,
+   "docs": 20
+  },
+  "PDF": {
+   "n_fields": 64,
+   "correct_auto": 0.0,
+   "correct_review": 0.0,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 1.0,
+   "silent_extras": 0,
+   "perfect": 0.0,
+   "auto": 0.0,
+   "auto_and_perfect": 0.0,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.0,
+   "docs": 4
+  },
+  "citolab": {
+   "n_fields": 59,
+   "correct_auto": 0.0,
+   "correct_review": 0.0,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 1.0,
+   "silent_extras": 0,
+   "perfect": 0.0,
+   "auto": 0.0,
+   "auto_and_perfect": 0.0,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.0,
+   "docs": 7
+  },
+  "labone": {
+   "n_fields": 69,
+   "correct_auto": 0.0,
+   "correct_review": 0.0,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 1.0,
+   "silent_extras": 0,
+   "perfect": 0.0,
+   "auto": 0.0,
+   "auto_and_perfect": 0.0,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.0,
+   "docs": 6
+  },
+  "senim": {
+   "n_fields": 74,
+   "correct_auto": 0.0,
+   "correct_review": 0.0,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 1.0,
+   "silent_extras": 0,
+   "perfect": 0.0,
+   "auto": 0.0,
+   "auto_and_perfect": 0.0,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.0,
+   "docs": 7
+  },
+  "скан": {
+   "n_fields": 81,
+   "correct_auto": 0.0,
+   "correct_review": 0.0,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 1.0,
+   "silent_extras": 0,
+   "perfect": 0.0,
+   "auto": 0.0,
+   "auto_and_perfect": 0.0,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.0,
+   "docs": 9
+  },
+  "фото": {
+   "n_fields": 57,
+   "correct_auto": 0.0,
+   "correct_review": 0.0,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 1.0,
+   "silent_extras": 0,
+   "perfect": 0.0,
+   "auto": 0.0,
+   "auto_and_perfect": 0.0,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.0,
+   "docs": 7
+  }
+ }
+}
