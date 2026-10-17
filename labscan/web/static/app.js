@@ -58,8 +58,35 @@
     stage.addEventListener("dblclick", function () { setZoom(zoom === 1 ? 2 : 1); });
   }
 
-  // ---- проверка: горячие клавиши ----
+  // ---- проверка: подсветка на скане строки, из которой взято значение ----
   var form = document.getElementById("review-form");
+  function highlight(tr) {
+    if (!stage) return;
+    stage.querySelectorAll(".hl").forEach(function (h) { h.remove(); });
+    if (!tr || !tr.dataset.box) return;
+    var fig = stage.querySelectorAll("figure")[parseInt(tr.dataset.page || "0", 10)];
+    if (!fig) return;
+    var b = tr.dataset.box.split(",").map(Number);
+    var pad = 0.004;
+    var hl = document.createElement("div");
+    hl.className = "hl";
+    hl.style.left = ((b[0] - pad) * 100) + "%";
+    hl.style.top = ((b[1] - pad) * 100) + "%";
+    hl.style.width = ((b[2] - b[0] + 2 * pad) * 100) + "%";
+    hl.style.height = ((b[3] - b[1] + 2 * pad) * 100) + "%";
+    fig.appendChild(hl);
+    var target = fig.offsetTop + (b[1] + b[3]) / 2 * fig.clientHeight - stage.clientHeight / 2;
+    stage.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+  }
+  if (form && stage) {
+    form.addEventListener("focusin", function (e) { highlight(e.target.closest("tr")); });
+    form.addEventListener("click", function (e) {
+      var tr = e.target.closest("tr");
+      if (tr && tr.dataset.box && !e.target.closest("input, select")) highlight(tr);
+    });
+  }
+
+  // ---- проверка: горячие клавиши ----
   if (form) {
     document.addEventListener("keydown", function (e) {
       var tag = (e.target.tagName || "").toLowerCase();

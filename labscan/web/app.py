@@ -183,8 +183,10 @@ def review(doc_id: int, request: Request, s: Session = Depends(db)):
     stats = {"rows": total, "need": need, "ok": total - need,
              "manual_sec": total * MANUAL_SEC_PER_ROW, "review_sec": need * REVIEW_SEC_PER_ROW,
              "manual_per_row": MANUAL_SEC_PER_ROW, "review_per_row": REVIEW_SEC_PER_ROW}
+    has_boxes = any(o["raw"].get("box") for o in n["observations"])
     return templates.TemplateResponse(request, "review.html", {
-        "doc": doc, "n": n, "pages": range(pages), "analytes": ANALYTES, "extra": range(EXTRA_ROWS), "stats": stats})
+        "doc": doc, "n": n, "pages": range(pages), "analytes": ANALYTES, "extra": range(EXTRA_ROWS), "stats": stats,
+        "has_boxes": has_boxes})
 
 
 @app.get("/documents/{doc_id}/page/{n}.png")

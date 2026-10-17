@@ -16,6 +16,9 @@ class RawResult(BaseModel):
     unit: str | None = Field(default=None, description="Единица как напечатана, например 'г/л' или 'x10^9/л'")
     reference: str | None = Field(default=None, description="Референсный интервал как напечатан, например '120 - 160'")
     legible: bool = Field(default=True, description="false, если значение читается неуверенно")
+    box: list[float] | None = Field(default=None, description="Где строка на странице: [x0, y0, x1, y1] в долях "
+                                    "ширины и высоты от 0 до 1, левый верхний угол в (0, 0)")
+    page: int | None = Field(default=None, description="Номер страницы с нуля; проставляется при склейке страниц")
 
 
 class RawReport(BaseModel):

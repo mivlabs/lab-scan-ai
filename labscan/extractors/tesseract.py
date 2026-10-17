@@ -2,16 +2,20 @@
 
 Нужна, чтобы честно показать, что даёт LLM: на чистых сканах OCR справляется
 неплохо, на фото и нестандартных единицах ломается. Работает офлайн и бесплатно.
+Координаты строк из TSV пересчитываются обратно в исходную страницу, чтобы экран
+проверки мог подсветить, откуда взято значение.
 """
 
 from __future__ import annotations
 
 import csv
 import io
+import math
 import re
 import shutil
 import subprocess
 import time
+from dataclasses import dataclass
 
 import numpy as np
 from PIL import Image, ImageOps
@@ -30,12 +34,44 @@ _HEADER = {
 }
 LOW_CONF = 60
 
+Box = tuple[float, float, float, float]  # x0, y0, x1, y1 в пикселях
+Word = tuple[str, float] | tuple[str, float, Box]
+
 
 def available() -> bool:
     return shutil.which("tesseract") is not None
 
 
-def deskew(img: Image.Image) -> Image.Image:
+@dataclass(frozen=True)
+class Transform:
+    """Что сделал preprocess с картинкой, чтобы вернуть координаты OCR в исходную страницу."""
+
+    angle: float  # угол deskew в градусах, как в Image.rotate (против часовой), 0 — не поворачивали
+    orig: tuple[int, int]  # размер исходной страницы
+    rotated: tuple[int, int]  # размер после rotate(expand=True)
+    scale: float = 1.0  # во сколько раз увеличили после поворота
+
+    def to_page(self, box: Box) -> list[float]:
+        """Прямоугольник в обработанном изображении -> доли ширины и высоты исходной страницы."""
+        x0, y0, x1, y1 = (v / self.scale for v in box)
+        pts = [self._unrotate(x, y) for x, y in ((x0, y0), (x1, y0), (x0, y1), (x1, y1))]
+        w, h = self.orig
+        xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+        return [round(min(max(v, 0.0), 1.0), 4) for v in (min(xs) / w, min(ys) / h, max(xs) / w, max(ys) / h)]
+
+    def _unrotate(self, x: float, y: float) -> tuple[float, float]:
+        if not self.angle:
+            return x, y
+        # Image.rotate поворачивает вокруг центра и центрирует результат на расширенном холсте.
+        # Обратный поворот на тот же угол возвращает точку в систему исходной страницы.
+        a = math.radians(self.angle)
+        cx, cy = self.rotated[0] / 2, self.rotated[1] / 2
+        dx, dy = x - cx, y - cy
+        ox, oy = self.orig[0] / 2, self.orig[1] / 2
+        return ox + dx * math.cos(a) - dy * math.sin(a), oy + dx * math.sin(a) + dy * math.cos(a)
+
+
+def deskew_angle(img: Image.Image) -> float:
     """Подбор угла поворота по максимуму «полосатости» горизонтальной проекции."""
     small = ImageOps.grayscale(img)
     small.thumbnail((800, 800))
@@ -46,9 +82,12 @@ def deskew(img: Image.Image) -> Image.Image:
         score = float(np.var(rot.sum(axis=1)))
         if score > best:
             best, best_angle = score, float(angle)
-    if abs(best_angle) < 0.25:
-        return img
-    return img.rotate(best_angle, resample=Image.BICUBIC, expand=True, fillcolor="white")
+    return 0.0 if abs(best_angle) < 0.25 else best_angle
+
+
+def deskew(img: Image.Image) -> Image.Image:
+    angle = deskew_angle(img)
+    return img if not angle else img.rotate(angle, resample=Image.BICUBIC, expand=True, fillcolor="white")
 
 
 def remove_rules(g: Image.Image, min_len: int = 80) -> Image.Image:
@@ -76,32 +115,50 @@ def remove_rules(g: Image.Image, min_len: int = 80) -> Image.Image:
     return Image.fromarray(out)
 
 
-def preprocess(img: Image.Image) -> Image.Image:
-    g = remove_rules(ImageOps.autocontrast(ImageOps.grayscale(deskew(img)), cutoff=1))
+def preprocess(img: Image.Image) -> tuple[Image.Image, Transform]:
+    angle = deskew_angle(img)
+    rot = img if not angle else img.rotate(angle, resample=Image.BICUBIC, expand=True, fillcolor="white")
+    g = remove_rules(ImageOps.autocontrast(ImageOps.grayscale(rot), cutoff=1))
+    scale = 1.0
     if g.width < 2000:
-        g = g.resize((int(g.width * 1.6), int(g.height * 1.6)), Image.LANCZOS)
-    return ImageOps.autocontrast(g, cutoff=1)
+        scale = 1.6
+        g = g.resize((int(g.width * scale), int(g.height * scale)), Image.LANCZOS)
+    return ImageOps.autocontrast(g, cutoff=1), Transform(angle, img.size, rot.size, scale)
 
 
-def _ocr_lines(img: Image.Image) -> list[list[tuple[str, float]]]:
+def parse_tsv(out: str) -> list[list[Word]]:
+    """TSV Tesseract -> строки из слов (текст, уверенность, прямоугольник)."""
+    lines: dict[tuple[int, int, int], list[Word]] = {}
+    for row in csv.DictReader(io.StringIO(out), delimiter="\t", quoting=csv.QUOTE_NONE):
+        text = (row.get("text") or "").strip()
+        if not text or text in {"|", "‘", "—"}:
+            continue
+        key = (int(row["block_num"]), int(row["par_num"]), int(row["line_num"]))
+        left, top = float(row["left"]), float(row["top"])
+        box = (left, top, left + float(row["width"]), top + float(row["height"]))
+        lines.setdefault(key, []).append((text.strip("|"), float(row["conf"]), box))
+    return [ws for _, ws in sorted(lines.items()) if ws]
+
+
+def _ocr_lines(img: Image.Image) -> list[list[Word]]:
     buf = io.BytesIO()
     img.save(buf, "PNG")
     out = subprocess.run(
         ["tesseract", "stdin", "stdout", "-l", "rus+eng", "--psm", "6", "tsv"],
         input=buf.getvalue(), capture_output=True, check=True,
     ).stdout.decode("utf-8", "replace")
-    lines: dict[tuple[int, int, int], list[tuple[str, float]]] = {}
-    for row in csv.DictReader(io.StringIO(out), delimiter="\t", quoting=csv.QUOTE_NONE):
-        text = (row.get("text") or "").strip()
-        if not text or text in {"|", "‘", "—"}:
-            continue
-        key = (int(row["block_num"]), int(row["par_num"]), int(row["line_num"]))
-        lines.setdefault(key, []).append((text.strip("|"), float(row["conf"])))
-    return [ws for _, ws in sorted(lines.items()) if ws]
+    return parse_tsv(out)
 
 
-def parse_line(words: list[tuple[str, float]]) -> RawResult | None:
-    tokens = [w for w, _ in words if w]
+def _union(words: list[Word]) -> Box | None:
+    boxes = [w[2] for w in words if len(w) > 2]
+    if not boxes:
+        return None
+    return min(b[0] for b in boxes), min(b[1] for b in boxes), max(b[2] for b in boxes), max(b[3] for b in boxes)
+
+
+def parse_line(words: list[Word]) -> RawResult | None:
+    tokens = [w[0] for w in words if w[0]]
     for i, tok in enumerate(tokens):
         if i == 0 or not _VALUE_TOKEN.match(tok):
             continue
@@ -117,14 +174,16 @@ def parse_line(words: list[tuple[str, float]]) -> RawResult | None:
         ref = m.group(1) if m else None
         unit = (rest[:m.start()] if m else rest).strip(" ()") or None
         conf = words[i][1]
-        return RawResult(name=name, value=tok, unit=unit, reference=ref, legible=conf >= LOW_CONF)
+        box = _union(words)
+        return RawResult(name=name, value=tok, unit=unit, reference=ref, legible=conf >= LOW_CONF,
+                         box=list(box) if box else None)
     return None
 
 
-def parse_page(lines: list[list[tuple[str, float]]]) -> RawReport:
+def parse_page(lines: list[list[Word]], transform: Transform | None = None) -> RawReport:
     report = RawReport()
     for words in lines:
-        text = " ".join(w for w, _ in words)
+        text = " ".join(w[0] for w in words)
         for field, rx in _HEADER.items():
             m = rx.search(text)
             if m and getattr(report, field) is None:
@@ -133,9 +192,11 @@ def parse_page(lines: list[list[tuple[str, float]]]) -> RawReport:
         else:
             r = parse_line(words)
             if r:
+                if r.box and transform:
+                    r.box = transform.to_page(tuple(r.box))
                 report.results.append(r)
     if lines:
-        report.lab_name = " ".join(w for w, _ in lines[0])
+        report.lab_name = " ".join(w[0] for w in lines[0])
     return report
 
 
@@ -144,5 +205,8 @@ class TesseractExtractor:
 
     def extract(self, pages: list[Image.Image]) -> Extraction:
         t0 = time.perf_counter()
-        reports = [parse_page(_ocr_lines(preprocess(p))) for p in pages]
+        reports = []
+        for p in pages:
+            g, tr = preprocess(p)
+            reports.append(parse_page(_ocr_lines(g), tr))
         return Extraction(merge_pages(reports), self.name, time.perf_counter() - t0)

@@ -26,9 +26,12 @@ class Extractor(Protocol):
 def merge_pages(reports: list[RawReport]) -> RawReport:
     """Шапку берём с первой страницы, где она есть; показатели склеиваем."""
     merged = RawReport()
-    for r in reports:
+    for i, r in enumerate(reports):
         for f in ("lab_name", "patient_name", "birth_date", "collected_at"):
             if getattr(merged, f) is None and getattr(r, f):
                 setattr(merged, f, getattr(r, f))
+        for res in r.results:
+            if res.page is None:
+                res.page = i
         merged.results.extend(r.results)
     return merged

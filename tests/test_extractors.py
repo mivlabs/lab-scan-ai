@@ -127,3 +127,63 @@ def test_openrouter_http_error_is_readable(monkeypatch):
     monkeypatch.setattr(openrouter, "RETRIES", 0)
     with pytest.raises(RuntimeError, match="HTTP 402.*no credits"):
         openrouter.OpenRouterExtractor(api_key="k").extract([Image.new("RGB", (10, 10), "white")])
+
+
+def test_transform_maps_ocr_box_back_to_page():
+    """Точка на странице -> поворот как в preprocess -> её координаты в OCR -> обратно в доли страницы."""
+    import numpy as np
+    from PIL import Image, ImageDraw
+
+    from labscan.extractors.tesseract import Transform
+
+    w, h, px, py = 600, 800, 450, 200
+    for angle in (3.0, -4.5, 0.0):
+        img = Image.new("L", (w, h), 255)
+        ImageDraw.Draw(img).rectangle((px - 3, py - 3, px + 3, py + 3), fill=0)
+        rot = img if not angle else img.rotate(angle, resample=Image.BICUBIC, expand=True, fillcolor=255)
+        ys, xs = np.nonzero(np.asarray(rot) < 128)
+        scale = 1.6
+        tr = Transform(angle, img.size, rot.size, scale)
+        fx, fy = xs.mean() * scale, ys.mean() * scale
+        x0, y0, x1, y1 = tr.to_page((fx - 5, fy - 5, fx + 5, fy + 5))
+        assert abs((x0 + x1) / 2 * w - px) < 1.5 and abs((y0 + y1) / 2 * h - py) < 1.5
+        assert 0 <= x0 < x1 <= 1 and 0 <= y0 < y1 <= 1
+
+
+def test_parse_tsv_gives_line_boxes_in_page_fractions():
+    from labscan.extractors.tesseract import Transform, parse_page, parse_tsv
+
+    head = "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext"
+    rows = [(1, "Гемоглобин", 100, 500, 200, 30, 96), (1, "135", 420, 500, 50, 30, 92), (1, "г/л", 500, 502, 40, 28, 90),
+            (1, "(120", 600, 500, 60, 30, 88), (1, "-", 670, 500, 10, 30, 80), (1, "160)", 690, 500, 60, 30, 91),
+            (2, "Заказ", 100, 600, 80, 30, 95), (2, "№:", 190, 600, 30, 30, 95), (2, "677814", 230, 600, 90, 30, 95)]
+    tsv = "\n".join([head] + [f"5\t1\t1\t1\t{ln}\t{i}\t{left}\t{t}\t{w}\t{h}\t{c}\t{txt}"
+                              for i, (ln, txt, left, t, w, h, c) in enumerate(rows)])
+    lines = parse_tsv(tsv)
+    assert [len(ws) for ws in lines] == [6, 3] and lines[0][0][2] == (100.0, 500.0, 300.0, 530.0)
+    report = parse_page(lines, Transform(0.0, (1000, 2000), (1000, 2000), 1.6))
+    assert len(report.results) == 1
+    r = report.results[0]
+    assert r.name == "Гемоглобин" and r.value == "135" and r.unit == "г/л" and r.reference == "120 - 160"
+    # объединённый прямоугольник строки 100..750 x 500..530 в OCR-пикселях, делённый на 1.6 и на размер страницы
+    expected = [100 / 1.6 / 1000, 500 / 1.6 / 2000, 750 / 1.6 / 1000, 530 / 1.6 / 2000]
+    assert r.box == [round(v, 4) for v in expected]
+
+
+def test_schema_box_only_on_request(monkeypatch):
+    monkeypatch.delenv("LABSCAN_LLM_BOX", raising=False)
+    default = report_json_schema()["properties"]["results"]["items"]
+    assert "box" not in default["properties"] and "page" not in default["properties"]
+    with_box = report_json_schema(with_box=True)["properties"]["results"]["items"]
+    assert "box" in with_box["properties"] and "box" in with_box["required"] and "page" not in with_box["properties"]
+    monkeypatch.setenv("LABSCAN_LLM_BOX", "1")
+    assert "box" in report_json_schema()["properties"]["results"]["items"]["properties"]
+
+
+def test_merge_pages_numbers_pages():
+    from labscan.extractors.base import merge_pages
+    from labscan.schema import RawReport, RawResult
+
+    merged = merge_pages([RawReport(results=[RawResult(name="a", value="1")]),
+                          RawReport(results=[RawResult(name="b", value="2"), RawResult(name="c", value="3", page=7)])])
+    assert [r.page for r in merged.results] == [0, 1, 7]

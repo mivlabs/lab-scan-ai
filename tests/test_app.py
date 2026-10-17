@@ -14,7 +14,7 @@ class StubExtractor:
         return Extraction(RawReport(
             lab_name="ЦитоЛаб", patient_name="Иванова Мария Петровна", birth_date="01.02.1990",
             collected_at="10.10.2026", results=[
-                RawResult(name="Гемоглобин", value="118", unit="г/л", reference="120 - 160"),
+                RawResult(name="Гемоглобин", value="118", unit="г/л", reference="120 - 160", box=[0.1, 0.2, 0.5, 0.25]),
                 RawResult(name="Глюкоза", value="52", unit="ммоль/л", reference="3,9 - 6,1"),  # неправдоподобно
             ]), "stub", 0.1)
 
@@ -93,6 +93,7 @@ def test_review_groups_rows_and_counts(client):
     assert "Требует внимания" in page and "Прочитано уверенно" in page
     assert 'name="value_0"' in page and 'name="value_1"' in page  # индексы строк не меняются после группировки
     assert 'class="need"' in page and 'class="row-ok"' in page
+    assert 'data-box="0.1,0.2,0.5,0.25" data-page="0"' in page and "подсвечена на скане" in page
 
 
 def test_chart_svg():

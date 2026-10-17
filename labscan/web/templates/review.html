@@ -3,7 +3,7 @@
 {% block bodyclass %}page-review{% endblock %}
 
 {% macro row(o, i, locked, analytes) %}
-<tr class="{{ 'need' if o.status == 'review' else 'row-ok' }}">
+<tr class="{{ 'need' if o.status == 'review' else 'row-ok' }}"{% if o.raw.box %} data-box="{{ o.raw.box|join(',') }}" data-page="{{ o.raw.page or 0 }}"{% endif %}>
   <td class="sel"><input type="checkbox" name="include_{{ i }}" {{ 'checked' if o.code }} {{ 'disabled' if locked }} title="Записать в карту"></td>
   <td class="an">
     <select name="code_{{ i }}" {{ 'disabled' if locked }}>
@@ -110,7 +110,7 @@
         <a class="btn" href="/patients/{{ doc.patient_id }}">Открыть карту пациента</a>
         <a class="btn ghost" href="/api/documents/{{ doc.id }}/fhir">FHIR Bundle</a>
       {% else %}
-        <div class="hotkeys muted small"><kbd>Enter</kbd> подтвердить <kbd>Tab</kbd> следующее поле <kbd>+</kbd><kbd>−</kbd> масштаб скана</div>
+        <div class="hotkeys muted small"><kbd>Enter</kbd> подтвердить <kbd>Tab</kbd> следующее поле <kbd>+</kbd><kbd>−</kbd> масштаб скана{% if has_boxes %} <span class="hl-hint">строка в фокусе подсвечена на скане</span>{% endif %}</div>
         <button class="btn primary" type="submit">Подтвердить и записать в карту</button>
       {% endif %}
     </div>

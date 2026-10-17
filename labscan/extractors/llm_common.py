@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import copy
+import os
 
 from ..schema import RawReport
 
@@ -55,5 +56,14 @@ def _strictify(node):
     return node
 
 
-def report_json_schema() -> dict:
-    return _strictify(_inline_refs(RawReport.model_json_schema()))
+def report_json_schema(with_box: bool | None = None) -> dict:
+    """Схема для модели. Поле page проставляет код при склейке страниц, а box модель заполняет только
+    при LABSCAN_LLM_BOX=1: просить координаты у каждой модели можно, но точность этого ещё не измерена."""
+    if with_box is None:
+        with_box = os.getenv("LABSCAN_LLM_BOX") == "1"
+    schema = _inline_refs(RawReport.model_json_schema())
+    item = schema["properties"]["results"]["items"]["properties"]
+    item.pop("page", None)
+    if not with_box:
+        item.pop("box", None)
+    return _strictify(schema)

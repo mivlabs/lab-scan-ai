@@ -177,6 +177,10 @@ tr:last-child td { border-bottom: 0; }
 .scan-stage { --zoom: 1; overflow: auto; background: var(--scan-bg); padding: 12px; flex: 1; }
 .scan-stage figure { margin: 0 0 12px; width: calc(100% * var(--zoom)); position: relative; }
 .scan-stage img { display: block; width: 100%; box-shadow: var(--shadow-lg); background: #fff; border-radius: 3px; }
+.scan-stage .hl { position: absolute; border: 2px solid var(--accent); border-radius: 3px; background: color-mix(in srgb, var(--accent) 16%, transparent); box-shadow: 0 0 0 1px rgba(255, 255, 255, .7), 0 0 0 999px color-mix(in srgb, var(--scan-bg) 18%, transparent); pointer-events: none; animation: hl-in .25s ease-out; }
+@keyframes hl-in { from { transform: scale(1.08); opacity: .4; } to { transform: none; opacity: 1; } }
+.scan-stage figure { overflow: hidden; }
+.hl-hint::before { content: "·"; margin: 0 6px 0 2px; }
 .scan-stage figcaption { position: absolute; top: 8px; left: 8px; font-size: 11px; padding: 2px 7px; border-radius: 999px; background: rgba(22, 33, 43, .72); color: #fff; }
 
 .fields { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 18px 20px 16px; box-shadow: var(--shadow); min-width: 0; }
