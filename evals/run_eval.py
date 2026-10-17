@@ -19,6 +19,7 @@ from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 
+from labscan.env import load_dotenv
 from labscan.extractors import get_extractor
 from labscan.ingest import load_pages
 from labscan.normalize import normalize_report
@@ -168,6 +169,7 @@ def main() -> None:
     ap.add_argument("--only", help="id бланков через запятую, например 002_senim_scan,007_citolab_scan")
     ap.add_argument("--out", type=Path, default=Path("evals/results"))
     args = ap.parse_args()
+    load_dotenv()
     res = run(args.engine, args.data, args.limit, args.only.split(",") if args.only else None)
     md = summarize(res)
     args.out.mkdir(parents=True, exist_ok=True)

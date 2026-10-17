@@ -21,6 +21,7 @@ from sqlalchemy.orm import Session
 
 from ..catalog import ANALYTES, BY_CODE, UNIT_LABELS_RU, Analyte
 from ..db import Correction, Document, EngineRun, ObservationRow, Patient, find_or_create_patient, make_session_factory
+from ..env import load_dotenv
 from ..extractors import available_engines, get_extractor
 from ..fhir import to_bundle
 from ..ingest import load_pages
@@ -28,6 +29,7 @@ from ..mis import OutboxMIS
 from ..normalize import normalize_report, parse_date, parse_number
 from ..schema import Flag
 
+load_dotenv()  # ключи и модель из .env в папке проекта, если не заданы в окружении
 DATA = Path(os.getenv("LABSCAN_DATA", "data"))
 UPLOADS = DATA / "uploads"
 UPLOADS.mkdir(parents=True, exist_ok=True)
