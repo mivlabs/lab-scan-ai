@@ -114,10 +114,13 @@ def test_openrouter_request_and_parse(monkeypatch):
     assert res.cost_usd == pytest.approx(0.0012) and len(res.report.results) == 2
     assert res.meta == {"input_tokens": 1800, "output_tokens": 300}
     assert "reasoning" not in body  # модель без reasoning: параметр не шлём, иначе провайдеров не останется
-    # Рассуждающая модель: без reasoning.enabled=false она тратит весь max_tokens на размышления
+    # Рассуждающая модель: с полным reasoning она тратит весь max_tokens на размышления, по умолчанию effort=low
     ex2 = OpenRouterExtractor(model="nvidia/nemotron-3.5-super-vl:free", api_key="k")
     monkeypatch.setattr(ex2, "_post", lambda payload: sent.append(payload) or {
         "choices": [{"message": {"content": json.dumps(PAYLOAD)}, "finish_reason": "stop"}], "usage": {}})
+    ex2.extract([Image.new("RGB", (50, 50), "white")])
+    assert sent[-1]["reasoning"] == {"effort": "low"} and sent[-1]["max_tokens"] == 12000
+    monkeypatch.setattr(openrouter, "REASONING", "off")
     ex2.extract([Image.new("RGB", (50, 50), "white")])
     assert sent[-1]["reasoning"] == {"enabled": False}
 

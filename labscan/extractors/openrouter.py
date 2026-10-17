@@ -24,14 +24,16 @@ DEFAULT_MODEL = "qwen/qwen2.5-vl-72b-instruct"
 URL = "https://openrouter.ai/api/v1/chat/completions"
 MODELS_URL = "https://openrouter.ai/api/v1/models"
 # Переписывание бланка — не задача на рассуждение. Рассуждающие модели (Nemotron, Qwen3-thinking, Gemini)
-# без этого тратят весь max_tokens на размышления и отдают пустой JSON. off | low | on
-REASONING = os.getenv("LABSCAN_OPENROUTER_REASONING", "off")
+# с полным reasoning тратят весь лимит на размышления и отдают пустой JSON; с выключенным (off) Nemotron
+# помечал каждое значение как неуверенное. По умолчанию короткое рассуждение: off | low | medium | high | on
+REASONING = os.getenv("LABSCAN_OPENROUTER_REASONING", "low")
 _supported_params: dict[str, set[str]] = {}
 RETRIES = 3
 RETRY_CODES = {408, 429, 500, 502, 503, 504}
 # Бланк на 20 строк — это ~1000 токенов JSON. Без явного max_tokens OpenRouter резервирует весь лимит модели
 # (100k+ токенов) и отказывает при маленьком балансе: «requires more credits, or fewer max_tokens».
 MAX_TOKENS = int(os.getenv("LABSCAN_OPENROUTER_MAX_TOKENS", "4000"))
+MAX_TOKENS_REASONING = int(os.getenv("LABSCAN_OPENROUTER_MAX_TOKENS_REASONING", "12000"))  # размышления входят в лимит
 
 
 def supported_parameters(model: str) -> set[str]:
@@ -93,7 +95,7 @@ class OpenRouterExtractor:
         data = self._post({
             "model": self.model,
             "temperature": 0,
-            "max_tokens": MAX_TOKENS,
+            "max_tokens": MAX_TOKENS_REASONING if reasoning else MAX_TOKENS,
             **({"reasoning": reasoning} if reasoning else {}),
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT},
