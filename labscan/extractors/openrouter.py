@@ -20,7 +20,8 @@ from ..schema import RawReport
 from .base import Extraction, merge_pages
 from .llm_common import SYSTEM_PROMPT, USER_PROMPT, report_json_schema
 
-DEFAULT_MODEL = "qwen/qwen2.5-vl-72b-instruct"
+# По eval на 20 синтетических бланках (evals/results/comparison.md): 100% верно, 0 тихих ошибок, $0.0008 за страницу
+DEFAULT_MODEL = "anthropic/claude-haiku-5.5"
 URL = "https://openrouter.ai/api/v1/chat/completions"
 MODELS_URL = "https://openrouter.ai/api/v1/models"
 # Переписывание бланка — не задача на рассуждение. Рассуждающие модели (Nemotron, Qwen3-thinking, Gemini)

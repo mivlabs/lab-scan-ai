@@ -6,7 +6,7 @@ services:
       LABSCAN_ENGINE: ${LABSCAN_ENGINE:-auto}
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
-      LABSCAN_OPENROUTER_MODEL: ${LABSCAN_OPENROUTER_MODEL:-qwen/qwen2.5-vl-72b-instruct}
+      LABSCAN_OPENROUTER_MODEL: ${LABSCAN_OPENROUTER_MODEL:-anthropic/claude-haiku-5.5}
       OLLAMA_HOST: http://ollama:11434
     volumes: ["labscan-data:/data"]
 

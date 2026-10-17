@@ -203,7 +203,8 @@ def main() -> None:
     if (args.retry or args.rescore) and (args.out / f"{tag}.json").exists():
         previous = json.loads((args.out / f"{tag}.json").read_text(encoding="utf-8"))
         ok = [d for d in previous["docs"] if not d.get("failed")]
-        print(f"--retry: беру {len(ok)} удачных бланков из прошлого прогона, остальные заново")
+        print(f"--{'rescore' if args.rescore else 'retry'}: беру {len(ok)} удачных бланков из прошлого прогона"
+              + (", пересчитываю их без модели" if args.rescore else ", остальные заново"))
     res = run(args.engine, args.data, args.limit, args.only.split(",") if args.only else None, previous, args.rescore)
     md = summarize(res)
     args.out.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,2743 @@
+{
+ "engine": "openrouter:openai/gpt-4o-mini",
+ "docs": [
+  {
+   "cats": {
+    "correct_auto": 6
+   },
+   "n": 6,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Ким Ерлан Серикович",
+    "collected_at": "2026-09-21",
+    "truth_name": "Ким Ерлан Серикович",
+    "truth_collected_at": "2026-09-21"
+   },
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "001_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab",
+   "seconds": 13.080940000000737,
+   "cost_usd": 0.0059319,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "ЦитоЛаб — медицинская лаборатория",
+    "patient_name": "Ким Ерлан Серикович",
+    "birth_date": "12.02.1997",
+    "collected_at": "21.09.2026",
+    "results": [
+     {
+      "name": "Гемоглобин",
+      "value": "132",
+      "unit": "г/л",
+      "reference": "120 - 160",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гематокрит",
+      "value": "44,2",
+      "unit": "%",
+      "reference": "36,0 - 48,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Средний объём эритроцита",
+      "value": "94,3",
+      "unit": "фл",
+      "reference": "80,0 - 100,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Нейтрофилы, %",
+      "value": "55,7",
+      "unit": "%",
+      "reference": "47,0 - 72,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Лимфоциты, %",
+      "value": "25,4",
+      "unit": "%",
+      "reference": "19,0 - 37,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "СОЭ",
+      "value": "8",
+      "unit": "мм/ч",
+      "reference": "2 - 15",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 7
+   },
+   "n": 7,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Сериков Ерлан Петрович",
+    "collected_at": "2026-03-28",
+    "truth_name": "Сериков Ерлан Петрович",
+    "truth_collected_at": "2026-03-28"
+   },
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "002_senim_scan",
+   "kind": "scan",
+   "layout": "senim",
+   "seconds": 7.459727899999962,
+   "cost_usd": 0.0058629,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "КДЛ «Сенім», г. Астана",
+    "patient_name": "Сериков Ерлан Петрович",
+    "birth_date": "30.05.1983",
+    "collected_at": "28.03.2026",
+    "results": [
+     {
+      "name": "Гемоглобин (HGB)",
+      "value": "88",
+      "unit": "г/л",
+      "reference": "(120 - 160)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Эритроциты (RBC)",
+      "value": "5.23",
+      "unit": "x10^12/л",
+      "reference": "(3.80 - 5.30)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Лейкоциты (WBC)",
+      "value": "6.6",
+      "unit": "x10^9/л",
+      "reference": "(4.0 - 9.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гематокрит (HCT)",
+      "value": "44.1",
+      "unit": "%",
+      "reference": "(36.0 - 48.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Средний объём эритроцита (MCV)",
+      "value": "117.0",
+      "unit": "фл",
+      "reference": "(80.0 - 100.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Нейтрофилы (NEUT)",
+      "value": "66.9",
+      "unit": "%",
+      "reference": "(47.0 - 72.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Лимфоциты (LYMPH)",
+      "value": "26.2",
+      "unit": "%",
+      "reference": "(19.0 - 37.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 6
+   },
+   "n": 6,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "header": {
+    "patient_name": "Zhumabaeva Aigerim Bolatovna",
+    "collected_at": "2026-09-13",
+    "truth_name": "Zhumabaeva Aygerim Bolatovna",
+    "truth_collected_at": "2026-09-13"
+   },
+   "perfect": false,
+   "auto": true,
+   "errors": [],
+   "doc_id": "003_labone_photo",
+   "kind": "photo",
+   "layout": "labone",
+   "seconds": 12.927294899999652,
+   "cost_usd": 0.0058059,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "Lab One Diagnostics",
+    "patient_name": "Zhumabaeva Aigerim Bolatovna",
+    "birth_date": "1970-01-11",
+    "collected_at": "2026-09-13",
+    "results": [
+     {
+      "name": "HGB",
+      "value": "22.5",
+      "unit": "g/dL",
+      "reference": "12.0 - 16.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "RBC",
+      "value": "4.72",
+      "unit": "x10^6/µL",
+      "reference": "3.80 - 5.30",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "WBC",
+      "value": "2.9",
+      "unit": "x10^3/µL",
+      "reference": "4.0 - 9.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "PLT",
+      "value": "314",
+      "unit": "x10^3/µL",
+      "reference": "180 - 320",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "MCV",
+      "value": "89.5",
+      "unit": "fL",
+      "reference": "80.0 - 100.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "LYMPH %",
+      "value": "17.9",
+      "unit": "%",
+      "reference": "19.0 - 37.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 8
+   },
+   "n": 8,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": false,
+   "header": {
+    "patient_name": "Иванова Elena Ахметовна",
+    "collected_at": "2026-05-23",
+    "truth_name": "Иванова Елена Ахметовна",
+    "truth_collected_at": "2026-05-23"
+   },
+   "perfect": false,
+   "auto": true,
+   "errors": [],
+   "doc_id": "004_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab",
+   "seconds": 6.743271199999981,
+   "cost_usd": 0.0058509,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "ЦитоЛаб — медицинская лаборатория",
+    "patient_name": "Иванова Elena Ахметовна",
+    "birth_date": "08.04.1956",
+    "collected_at": "23.05.2026",
+    "results": [
+     {
+      "name": "Гемоглобин",
+      "value": "129",
+      "unit": "г/л",
+      "reference": "120 - 160",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Эритроциты",
+      "value": "4,33",
+      "unit": "×10^12/л",
+      "reference": "3,80 - 5,30",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Тромбоциты",
+      "value": "126",
+      "unit": "×10^9/л",
+      "reference": "180 - 320",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гематокрит",
+      "value": "44,3",
+      "unit": "%",
+      "reference": "36,0 - 48,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Средний объём эритроцита",
+      "value": "88,9",
+      "unit": "фл",
+      "reference": "80,0 - 100,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Нейтрофилы, %",
+      "value": "71,7",
+      "unit": "%",
+      "reference": "47,0 - 72,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Лимфоциты, %",
+      "value": "25,6",
+      "unit": "%",
+      "reference": "19,0 - 37,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "СОЭ",
+      "value": "1",
+      "unit": "мм/ч",
+      "reference": "2 - 15",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 13,
+    "correct_review": 1
+   },
+   "n": 14,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Иванова Жанна Сериковна",
+    "collected_at": "2026-09-14",
+    "truth_name": "Иванова Жанна Сериковна",
+    "truth_collected_at": "2026-09-14"
+   },
+   "perfect": true,
+   "auto": false,
+   "errors": [
+    {
+     "code": "TG",
+     "truth": 0.38,
+     "got": 0.38,
+     "cat": "correct_review",
+     "issues": [
+      "распознавание отметило значение как неуверенное"
+     ],
+     "raw": {
+      "name": "Триглицериды (TG)",
+      "value": "0.38",
+      "unit": "ммоль/л",
+      "reference": "(0.40 - 1.70)",
+      "legible": false,
+      "box": null,
+      "page": 1
+     }
+    }
+   ],
+   "doc_id": "005_senim_pdf",
+   "kind": "pdf",
+   "layout": "senim",
+   "seconds": 15.001795199999833,
+   "cost_usd": 0.011718,
+   "pages": 2,
+   "raw_report": {
+    "lab_name": "КДЛ «Сенім», г. Астана",
+    "patient_name": "Иванова Жанна Сериковна",
+    "birth_date": "06.04.2000",
+    "collected_at": "14.09.2026",
+    "results": [
+     {
+      "name": "Гемоглобин (HGB)",
+      "value": "151",
+      "unit": "г/л",
+      "reference": "(120 - 160)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гематокрит (HCT)",
+      "value": "41.7",
+      "unit": "%",
+      "reference": "(36.0 - 48.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Средний объём эритроцита (MCV)",
+      "value": "117.0",
+      "unit": "фл",
+      "reference": "(80.0 - 100.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Нейтрофилы (NEUT)",
+      "value": "71.3",
+      "unit": "%",
+      "reference": "(47.0 - 72.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Лимфоциты (LYMPH)",
+      "value": "26.2",
+      "unit": "%",
+      "reference": "(19.0 - 37.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "СОЭ (ESR)",
+      "value": "11",
+      "unit": "мм/ч",
+      "reference": "(2 - 15)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Глюкоза (GLU)",
+      "value": "5.3",
+      "unit": "ммоль/л",
+      "reference": "(3.9 - 6.1)",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "ЛПВП (HDL)",
+      "value": "1.66",
+      "unit": "ммоль/л",
+      "reference": "(1.00 - 2.20)",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "Триглицериды (TG)",
+      "value": "0.38",
+      "unit": "ммоль/л",
+      "reference": "(0.40 - 1.70)",
+      "legible": false,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "Мочевина (UREA)",
+      "value": "5.6",
+      "unit": "ммоль/л",
+      "reference": "(2.5 - 8.3)",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "АЛТ (ALT)",
+      "value": "21",
+      "unit": "Ед/л",
+      "reference": "(5 - 41)",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "Билирубин общий (TBIL)",
+      "value": "17.5",
+      "unit": "мкмоль/л",
+      "reference": "(3.4 - 20.5)",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "С-реактивный белок (CRP)",
+      "value": "6.3",
+      "unit": "мг/л",
+      "reference": "(до 5.0)",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "ТТГ (TSH)",
+      "value": "4.98",
+      "unit": "мМЕ/л",
+      "reference": "(0.40 - 4.00)",
+      "legible": true,
+      "box": null,
+      "page": 1
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 15
+   },
+   "n": 15,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Ivanov Erlan Akhmetovich",
+    "collected_at": "2026-03-18",
+    "truth_name": "Ivanov Erlan Akhmetovich",
+    "truth_collected_at": "2026-03-18"
+   },
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "006_labone_pdf",
+   "kind": "pdf",
+   "layout": "labone",
+   "seconds": 12.486203899999964,
+   "cost_usd": 0.011649,
+   "pages": 2,
+   "raw_report": {
+    "lab_name": "Lab One Diagnostics",
+    "patient_name": "Ivanov Erlan Akhmetovich",
+    "birth_date": "1964-10-19",
+    "collected_at": "2026-03-18",
+    "results": [
+     {
+      "name": "HGB",
+      "value": "15.1",
+      "unit": "g/dL",
+      "reference": "12.0 - 16.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "RBC",
+      "value": "4.96",
+      "unit": "x10^6/µL",
+      "reference": "3.80 - 5.30",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "WBC",
+      "value": "3.3",
+      "unit": "x10^3/µL",
+      "reference": "4.0 - 9.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "HCT",
+      "value": "30.2",
+      "unit": "%",
+      "reference": "36.0 - 48.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "MCV",
+      "value": "89.6",
+      "unit": "fL",
+      "reference": "80.0 - 100.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "NEUT %",
+      "value": "69.1",
+      "unit": "%",
+      "reference": "47.0 - 72.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "LYMPH %",
+      "value": "11.7",
+      "unit": "%",
+      "reference": "19.0 - 37.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ESR",
+      "value": "1",
+      "unit": "mm/h",
+      "reference": "2 - 15",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "LDL",
+      "value": "93",
+      "unit": "mg/dL",
+      "reference": "58 - 128",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "Creatinine",
+      "value": "0.95",
+      "unit": "mg/dL",
+      "reference": "0.70 - 1.20",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "ALT",
+      "value": "70",
+      "unit": "U/L",
+      "reference": "5 - 41",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "AST",
+      "value": "37",
+      "unit": "U/L",
+      "reference": "5 - 40",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "Bilirubin, total",
+      "value": "0.40",
+      "unit": "mg/dL",
+      "reference": "0.20 - 1.20",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "CRP",
+      "value": "2.1",
+      "unit": "mg/L",
+      "reference": "0.0 - 5.0",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "HbA1c",
+      "value": "4.6",
+      "unit": "%",
+      "reference": "4.0 - 6.0",
+      "legible": true,
+      "box": null,
+      "page": 1
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 7
+   },
+   "n": 7,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Сериков Ерлан Петрович",
+    "collected_at": "2026-08-17",
+    "truth_name": "Сериков Ерлан Петрович",
+    "truth_collected_at": "2026-08-17"
+   },
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "007_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab",
+   "seconds": 7.115614999999707,
+   "cost_usd": 0.0058383,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "ЦитоЛаб — медицинская лаборатория",
+    "patient_name": "Сериков Ерлан Петрович",
+    "birth_date": "30.05.1983",
+    "collected_at": "17.08.2026",
+    "results": [
+     {
+      "name": "Холестерин общий",
+      "value": "3,48",
+      "unit": "ммоль/л",
+      "reference": "3,00 - 5,20",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ЛПВП",
+      "value": "1,48",
+      "unit": "ммоль/л",
+      "reference": "1,00 - 2,20",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Триглицериды",
+      "value": "1,69",
+      "unit": "ммоль/л",
+      "reference": "0,40 - 1,70",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Креатинин",
+      "value": "69",
+      "unit": "мкмоль/л",
+      "reference": "62 - 106",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "С-реактивный белок",
+      "value": "2,6",
+      "unit": "мг/л",
+      "reference": "до 5,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гликированный гемоглобин",
+      "value": "4,4",
+      "unit": "%",
+      "reference": "4,0 - 6,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ТТГ",
+      "value": "3,00",
+      "unit": "мМЕ/л",
+      "reference": "0,40 - 4,00",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 9
+   },
+   "n": 9,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Серикова Елена Болатовна",
+    "collected_at": "2026-07-02",
+    "truth_name": "Серикова Елена Болатовна",
+    "truth_collected_at": "2026-07-02"
+   },
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "008_senim_photo",
+   "kind": "photo",
+   "layout": "senim",
+   "seconds": 9.946557700000085,
+   "cost_usd": 0.0059073,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "КДЛ «Сенім», г. Астана",
+    "patient_name": "Серикова Елена Болатовна",
+    "birth_date": "01.07.1956",
+    "collected_at": "02.07.2026",
+    "results": [
+     {
+      "name": "Гемоглобин (HGB)",
+      "value": "156",
+      "unit": "г/л",
+      "reference": "(120 - 160)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Эритроциты (RBC)",
+      "value": "8.10",
+      "unit": "×10¹²/л",
+      "reference": "(3.80 - 5.30)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Лейкоциты (WBC)",
+      "value": "7.4",
+      "unit": "×10⁹/л",
+      "reference": "(4.0 - 9.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Тромбоциты (PLT)",
+      "value": "237",
+      "unit": "×10⁹/л",
+      "reference": "(180 - 320)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гематокрит (HCT)",
+      "value": "42.2",
+      "unit": "%",
+      "reference": "(36.0 - 48.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Средний объём эритроцита (MCV)",
+      "value": "86.5",
+      "unit": "фл",
+      "reference": "(80.0 - 100.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Нейтрофилы (NEUT)",
+      "value": "67.0",
+      "unit": "%",
+      "reference": "(47.0 - 72.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Лимфоциты (LYMPH)",
+      "value": "40.8",
+      "unit": "%",
+      "reference": "(19.0 - 37.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "СОЭ (ESR)",
+      "value": "1",
+      "unit": "мм/ч",
+      "reference": "(2 - 15)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 4,
+    "caught": 2,
+    "silent": 2
+   },
+   "n": 8,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Akhmetov Timur Petrovich",
+    "collected_at": "2026-04-23",
+    "truth_name": "Akhmetov Timur Petrovich",
+    "truth_collected_at": "2026-04-23"
+   },
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "MCV",
+     "truth": 97.8,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "значение не читается"
+     ],
+     "raw": {
+      "name": "MCV",
+      "value": "null",
+      "unit": "%",
+      "reference": "null",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    },
+    {
+     "code": "NEUT%",
+     "truth": 54.7,
+     "got": null,
+     "cat": "caught",
+     "issues": [
+      "нет перевода fL → %"
+     ],
+     "raw": {
+      "name": "NEUT %",
+      "value": "97.8",
+      "unit": "fL",
+      "reference": "36.0 - 48.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    },
+    {
+     "code": "LYMPH%",
+     "truth": 12.7,
+     "got": 54.7,
+     "cat": "silent",
+     "issues": [],
+     "raw": {
+      "name": "LYMPH %",
+      "value": "54.7",
+      "unit": "%",
+      "reference": "80.0 - 100.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    },
+    {
+     "code": "ESR",
+     "truth": 11.0,
+     "got": 12.0,
+     "cat": "silent",
+     "issues": [],
+     "raw": {
+      "name": "ESR",
+      "value": "12",
+      "unit": "mm/h",
+      "reference": "2 - 15",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    }
+   ],
+   "doc_id": "009_labone_photo",
+   "kind": "photo",
+   "layout": "labone",
+   "seconds": 9.62821940000049,
+   "cost_usd": 0.0058263,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "Lab One Diagnostics",
+    "patient_name": "Akhmetov Timur Petrovich",
+    "birth_date": "1975-12-25",
+    "collected_at": "2026-04-23",
+    "results": [
+     {
+      "name": "HGB",
+      "value": "22.5",
+      "unit": "g/dL",
+      "reference": "12.0 - 16.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "WBC",
+      "value": "5.2",
+      "unit": "x10^3/µL",
+      "reference": "4.0 - 9.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "PLT",
+      "value": "272",
+      "unit": "x10^3/µL",
+      "reference": "180 - 320",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "HCT",
+      "value": "43.9",
+      "unit": "%",
+      "reference": "null",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "MCV",
+      "value": "null",
+      "unit": "%",
+      "reference": "null",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "NEUT %",
+      "value": "97.8",
+      "unit": "fL",
+      "reference": "36.0 - 48.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "LYMPH %",
+      "value": "54.7",
+      "unit": "%",
+      "reference": "80.0 - 100.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ESR",
+      "value": "12",
+      "unit": "mm/h",
+      "reference": "2 - 15",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "missed": 1,
+    "correct_auto": 5
+   },
+   "n": 6,
+   "extras": [
+    "ЛППН"
+   ],
+   "extras_raw": [
+    [
+     null,
+     "ЛППН",
+     "4,00"
+    ]
+   ],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Иванов Данияр Болатович",
+    "collected_at": "2026-09-02",
+    "truth_name": "Иванов Данияр Болатович",
+    "truth_collected_at": "2026-09-02"
+   },
+   "perfect": false,
+   "auto": false,
+   "errors": [
+    {
+     "code": "LDL",
+     "truth": 4.0,
+     "got": null,
+     "cat": "missed",
+     "issues": [],
+     "raw": null
+    }
+   ],
+   "doc_id": "010_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab",
+   "seconds": 5.04636279999977,
+   "cost_usd": 0.0058119,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "ЦитоЛаб — медицинская лаборатория",
+    "patient_name": "Иванов Данияр Болатович",
+    "birth_date": "11.07.1995",
+    "collected_at": "02.09.2026",
+    "results": [
+     {
+      "name": "ЛППН",
+      "value": "4,00",
+      "unit": "ммоль/л",
+      "reference": "1,50 - 3,30",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Триглицериды",
+      "value": "0,25",
+      "unit": "ммоль/л",
+      "reference": "0,40 - 1,70",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Креатинин",
+      "value": "91",
+      "unit": "мкмоль/л",
+      "reference": "62 - 106",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "АСТ",
+      "value": "45",
+      "unit": "Ед/л",
+      "reference": "5 - 40",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "С-реактивный белок",
+      "value": "0,7",
+      "unit": "мг/л",
+      "reference": "до 5,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гликированный гемоглобин",
+      "value": "4,8",
+      "unit": "%",
+      "reference": "4,0 - 6,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 9
+   },
+   "n": 9,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Жумабаева Динара Ахметовна",
+    "collected_at": "2026-06-14",
+    "truth_name": "Жумабаева Динара Ахметовна",
+    "truth_collected_at": "2026-06-14"
+   },
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "011_senim_scan",
+   "kind": "scan",
+   "layout": "senim",
+   "seconds": 7.683614399999897,
+   "cost_usd": 0.0059085,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "КДЛ «Сенім», г. Астана",
+    "patient_name": "Жумабаева Динара Ахметовна",
+    "birth_date": "14.07.2002",
+    "collected_at": "14.06.2026",
+    "results": [
+     {
+      "name": "Гемоглобин (HGB)",
+      "value": "150",
+      "unit": "г/л",
+      "reference": "(120 - 160)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Эритроциты (RBC)",
+      "value": "5.02",
+      "unit": "×10¹²/л",
+      "reference": "(3.80 - 5.30)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Лейкоциты (WBC)",
+      "value": "14.8",
+      "unit": "×10⁹/л",
+      "reference": "(4.0 - 9.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Тромбоциты (PLT)",
+      "value": "314",
+      "unit": "×10⁹/л",
+      "reference": "(180 - 320)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гематокрит (HCT)",
+      "value": "37.0",
+      "unit": "%",
+      "reference": "(36.0 - 48.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Средний объём эритроцита (MCV)",
+      "value": "117.0",
+      "unit": "фл",
+      "reference": "(80.0 - 100.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Нейтрофилы (NEUT)",
+      "value": "58.3",
+      "unit": "%",
+      "reference": "(47.0 - 72.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Лимфоциты (LYMPH)",
+      "value": "14.9",
+      "unit": "%",
+      "reference": "(19.0 - 37.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "СОЭ (ESR)",
+      "value": "2",
+      "unit": "мм/ч",
+      "reference": "(2 - 15)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 9
+   },
+   "n": 9,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Ivanova Elena Akhmetovna",
+    "collected_at": "2026-09-24",
+    "truth_name": "Ivanova Elena Akhmetovna",
+    "truth_collected_at": "2026-09-24"
+   },
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "012_labone_scan",
+   "kind": "scan",
+   "layout": "labone",
+   "seconds": 7.221776800000043,
+   "cost_usd": 0.0058575,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "Lab One Diagnostics",
+    "patient_name": "Ivanova Elena Akhmetovna",
+    "birth_date": "1956-04-08",
+    "collected_at": "2026-09-24",
+    "results": [
+     {
+      "name": "HGB",
+      "value": "12.3",
+      "unit": "g/dL",
+      "reference": "12.0 - 16.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "RBC",
+      "value": "4.23",
+      "unit": "x10^6/µL",
+      "reference": "3.80 - 5.30",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "WBC",
+      "value": "10.8",
+      "unit": "x10^3/µL",
+      "reference": "4.0 - 9.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "PLT",
+      "value": "226",
+      "unit": "x10^3/µL",
+      "reference": "180 - 320",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "HCT",
+      "value": "44.3",
+      "unit": "%",
+      "reference": "36.0 - 48.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "MCV",
+      "value": "82.7",
+      "unit": "fL",
+      "reference": "80.0 - 100.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "NEUT %",
+      "value": "59.1",
+      "unit": "%",
+      "reference": "47.0 - 72.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "LYMPH %",
+      "value": "20.8",
+      "unit": "%",
+      "reference": "19.0 - 37.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ESR",
+      "value": "2",
+      "unit": "mm/h",
+      "reference": "2 - 15",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 7
+   },
+   "n": 7,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Жумабаева Динара Ахметовна",
+    "collected_at": "2026-09-04",
+    "truth_name": "Жумабаева Динара Ахметовна",
+    "truth_collected_at": "2026-09-04"
+   },
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "013_citolab_photo",
+   "kind": "photo",
+   "layout": "citolab",
+   "seconds": 11.36206250000032,
+   "cost_usd": 0.0058377,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "ЦитоЛаб — медицинская лаборатория",
+    "patient_name": "Жумабаева Динара Ахметовна",
+    "birth_date": "14.07.2002",
+    "collected_at": "04.09.2026",
+    "results": [
+     {
+      "name": "Гемоглобин",
+      "value": "159",
+      "unit": "г/л",
+      "reference": "120 - 160",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Эритроциты",
+      "value": "4,20",
+      "unit": "×10^12/л",
+      "reference": "3,80 - 5,30",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Лейкоциты",
+      "value": "10,9",
+      "unit": "×10^9/л",
+      "reference": "4,0 - 9,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Тромбоциты",
+      "value": "200",
+      "unit": "×10^9/л",
+      "reference": "180 - 320",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гематокрит",
+      "value": "47,4",
+      "unit": "%",
+      "reference": "36,0 - 48,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Средний объём эритроцита",
+      "value": "117,0",
+      "unit": "фл",
+      "reference": "80,0 - 100,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Нейтрофилы, %",
+      "value": "64,6",
+      "unit": "%",
+      "reference": "47,0 - 72,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 10
+   },
+   "n": 10,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Жумабаева Айгерим Болатовна",
+    "collected_at": "2026-04-20",
+    "truth_name": "Жумабаева Айгерим Болатовна",
+    "truth_collected_at": "2026-04-20"
+   },
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "014_senim_scan",
+   "kind": "scan",
+   "layout": "senim",
+   "seconds": 7.189951800000017,
+   "cost_usd": 0.0059367,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "КДЛ «Сенім», г. Астана",
+    "patient_name": "Жумабаева Айгерим Болатовна",
+    "birth_date": "11.01.1970",
+    "collected_at": "20.04.2026",
+    "results": [
+     {
+      "name": "Глюкоза (GLU)",
+      "value": "7.7",
+      "unit": "ммоль/л",
+      "reference": "(3.9 - 6.1)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Холестерин общий (CHOL)",
+      "value": "3.55",
+      "unit": "ммоль/л",
+      "reference": "(3.00 - 5.20)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ЛПВП (HDL)",
+      "value": "1.61",
+      "unit": "ммоль/л",
+      "reference": "(1.00 - 2.20)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ЛПНП (LDL)",
+      "value": "1.40",
+      "unit": "ммоль/л",
+      "reference": "(1.50 - 3.30)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Креатинин (CREA)",
+      "value": "98",
+      "unit": "мкмоль/л",
+      "reference": "(62 - 106)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Мочевина (UREA)",
+      "value": "7.8",
+      "unit": "ммоль/л",
+      "reference": "(2.5 - 8.3)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "АЛТ (ALT)",
+      "value": "25",
+      "unit": "Ед/л",
+      "reference": "(5 - 41)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "С-реактивный белок (CRP)",
+      "value": "0.2",
+      "unit": "мг/л",
+      "reference": "(до 5.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гликированный гемоглобин (HBA1C)",
+      "value": "4.9",
+      "unit": "%",
+      "reference": "(4.0 - 6.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ТТТ (TSH)",
+      "value": "2.72",
+      "unit": "мМЕ/л",
+      "reference": "(0.40 - 4.00)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 20
+   },
+   "n": 20,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Zhumabaeva Dinara Akhmetovna",
+    "collected_at": "2026-09-15",
+    "truth_name": "Zhumabaeva Dinara Akhmetovna",
+    "truth_collected_at": "2026-09-15"
+   },
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "015_labone_pdf",
+   "kind": "pdf",
+   "layout": "labone",
+   "seconds": 14.125255100000686,
+   "cost_usd": 0.0117378,
+   "pages": 2,
+   "raw_report": {
+    "lab_name": "Lab One Diagnostics",
+    "patient_name": "Zhumabaeva Dinara Akhmetovna",
+    "birth_date": "2002-07-14",
+    "collected_at": "2026-09-15",
+    "results": [
+     {
+      "name": "RBC",
+      "value": "5.26",
+      "unit": "x10^6/µL",
+      "reference": "3.80 - 5.30",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "WBC",
+      "value": "7.3",
+      "unit": "x10^3/µL",
+      "reference": "4.0 - 9.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "PLT",
+      "value": "258",
+      "unit": "x10^3/µL",
+      "reference": "180 - 320",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "HCT",
+      "value": "38.0",
+      "unit": "%",
+      "reference": "36.0 - 48.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "MCV",
+      "value": "73.4",
+      "unit": "fL",
+      "reference": "80.0 - 100.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "LYMPH %",
+      "value": "23.0",
+      "unit": "%",
+      "reference": "19.0 - 37.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ESR",
+      "value": "15",
+      "unit": "mm/h",
+      "reference": "2 - 15",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Glucose",
+      "value": "93",
+      "unit": "mg/dL",
+      "reference": "70 - 110",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "Cholesterol, total",
+      "value": "180",
+      "unit": "mg/dL",
+      "reference": "116 - 201",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "HDL",
+      "value": "58",
+      "unit": "mg/dL",
+      "reference": "39 - 85",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "LDL",
+      "value": "84",
+      "unit": "mg/dL",
+      "reference": "58 - 128",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "Triglycerides",
+      "value": "43",
+      "unit": "mg/dL",
+      "reference": "35 - 151",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "Creatinine",
+      "value": "1.18",
+      "unit": "mg/dL",
+      "reference": "0.70 - 1.20",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "UREA",
+      "value": "12.6",
+      "unit": "mmol/L",
+      "reference": "2.5 - 8.3",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "ALT",
+      "value": "13",
+      "unit": "U/L",
+      "reference": "5 - 41",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "AST",
+      "value": "14",
+      "unit": "U/L",
+      "reference": "5 - 40",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "Bilirubin, total",
+      "value": "0.64",
+      "unit": "mg/dL",
+      "reference": "0.20 - 1.20",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "CRP",
+      "value": "4.2",
+      "unit": "mg/L",
+      "reference": "0.0 - 5.0",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "HbA1c",
+      "value": "4.0",
+      "unit": "%",
+      "reference": "4.0 - 6.0",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "TSH",
+      "value": "6.89",
+      "unit": "mIU/L",
+      "reference": "0.40 - 4.00",
+      "legible": true,
+      "box": null,
+      "page": 1
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 12,
+    "correct_review": 1
+   },
+   "n": 13,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Иванов Тимур Серикович",
+    "collected_at": "2026-09-17",
+    "truth_name": "Иванов Тимур Серикович",
+    "truth_collected_at": "2026-09-17"
+   },
+   "perfect": true,
+   "auto": false,
+   "errors": [
+    {
+     "code": "LDL",
+     "truth": 2.65,
+     "got": 2.65,
+     "cat": "correct_review",
+     "issues": [
+      "неуверенное сопоставление названия (0.77)"
+     ],
+     "raw": {
+      "name": "ЛПП",
+      "value": "2,65",
+      "unit": "ммоль/л",
+      "reference": "1,50 - 3,30",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    }
+   ],
+   "doc_id": "016_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab",
+   "seconds": 7.834033399999498,
+   "cost_usd": 0.0059595,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "ЦитоЛаб — медицинская лаборатория",
+    "patient_name": "Иванов Тимур Серикович",
+    "birth_date": "07.07.1980",
+    "collected_at": "17.09.2026",
+    "results": [
+     {
+      "name": "Глюкоза",
+      "value": "4,4",
+      "unit": "ммоль/л",
+      "reference": "3,9 - 6,1",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Холестерин общий",
+      "value": "4,42",
+      "unit": "ммоль/л",
+      "reference": "3,00 - 5,20",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ЛПВП",
+      "value": "1,15",
+      "unit": "ммоль/л",
+      "reference": "1,00 - 2,20",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ЛПП",
+      "value": "2,65",
+      "unit": "ммоль/л",
+      "reference": "1,50 - 3,30",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Триглицериды",
+      "value": "0,55",
+      "unit": "ммоль/л",
+      "reference": "0,40 - 1,70",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Креатинин",
+      "value": "158",
+      "unit": "мкмоль/л",
+      "reference": "62 - 106",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Мочевина",
+      "value": "3,8",
+      "unit": "ммоль/л",
+      "reference": "2,5 - 8,3",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "АЛТ",
+      "value": "5",
+      "unit": "Ед/л",
+      "reference": "5 - 41",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "АСТ",
+      "value": "21",
+      "unit": "Ед/л",
+      "reference": "5 - 40",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Билирубин общий",
+      "value": "14,4",
+      "unit": "мкмоль/л",
+      "reference": "3,4 - 20,5",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "С-реактивный белок",
+      "value": "2,4",
+      "unit": "мг/л",
+      "reference": "до 5,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гликированный гемоглобин",
+      "value": "3,7",
+      "unit": "%",
+      "reference": "4,0 - 6,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ТТГ",
+      "value": "1,51",
+      "unit": "мМЕ/л",
+      "reference": "0,40 - 4,00",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 15
+   },
+   "n": 15,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Серикова Елена Болатовна",
+    "collected_at": "2026-04-19",
+    "truth_name": "Серикова Елена Болатовна",
+    "truth_collected_at": "2026-04-19"
+   },
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "017_senim_pdf",
+   "kind": "pdf",
+   "layout": "senim",
+   "seconds": 15.706074299999273,
+   "cost_usd": 0.0117486,
+   "pages": 2,
+   "raw_report": {
+    "lab_name": "КДЛ «Сенім», г. Астана",
+    "patient_name": "Серикова Елена Болатовна",
+    "birth_date": "01.07.1956",
+    "collected_at": "19.04.2026",
+    "results": [
+     {
+      "name": "Гемоглобин (HGB)",
+      "value": "149",
+      "unit": "г/л",
+      "reference": "(120 - 160)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Эритроциты (RBC)",
+      "value": "4.39",
+      "unit": "×10^12/л",
+      "reference": "(3.80 - 5.30)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Лейкоциты (WBC)",
+      "value": "3.6",
+      "unit": "×10^9/л",
+      "reference": "(4.0 - 9.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Тромбоциты (PLT)",
+      "value": "121",
+      "unit": "×10^9/л",
+      "reference": "(180 - 320)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гематокрит (HCT)",
+      "value": "38.3",
+      "unit": "%",
+      "reference": "(36.0 - 48.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Средний объём эритроцита (MCV)",
+      "value": "85.3",
+      "unit": "фл",
+      "reference": "(80.0 - 100.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Нейтрофилы (NEUT)",
+      "value": "49.7",
+      "unit": "%",
+      "reference": "(47.0 - 72.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Лимфоциты (LYMPH)",
+      "value": "30.0",
+      "unit": "%",
+      "reference": "(19.0 - 37.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "СОЭ (ESR)",
+      "value": "8",
+      "unit": "мм/ч",
+      "reference": "(2 - 15)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Глюкоза (GLU)",
+      "value": "4.2",
+      "unit": "ммоль/л",
+      "reference": "(3.9 - 6.1)",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "ЛПВП (HDL)",
+      "value": "0.74",
+      "unit": "ммоль/л",
+      "reference": "(1.00 - 2.20)",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "ЛПНП (LDL)",
+      "value": "3.09",
+      "unit": "ммоль/л",
+      "reference": "(1.50 - 3.30)",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "Мочевина (UREA)",
+      "value": "8.3",
+      "unit": "ммоль/л",
+      "reference": "(2.5 - 8.3)",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "Билирубин общий (TBIL)",
+      "value": "9.0",
+      "unit": "мкмоль/л",
+      "reference": "(3.4 - 20.5)",
+      "legible": true,
+      "box": null,
+      "page": 1
+     },
+     {
+      "name": "ТТТ (TSH)",
+      "value": "6.44",
+      "unit": "мME/л",
+      "reference": "(0.40 - 4.00)",
+      "legible": true,
+      "box": null,
+      "page": 1
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 11
+   },
+   "n": 11,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Ivanov Daniyar Bolatovich",
+    "collected_at": "2026-06-18",
+    "truth_name": "Ivanov Daniyar Bolatovich",
+    "truth_collected_at": "2026-06-18"
+   },
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "018_labone_photo",
+   "kind": "photo",
+   "layout": "labone",
+   "seconds": 11.142269199999646,
+   "cost_usd": 0.0058809,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "Lab One Diagnostics",
+    "patient_name": "Ivanov Daniyar Bolatovich",
+    "birth_date": "1995-07-11",
+    "collected_at": "2026-06-18",
+    "results": [
+     {
+      "name": "Glucose",
+      "value": "78",
+      "unit": "mg/dL",
+      "reference": "70 - 110",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Cholesterol, total",
+      "value": "186",
+      "unit": "mg/dL",
+      "reference": "116 - 201",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "HDL",
+      "value": "59",
+      "unit": "mg/dL",
+      "reference": "39 - 85",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "LDL",
+      "value": "42",
+      "unit": "mg/dL",
+      "reference": "58 - 128",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Triglycerides",
+      "value": "58",
+      "unit": "mg/dL",
+      "reference": "35 - 151",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Creatinine",
+      "value": "1.15",
+      "unit": "mg/dL",
+      "reference": "0.70 - 1.20",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "UREA",
+      "value": "2.2",
+      "unit": "mmol/L",
+      "reference": "2.5 - 8.3",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ALT",
+      "value": "6",
+      "unit": "U/L",
+      "reference": "5 - 41",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Bilirubin, total",
+      "value": "0.18",
+      "unit": "mg/dL",
+      "reference": "0.20 - 1.20",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "CRP",
+      "value": "3.7",
+      "unit": "mg/L",
+      "reference": "0.0 - 5.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "HbA1c",
+      "value": "4.7",
+      "unit": "%",
+      "reference": "4.0 - 6.0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 11,
+    "correct_review": 1
+   },
+   "n": 12,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Иванов Тимур Серикович",
+    "collected_at": "2026-09-05",
+    "truth_name": "Иванов Тимур Серикович",
+    "truth_collected_at": "2026-09-05"
+   },
+   "perfect": true,
+   "auto": false,
+   "errors": [
+    {
+     "code": "LDL",
+     "truth": 2.67,
+     "got": 2.67,
+     "cat": "correct_review",
+     "issues": [
+      "неуверенное сопоставление названия (0.77)"
+     ],
+     "raw": {
+      "name": "ЛПП",
+      "value": "2,67",
+      "unit": "ммоль/л",
+      "reference": "1,50 - 3,30",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    }
+   ],
+   "doc_id": "019_citolab_scan",
+   "kind": "scan",
+   "layout": "citolab",
+   "seconds": 7.855286399999386,
+   "cost_usd": 0.0059427,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "ЦитоЛаб — медицинская лаборатория",
+    "patient_name": "Иванов Тимур Серикович",
+    "birth_date": "07.07.1980",
+    "collected_at": "05.09.2026",
+    "results": [
+     {
+      "name": "Глюкоза",
+      "value": "5,6",
+      "unit": "ммоль/л",
+      "reference": "3,9 - 6,1",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Холестерин общий",
+      "value": "4,13",
+      "unit": "ммоль/л",
+      "reference": "3,00 - 5,20",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ЛПВП",
+      "value": "1,19",
+      "unit": "ммоль/л",
+      "reference": "1,00 - 2,20",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ЛПП",
+      "value": "2,67",
+      "unit": "ммоль/л",
+      "reference": "1,50 - 3,30",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Триглицериды",
+      "value": "1,11",
+      "unit": "ммоль/л",
+      "reference": "0,40 - 1,70",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Креатинин",
+      "value": "39",
+      "unit": "мкмоль/л",
+      "reference": "62 - 106",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Мочевина",
+      "value": "10,0",
+      "unit": "ммоль/л",
+      "reference": "2,5 - 8,3",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "АЛТ",
+      "value": "41",
+      "unit": "Ед/л",
+      "reference": "5 - 41",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Билирубин общий",
+      "value": "6,4",
+      "unit": "мкмоль/л",
+      "reference": "3,4 - 20,5",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "С-реактивный белок",
+      "value": "8,6",
+      "unit": "мг/л",
+      "reference": "до 5,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гликированный гемоглобин",
+      "value": "7,2",
+      "unit": "%",
+      "reference": "4,0 - 6,0",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ТТГ",
+      "value": "3,21",
+      "unit": "мМЕ/л",
+      "reference": "0,40 - 4,00",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  },
+  {
+   "cats": {
+    "correct_auto": 10
+   },
+   "n": 10,
+   "extras": [],
+   "extras_raw": [],
+   "silent_extras": [],
+   "header_ok": true,
+   "header": {
+    "patient_name": "Жумабаева Динара Ахметовна",
+    "collected_at": "2026-06-09",
+    "truth_name": "Жумабаева Динара Ахметовна",
+    "truth_collected_at": "2026-06-09"
+   },
+   "perfect": true,
+   "auto": true,
+   "errors": [],
+   "doc_id": "020_senim_photo",
+   "kind": "photo",
+   "layout": "senim",
+   "seconds": 12.93451449999975,
+   "cost_usd": 0.0059409,
+   "pages": 1,
+   "raw_report": {
+    "lab_name": "КДЛ «Сенім», г. Астана",
+    "patient_name": "Жумабаева Динара Ахметовна",
+    "birth_date": "14.07.2002",
+    "collected_at": "09.06.2026",
+    "results": [
+     {
+      "name": "Холестерин общий (CHOL)",
+      "value": "4.27",
+      "unit": "ммоль/л",
+      "reference": "(3.00 - 5.20)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ЛПВП (HDL)",
+      "value": "1.48",
+      "unit": "ммоль/л",
+      "reference": "(1.00 - 2.20)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "ЛПНП (LDL)",
+      "value": "2.41",
+      "unit": "ммоль/л",
+      "reference": "(1.50 - 3.30)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Триглицериды (TG)",
+      "value": "2.62",
+      "unit": "ммоль/л",
+      "reference": "(0.40 - 1.70)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Креатинин (CREA)",
+      "value": "67",
+      "unit": "мкмоль/л",
+      "reference": "(62 - 106)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Мочевина (UREA)",
+      "value": "7.3",
+      "unit": "ммоль/л",
+      "reference": "(2.5 - 8.3)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "АЛТ (ALT)",
+      "value": "38",
+      "unit": "Ед/л",
+      "reference": "(5 - 41)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Билирубин общий (TBIL)",
+      "value": "2.2",
+      "unit": "мкмоль/л",
+      "reference": "(3.4 - 20.5)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "С-реактивный белок (CRP)",
+      "value": "7.4",
+      "unit": "мг/л",
+      "reference": "(до 5.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     },
+     {
+      "name": "Гликозилированный гемоглобин (HBA1C)",
+      "value": "4.7",
+      "unit": "%",
+      "reference": "(4.0 - 6.0)",
+      "legible": true,
+      "box": null,
+      "page": 0
+     }
+    ]
+   }
+  }
+ ],
+ "seconds_per_page": 8.437117766666612,
+ "cost_per_page": 0.00587305,
+ "pages": 24,
+ "failed": [],
+ "summary": {
+  "все": {
+   "n_fields": 202,
+   "correct_auto": 0.9603960396039604,
+   "correct_review": 0.01485148514851485,
+   "caught": 0.009900990099009901,
+   "silent": 0.009900990099009901,
+   "missed": 0.0049504950495049506,
+   "silent_extras": 0,
+   "perfect": 0.8,
+   "auto": 0.75,
+   "auto_and_perfect": 0.65,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.9,
+   "docs": 20
+  },
+  "PDF": {
+   "n_fields": 64,
+   "correct_auto": 0.984375,
+   "correct_review": 0.015625,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 0.0,
+   "silent_extras": 0,
+   "perfect": 1.0,
+   "auto": 0.75,
+   "auto_and_perfect": 0.75,
+   "auto_but_missed": 0.0,
+   "header_ok": 1.0,
+   "docs": 4
+  },
+  "citolab": {
+   "n_fields": 59,
+   "correct_auto": 0.9491525423728814,
+   "correct_review": 0.03389830508474576,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 0.01694915254237288,
+   "silent_extras": 0,
+   "perfect": 0.7142857142857143,
+   "auto": 0.5714285714285714,
+   "auto_and_perfect": 0.42857142857142855,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.8571428571428571,
+   "docs": 7
+  },
+  "labone": {
+   "n_fields": 69,
+   "correct_auto": 0.9420289855072463,
+   "correct_review": 0.0,
+   "caught": 0.028985507246376812,
+   "silent": 0.028985507246376812,
+   "missed": 0.0,
+   "silent_extras": 0,
+   "perfect": 0.6666666666666666,
+   "auto": 0.8333333333333334,
+   "auto_and_perfect": 0.6666666666666666,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.8333333333333334,
+   "docs": 6
+  },
+  "senim": {
+   "n_fields": 74,
+   "correct_auto": 0.9864864864864865,
+   "correct_review": 0.013513513513513514,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 0.0,
+   "silent_extras": 0,
+   "perfect": 1.0,
+   "auto": 0.8571428571428571,
+   "auto_and_perfect": 0.8571428571428571,
+   "auto_but_missed": 0.0,
+   "header_ok": 1.0,
+   "docs": 7
+  },
+  "скан": {
+   "n_fields": 81,
+   "correct_auto": 0.9629629629629629,
+   "correct_review": 0.024691358024691357,
+   "caught": 0.0,
+   "silent": 0.0,
+   "missed": 0.012345679012345678,
+   "silent_extras": 0,
+   "perfect": 0.7777777777777778,
+   "auto": 0.6666666666666666,
+   "auto_and_perfect": 0.5555555555555556,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.8888888888888888,
+   "docs": 9
+  },
+  "фото": {
+   "n_fields": 57,
+   "correct_auto": 0.9298245614035088,
+   "correct_review": 0.0,
+   "caught": 0.03508771929824561,
+   "silent": 0.03508771929824561,
+   "missed": 0.0,
+   "silent_extras": 0,
+   "perfect": 0.7142857142857143,
+   "auto": 0.8571428571428571,
+   "auto_and_perfect": 0.7142857142857143,
+   "auto_but_missed": 0.0,
+   "header_ok": 0.8571428571428571,
+   "docs": 7
+  }
+ }
+}
