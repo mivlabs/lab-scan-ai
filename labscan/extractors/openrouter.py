@@ -24,6 +24,9 @@ DEFAULT_MODEL = "qwen/qwen2.5-vl-72b-instruct"
 URL = "https://openrouter.ai/api/v1/chat/completions"
 RETRIES = 3
 RETRY_CODES = {408, 429, 500, 502, 503, 504}
+# Бланк на 20 строк — это ~1000 токенов JSON. Без явного max_tokens OpenRouter резервирует весь лимит модели
+# (100k+ токенов) и отказывает при маленьком балансе: «requires more credits, or fewer max_tokens».
+MAX_TOKENS = int(os.getenv("LABSCAN_OPENROUTER_MAX_TOKENS", "4000"))
 
 
 class OpenRouterExtractor:
@@ -64,6 +67,7 @@ class OpenRouterExtractor:
         data = self._post({
             "model": self.model,
             "temperature": 0,
+            "max_tokens": MAX_TOKENS,
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": [

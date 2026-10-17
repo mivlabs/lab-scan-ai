@@ -106,6 +106,7 @@ def test_openrouter_request_and_parse(monkeypatch):
     body = sent[0]
     assert body["response_format"]["json_schema"]["strict"] is True
     assert body["provider"] == {"require_parameters": True}  # без этого OpenRouter может молча убрать схему
+    assert body["max_tokens"] == 4000  # иначе OpenRouter резервирует весь лимит модели и отказывает при малом балансе
     assert body["messages"][1]["content"][0]["image_url"]["url"].startswith("data:image/png;base64,")
     assert res.cost_usd == pytest.approx(0.0012) and len(res.report.results) == 2
     assert res.meta == {"input_tokens": 1800, "output_tokens": 300}
