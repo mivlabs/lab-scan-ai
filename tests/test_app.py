@@ -111,3 +111,48 @@ def test_chart_svg():
     one = chart(rows[:1], BY_CODE["HGB"])
     assert one.count("<circle") == 1 and "<polyline" not in one
     assert chart([], BY_CODE["HGB"]) == ""
+
+
+class BrokenExtractor:
+    name = "broken"
+
+    def extract(self, pages):
+        raise RuntimeError("OpenRouter HTTP 402: no credits")
+
+
+def test_engine_failure_is_a_status_not_a_500(client, monkeypatch):
+    import labscan.web.app as appmod
+
+    monkeypatch.setattr(appmod, "_extractor", BrokenExtractor())
+    r = client.post("/upload", files={"file": ("scan.png", _png(), "image/png")}, follow_redirects=False)
+    assert r.status_code == 303
+    page = client.get(r.headers["location"])
+    assert page.status_code == 200 and "Распознавание не удалось" in page.text and "no credits" in page.text
+    assert client.get("/api/documents/1/status").json()["status"] == "failed"
+    assert "ошибка" in client.get("/").text
+    # API для интеграций отвечает ошибкой сразу, без фоновой задачи
+    assert client.post("/api/extract", files={"file": ("scan.png", _png(), "image/png")}).status_code == 502
+
+    # Движок починили: «Повторить» запускает распознавание заново
+    monkeypatch.setattr(appmod, "_extractor", StubExtractor())
+    r = client.post("/documents/1/retry", follow_redirects=False)
+    assert r.status_code == 303
+    assert client.get("/api/documents/1/status").json()["status"] == "review"
+    assert 'class="need"' in client.get("/documents/1").text
+
+
+def test_old_database_gets_new_columns(tmp_path):
+    import sqlite3
+
+    from labscan.db import make_session_factory
+
+    db = tmp_path / "old.db"
+    con = sqlite3.connect(db)
+    con.execute("CREATE TABLE documents (id INTEGER PRIMARY KEY, filename VARCHAR(300), path VARCHAR(500), "
+                "engine VARCHAR(100), status VARCHAR(20), raw JSON, normalized JSON, seconds FLOAT, cost_usd FLOAT, "
+                "created_at DATETIME, patient_id INTEGER, mis_ref VARCHAR(500))")
+    con.commit()
+    con.close()
+    make_session_factory(f"sqlite:///{db.as_posix()}")
+    cols = {row[1] for row in sqlite3.connect(db).execute("PRAGMA table_info(documents)")}
+    assert "error" in cols

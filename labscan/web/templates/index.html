@@ -52,18 +52,20 @@
   <table class="list">
   {% for d in docs %}
     {% set n = d.normalized %}
-    {% set review = review_count(n) %}
+    {% set review = review_count(n) if n else 0 %}
     <tr>
       <td class="doc-cell">
         <svg class="icon muted"><use href="#i-doc"/></svg>
         <div>
           <a href="/documents/{{ d.id }}" class="doc-name">{{ d.filename }}</a>
-          <div class="muted small">{{ n.patient_name or "без ФИО" }} · {{ d.engine }} · {{ "%.1f"|format(d.seconds) }} с</div>
+          <div class="muted small">{{ n.patient_name or "без ФИО" }} · {{ d.engine }}{% if d.seconds %} · {{ "%.1f"|format(d.seconds) }} с{% endif %}</div>
         </div>
       </td>
       <td class="small muted nowrap">{{ d.created_at.strftime("%d.%m.%Y %H:%M") if d.created_at else "" }}</td>
       <td class="right">
         {% if d.status == "confirmed" %}<span class="pill ok"><svg class="icon"><use href="#i-check"/></svg>в карте</span>
+        {% elif d.status == "processing" %}<span class="pill info"><span class="spinner small-spinner"></span>распознаётся</span>
+        {% elif d.status == "failed" %}<span class="pill high"><svg class="icon"><use href="#i-alert"/></svg>ошибка</span>
         {% elif review %}<span class="pill warn"><svg class="icon"><use href="#i-alert"/></svg>проверить {{ review }}</span>
         {% else %}<span class="pill info">готово к подтверждению</span>{% endif %}
       </td>

@@ -34,6 +34,18 @@
     f.addEventListener("submit", function () { f.classList.add("busy"); });
   });
 
+  // ---- ожидание распознавания: опрос статуса, затем перезагрузка на экран проверки ----
+  var proc = document.getElementById("processing");
+  if (proc && proc.dataset.status === "processing") {
+    var poll = function () {
+      fetch("/api/documents/" + proc.dataset.doc + "/status", { cache: "no-store" })
+        .then(function (r) { return r.json(); })
+        .then(function (j) { if (j.status !== "processing") location.reload(); else setTimeout(poll, 1000); })
+        .catch(function () { setTimeout(poll, 2000); });
+    };
+    setTimeout(poll, 800);
+  }
+
   // ---- проверка: масштаб скана ----
   var stage = document.getElementById("scan-stage");
   var zoomVal = document.getElementById("zoom-val");

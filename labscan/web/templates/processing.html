@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Распознаём' if doc.status == 'processing' else 'Ошибка' }} · {{ doc.filename }}{% endblock %}
+{% block bodyclass %}page-review{% endblock %}
+{% block body %}
+{% if doc.status == 'processing' %}<noscript><meta http-equiv="refresh" content="3"></noscript>{% endif %}
+<div class="review">
+  <aside class="scan-panel">
+    <div class="scan-toolbar"><span class="muted small">Скан · {{ pages|length }} стр.</span></div>
+    <div class="scan-stage">
+      {% for i in pages %}<figure><img src="/documents/{{ doc.id }}/page/{{ i }}.png" alt="страница {{ i + 1 }}"><figcaption>стр. {{ i + 1 }}</figcaption></figure>{% endfor %}
+    </div>
+  </aside>
+  <section class="fields processing" id="processing" data-doc="{{ doc.id }}" data-status="{{ doc.status }}">
+    {% if doc.status == 'processing' %}
+      <span class="spinner"></span>
+      <h1>Распознаём бланк</h1>
+      <p class="muted">{{ doc.filename }} · <span class="mono">{{ doc.engine }}</span></p>
+      <p class="muted small">Модель переписывает строки как напечатано, затем код сверяет их со справочником. Обычно это занимает от 3 до 30 секунд.</p>
+      <div class="skeleton" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    {% else %}
+      <svg class="icon big" style="color:var(--high)"><use href="#i-alert"/></svg>
+      <h1>Распознавание не удалось</h1>
+      <p class="muted">{{ doc.filename }} · <span class="mono">{{ doc.engine }}</span></p>
+      <div class="alert"><svg class="icon"><use href="#i-alert"/></svg><span class="mono">{{ doc.error }}</span></div>
+      <form method="post" action="/documents/{{ doc.id }}/retry"><button class="btn primary" type="submit">Повторить распознавание</button> <a class="btn ghost" href="/">К списку документов</a></form>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}

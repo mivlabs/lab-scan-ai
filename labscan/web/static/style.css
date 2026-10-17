@@ -122,6 +122,16 @@ button { font: inherit; }
 .pill.ok { background: var(--ok-soft); color: var(--ok); }
 .pill.warn { background: var(--warn-soft); color: var(--warn); }
 .pill.info { background: var(--info-soft); color: var(--info); }
+.pill.high { background: var(--high-soft); color: var(--high); }
+.small-spinner { width: 12px; height: 12px; border-width: 2px; }
+.processing { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-height: 320px; text-align: center; }
+.processing .spinner { width: 34px; height: 34px; border-width: 3px; }
+.processing h1 { font-size: 20px; }
+.processing .alert { max-width: 60ch; text-align: left; }
+.skeleton { display: grid; gap: 10px; width: 100%; max-width: 520px; margin-top: 18px; }
+.skeleton span { display: block; height: 14px; border-radius: 999px; background: linear-gradient(90deg, var(--surface-3) 25%, var(--line) 50%, var(--surface-3) 75%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
+.skeleton span:nth-child(2) { width: 80%; } .skeleton span:nth-child(3) { width: 90%; } .skeleton span:nth-child(4) { width: 70%; }
+@keyframes shimmer { to { background-position: -200% 0; } }
 .chip { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; background: var(--surface-3); color: var(--text-2); }
 .chip.warn { background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn-line); }
 .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }

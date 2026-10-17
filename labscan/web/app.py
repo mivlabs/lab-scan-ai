@@ -12,7 +12,7 @@ import uuid
 from datetime import date
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, File, HTTPException, Request, UploadFile
+from fastapi import BackgroundTasks, Depends, FastAPI, File, HTTPException, Request, UploadFile
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -109,7 +109,8 @@ def _sample(doc_id: str) -> dict:
     return next((d for d in sample_docs() if d["id"] == doc_id), None) or _404()
 
 
-def _process(data: bytes, filename: str, s: Session) -> Document:
+def _create(data: bytes, filename: str, s: Session) -> Document:
+    """Сохранить файл и завести документ в состоянии «распознаётся»."""
     ext = Path(filename).suffix.lower()
     if ext not in ALLOWED:
         raise HTTPException(400, f"Формат {ext} не поддерживается: нужен PDF, PNG или JPG")
@@ -117,13 +118,44 @@ def _process(data: bytes, filename: str, s: Session) -> Document:
         raise HTTPException(413, "Файл больше 20 МБ")
     path = UPLOADS / f"{uuid.uuid4().hex}{ext}"
     path.write_bytes(data)
-    ex = extractor()
-    result = ex.extract(load_pages(data, filename))
-    norm = normalize_report(result.report)
-    doc = Document(filename=filename, path=str(path), engine=result.engine, raw=result.report.model_dump(),
-                   normalized=norm.model_dump(mode="json"), seconds=result.seconds, cost_usd=result.cost_usd)
+    doc = Document(filename=filename, path=str(path), engine=engine_label(), status="processing", raw={}, normalized={})
     s.add(doc)
     s.commit()
+    return doc
+
+
+def _recognize(doc_id: int) -> None:
+    """Распознавание в фоне: ошибка движка становится статусом документа, а не ответом 500."""
+    s = SessionLocal()
+    try:
+        doc = s.get(Document, doc_id)
+        if doc is None or doc.status != "processing":
+            return
+        try:
+            result = extractor().extract(load_pages(Path(doc.path).read_bytes(), doc.filename))
+            norm = normalize_report(result.report)
+            doc.engine, doc.raw, doc.normalized = result.engine, result.report.model_dump(), norm.model_dump(mode="json")
+            doc.seconds, doc.cost_usd, doc.status, doc.error = result.seconds, result.cost_usd, "review", None
+        except Exception as e:  # noqa: BLE001 — любая ошибка движка показывается пользователю с кнопкой «повторить»
+            doc.status, doc.error = "failed", f"{type(e).__name__}: {e}"[:500]
+        s.commit()
+    finally:
+        s.close()
+
+
+def _enqueue(data: bytes, filename: str, s: Session, background: BackgroundTasks) -> Document:
+    doc = _create(data, filename, s)
+    background.add_task(_recognize, doc.id)
+    return doc
+
+
+def _process(data: bytes, filename: str, s: Session) -> Document:
+    """Синхронный путь для API интеграций: ответ сразу с результатом."""
+    doc = _create(data, filename, s)
+    _recognize(doc.id)
+    s.refresh(doc)
+    if doc.status == "failed":
+        raise HTTPException(502, f"Распознавание не удалось: {doc.error}")
     return doc
 
 
@@ -148,17 +180,33 @@ def index(request: Request, s: Session = Depends(db)):
 
 
 @app.post("/upload")
-async def upload(file: UploadFile = File(...), s: Session = Depends(db)):
-    doc = _process(await file.read(), file.filename or "scan", s)
+async def upload(background: BackgroundTasks, file: UploadFile = File(...), s: Session = Depends(db)):
+    doc = _enqueue(await file.read(), file.filename or "scan", s, background)
     return RedirectResponse(f"/documents/{doc.id}", status_code=303)
 
 
 @app.post("/try/{doc_id}")
-def try_sample(doc_id: str, s: Session = Depends(db)):
+def try_sample(doc_id: str, background: BackgroundTasks, s: Session = Depends(db)):
     """Распознать готовый синтетический бланк: демо без поиска файла на диске."""
     sample = _sample(doc_id)
-    doc = _process((SAMPLES / sample["file"]).read_bytes(), sample["file"], s)
+    doc = _enqueue((SAMPLES / sample["file"]).read_bytes(), sample["file"], s, background)
     return RedirectResponse(f"/documents/{doc.id}", status_code=303)
+
+
+@app.post("/documents/{doc_id}/retry")
+def retry(doc_id: int, background: BackgroundTasks, s: Session = Depends(db)):
+    doc = s.get(Document, doc_id) or _404()
+    if doc.status == "failed":
+        doc.status, doc.error = "processing", None
+        s.commit()
+        background.add_task(_recognize, doc.id)
+    return RedirectResponse(f"/documents/{doc.id}", status_code=303)
+
+
+@app.get("/api/documents/{doc_id}/status")
+def api_status(doc_id: int, s: Session = Depends(db)):
+    doc = s.get(Document, doc_id) or _404()
+    return {"status": doc.status, "engine": doc.engine, "seconds": round(doc.seconds, 2), "error": doc.error}
 
 
 @app.get("/samples/{doc_id}/thumb.png")
@@ -177,6 +225,8 @@ def sample_thumb(doc_id: str):
 def review(doc_id: int, request: Request, s: Session = Depends(db)):
     doc = s.get(Document, doc_id) or _404()
     pages = len(load_pages(Path(doc.path).read_bytes(), doc.path))
+    if doc.status in ("processing", "failed"):
+        return templates.TemplateResponse(request, "processing.html", {"doc": doc, "pages": range(pages)})
     n = doc.normalized
     need = sum(o["status"] == "review" for o in n["observations"])
     total = len(n["observations"])

@@ -5,7 +5,7 @@ from __future__ import annotations
 import os
 from datetime import date, datetime
 
-from sqlalchemy import JSON, Date, DateTime, Float, ForeignKey, String, create_engine, select
+from sqlalchemy import JSON, Date, DateTime, Float, ForeignKey, String, create_engine, inspect, select, text
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, relationship, sessionmaker
 
 
@@ -27,7 +27,8 @@ class Document(Base):
     filename: Mapped[str] = mapped_column(String(300))
     path: Mapped[str] = mapped_column(String(500))
     engine: Mapped[str] = mapped_column(String(100))
-    status: Mapped[str] = mapped_column(String(20), default="review")  # review | confirmed
+    status: Mapped[str] = mapped_column(String(20), default="review")  # processing | review | confirmed | failed
+    error: Mapped[str | None] = mapped_column(String(500))  # почему распознавание не удалось
     raw: Mapped[dict] = mapped_column(JSON)
     normalized: Mapped[dict] = mapped_column(JSON)
     seconds: Mapped[float] = mapped_column(Float, default=0.0)
@@ -73,7 +74,20 @@ def make_session_factory(url: str | None = None) -> sessionmaker[Session]:
         os.makedirs(os.path.dirname(url.removeprefix("sqlite:///")) or ".", exist_ok=True)
     engine = create_engine(url, connect_args={"check_same_thread": False} if url.startswith("sqlite") else {})
     Base.metadata.create_all(engine)
+    _add_missing_columns(engine)
     return sessionmaker(engine, expire_on_commit=False)
+
+
+def _add_missing_columns(engine) -> None:
+    """create_all не меняет существующие таблицы; для прототипа достаточно добавить новые колонки.
+    В пилоте — Alembic."""
+    insp = inspect(engine)
+    with engine.begin() as conn:
+        for table in Base.metadata.sorted_tables:
+            have = {c["name"] for c in insp.get_columns(table.name)}
+            for col in table.columns:
+                if col.name not in have:
+                    conn.execute(text(f'ALTER TABLE {table.name} ADD COLUMN {col.name} {col.type.compile(engine.dialect)}'))
 
 
 def _key(name: str) -> str:
