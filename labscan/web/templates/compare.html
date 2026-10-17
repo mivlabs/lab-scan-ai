@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Сравнение движков · {{ doc.filename }}{% endblock %}
+{% block body %}
+<section class="card" id="compare" data-pending="{{ pending|join(',') }}">
+  <div class="review-head">
+    <div>
+      <h1>Сравнение движков на одном бланке</h1>
+      <p class="muted small">{{ doc.filename }} · один и тот же файл, одна и та же нормализация, разные модели. Первая колонка — движок, которым бланк распознан на <a href="/documents/{{ doc.id }}">экране проверки</a>.</p>
+    </div>
+    <a class="btn ghost" href="/documents/{{ doc.id }}">К проверке</a>
+  </div>
+
+  {% if options %}
+  <form method="post" action="/documents/{{ doc.id }}/compare" class="cmp-form">
+    <label>Добавить колонку
+      <select name="pick" onchange="this.form.engine.value=this.value.split('|')[0];this.form.model.value=this.value.split('|')[1]||''">
+        {% for o in options %}<option value="{{ o.engine }}|{{ o.model or '' }}">{{ o.engine }}{% if o.model %} · {{ o.model }}{% endif %}</option>{% endfor %}
+      </select>
+    </label>
+    <input type="hidden" name="engine" value="{{ options[0].engine }}">
+    <input type="hidden" name="model" value="{{ options[0].model or '' }}">
+    <button class="btn primary" type="submit">Прогнать</button>
+    <span class="muted small">Прогон идёт в фоне, страница обновится сама.</span>
+  </form>
+  {% else %}
+  <p class="alert"><svg class="icon"><use href="#i-alert"/></svg>Нет доступных движков: нужен ключ Anthropic или OpenRouter, запущенный Ollama или установленный Tesseract.</p>
+  {% endif %}
+
+  <div class="legend small muted">
+    <span><span class="swatch"></span>строки, где движки расходятся или кто-то пропустил показатель: {{ diff_count }}</span>
+    <span>«проверить» — строка ушла бы на проверку человеку</span>
+  </div>
+
+  <div class="compare-wrap">
+  <table class="obs cmp">
+    <thead><tr>
+      <th>Показатель</th>
+      {% for c in columns %}
+      <th>
+        <span class="mono">{{ c.label }}</span>
+        <span class="muted small">{% if c.status == 'processing' %}распознаётся…{% elif c.status == 'failed' %}ошибка{% else %}{{ "%.1f"|format(c.seconds) }} с{% if c.cost %} · ${{ "%.4f"|format(c.cost) }}{% endif %}{% endif %}</span>
+      </th>
+      {% endfor %}
+    </tr></thead>
+    <tbody>
+    {% for r in rows %}
+    <tr class="{{ 'diff' if r.diff }}">
+      <td class="an">{{ r.name }}{% if r.unit %} <span class="muted small">{{ r.unit|unit_ru }}</span>{% endif %}</td>
+      {% for c in r.cells %}
+        {% set col = columns[loop.index0] %}
+        {% if col.status == 'processing' %}<td class="cell pending">…</td>
+        {% elif col.status == 'failed' %}<td class="cell miss" title="{{ col.error }}">ошибка</td>
+        {% elif c is none %}<td class="cell miss">— пропущен</td>
+        {% else %}
+        <td class="cell">
+          <b class="num {{ 'flag-' ~ c.flag if c.flag in ('H', 'L') }}">{{ c.value|fmt(c.code) if c.value is not none else '?' }}</b>
+          {% if c.status == 'review' %}<span class="chip warn" title="{{ c.issues|join('; ') }}">проверить</span>{% endif %}
+          <div class="raw">{{ c.raw.name }} · {{ c.raw.value }} {{ c.raw.unit or '' }}</div>
+        </td>
+        {% endif %}
+      {% endfor %}
+    </tr>
+    {% endfor %}
+    {% if not rows %}<tr><td colspan="{{ columns|length + 1 }}" class="empty">Пока нечего сравнивать.</td></tr>{% endif %}
+    </tbody>
+  </table>
+  </div>
+  {% for c in columns if c.status == 'failed' %}<div class="alert"><svg class="icon"><use href="#i-alert"/></svg><span class="mono">{{ c.label }}</span>: {{ c.error }}</div>{% endfor %}
+</section>
+{% endblock %}

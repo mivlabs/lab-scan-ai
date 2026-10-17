@@ -46,6 +46,20 @@
     setTimeout(poll, 800);
   }
 
+  // ---- сравнение движков: ждём незавершённые прогоны ----
+  var cmp = document.getElementById("compare");
+  if (cmp && cmp.dataset.pending) {
+    var ids = cmp.dataset.pending.split(",").filter(Boolean);
+    var check = function () {
+      Promise.all(ids.map(function (id) {
+        return fetch("/api/engine-runs/" + id + "/status", { cache: "no-store" }).then(function (r) { return r.json(); });
+      })).then(function (js) {
+        if (js.some(function (j) { return j.status !== "processing"; })) location.reload(); else setTimeout(check, 1500);
+      }).catch(function () { setTimeout(check, 3000); });
+    };
+    setTimeout(check, 1200);
+  }
+
   // ---- проверка: масштаб скана ----
   var stage = document.getElementById("scan-stage");
   var zoomVal = document.getElementById("zoom-val");

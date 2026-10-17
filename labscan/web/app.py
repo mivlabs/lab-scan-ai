@@ -12,7 +12,7 @@ import uuid
 from datetime import date
 from pathlib import Path
 
-from fastapi import BackgroundTasks, Depends, FastAPI, File, HTTPException, Request, UploadFile
+from fastapi import BackgroundTasks, Depends, FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -20,8 +20,8 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from ..catalog import ANALYTES, BY_CODE, UNIT_LABELS_RU, Analyte
-from ..db import Correction, Document, ObservationRow, Patient, find_or_create_patient, make_session_factory
-from ..extractors import get_extractor
+from ..db import Correction, Document, EngineRun, ObservationRow, Patient, find_or_create_patient, make_session_factory
+from ..extractors import available_engines, get_extractor
 from ..fhir import to_bundle
 from ..ingest import load_pages
 from ..mis import OutboxMIS
@@ -323,6 +323,85 @@ def patient_card(pid: int, request: Request, s: Session = Depends(db)):
     return templates.TemplateResponse(request, "patient.html", {
         "p": p, "series": series, "panels": [(t, codes) for t, codes in panels if codes], "by_code": BY_CODE,
         "docs": docs, "chart": chart, "age": _age(p.birth_date), "abnormal": abnormal})
+
+
+# ---------- сравнение движков на одном бланке ----------
+
+def _run_engine(run_id: int) -> None:
+    s = SessionLocal()
+    try:
+        run = s.get(EngineRun, run_id)
+        doc = s.get(Document, run.document_id)
+        try:
+            name, _, model = run.engine.partition(":")
+            result = get_extractor(name, model or None).extract(load_pages(Path(doc.path).read_bytes(), doc.filename))
+            norm = normalize_report(result.report)
+            run.engine, run.raw, run.normalized = result.engine, result.report.model_dump(), norm.model_dump(mode="json")
+            run.seconds, run.cost_usd, run.status = result.seconds, result.cost_usd, "done"
+        except Exception as e:  # noqa: BLE001 — ошибка движка показывается в колонке
+            run.status, run.error = "failed", f"{type(e).__name__}: {e}"[:500]
+        s.commit()
+    finally:
+        s.close()
+
+
+def compare_matrix(columns: list[dict]) -> list[dict]:
+    """Строки = показатели справочника (в порядке справочника) и нераспознанные названия; ячейки по колонкам.
+    Строка помечена diff, если значения расходятся или показатель есть не во всех колонках."""
+    per_col: list[dict] = []
+    for c in columns:
+        obs = (c.get("norm") or {}).get("observations") or []
+        by: dict = {}
+        for o in obs:
+            key = o["code"] or f"?{o['raw']['name']}"
+            by.setdefault(key, o)
+        per_col.append(by)
+    keys = [a.code for a in ANALYTES if any(a.code in by for by in per_col)]
+    keys += sorted({k for by in per_col for k in by if k.startswith("?")})
+    rows = []
+    for key in keys:
+        cells = [by.get(key) for by in per_col]
+        values = [c["value"] for c in cells if c and c["value"] is not None]
+        ref = values[0] if values else None
+        same = all(abs(v - ref) <= max(0.011, abs(ref) * 0.002) for v in values) if ref is not None else True
+        diff = any(c is None for c in cells) or not same
+        rows.append({"code": key, "name": BY_CODE[key].name_ru if key in BY_CODE else key[1:],
+                     "unit": BY_CODE[key].unit if key in BY_CODE else None, "cells": cells, "diff": diff})
+    return rows
+
+
+@app.get("/documents/{doc_id}/compare", response_class=HTMLResponse)
+def compare(doc_id: int, request: Request, s: Session = Depends(db)):
+    doc = s.get(Document, doc_id) or _404()
+    runs = s.scalars(select(EngineRun).where(EngineRun.document_id == doc.id).order_by(EngineRun.id)).all()
+    columns = [{"label": doc.engine, "norm": doc.normalized if doc.status not in ("processing", "failed") else None,
+                "seconds": doc.seconds, "cost": doc.cost_usd, "status": doc.status, "main": True}]
+    columns += [{"label": r.engine, "norm": r.normalized if r.status == "done" else None, "seconds": r.seconds,
+                 "cost": r.cost_usd, "status": r.status, "error": r.error, "id": r.id} for r in runs]
+    rows = compare_matrix(columns)
+    pending = [r.id for r in runs if r.status == "processing"]
+    return templates.TemplateResponse(request, "compare.html", {
+        "doc": doc, "columns": columns, "rows": rows, "options": available_engines(), "pending": pending,
+        "diff_count": sum(r["diff"] for r in rows)})
+
+
+@app.post("/documents/{doc_id}/compare")
+def compare_run(doc_id: int, request: Request, background: BackgroundTasks, s: Session = Depends(db),
+                engine: str = Form(...), model: str = Form("")):
+    doc = s.get(Document, doc_id) or _404()
+    if engine not in ("claude", "openrouter", "ollama", "tesseract"):
+        raise HTTPException(400, "неизвестный движок")
+    run = EngineRun(document_id=doc.id, engine=f"{engine}:{model}" if model else engine)
+    s.add(run)
+    s.commit()
+    background.add_task(_run_engine, run.id)
+    return RedirectResponse(f"/documents/{doc.id}/compare", status_code=303)
+
+
+@app.get("/api/engine-runs/{run_id}/status")
+def api_run_status(run_id: int, s: Session = Depends(db)):
+    run = s.get(EngineRun, run_id) or _404()
+    return {"status": run.status, "engine": run.engine, "error": run.error}
 
 
 # ---------- JSON API ----------

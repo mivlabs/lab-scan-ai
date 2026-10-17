@@ -48,6 +48,7 @@
         <h1>{{ doc.filename }}</h1>
         <p class="muted small">{% if n.lab_name %}{{ n.lab_name }} · {% endif %}<span class="mono">{{ doc.engine }}</span> · {{ "%.1f"|format(doc.seconds) }} с{% if doc.cost_usd %} · ${{ "%.4f"|format(doc.cost_usd) }}{% endif %}</p>
       </div>
+      <a class="btn ghost" href="/documents/{{ doc.id }}/compare" title="Прогнать этот же бланк другим движком и сравнить построчно">Сравнить движки</a>
     </div>
     <div class="summary">
       <div class="sum"><b class="num">{{ stats.rows }}</b><span>строк на бланке</span></div>

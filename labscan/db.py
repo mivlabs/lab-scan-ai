@@ -55,6 +55,22 @@ class ObservationRow(Base):
     patient: Mapped[Patient] = relationship(back_populates="observations")
 
 
+class EngineRun(Base):
+    """Тот же документ, прогнанный другим движком или моделью: для сравнения на одном бланке."""
+
+    __tablename__ = "engine_runs"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    document_id: Mapped[int] = mapped_column(ForeignKey("documents.id"))
+    engine: Mapped[str] = mapped_column(String(100))
+    status: Mapped[str] = mapped_column(String(20), default="processing")  # processing | done | failed
+    raw: Mapped[dict] = mapped_column(JSON, default=dict)
+    normalized: Mapped[dict] = mapped_column(JSON, default=dict)
+    seconds: Mapped[float] = mapped_column(Float, default=0.0)
+    cost_usd: Mapped[float] = mapped_column(Float, default=0.0)
+    error: Mapped[str | None] = mapped_column(String(500))
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
+
+
 class Correction(Base):
     """Каждая правка человека: что предложила система и что записали. Материал для улучшения качества."""
 

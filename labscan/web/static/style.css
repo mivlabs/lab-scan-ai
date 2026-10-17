@@ -253,6 +253,26 @@ input.flag-L { border-color: color-mix(in srgb, var(--low) 45%, var(--line-2)); 
 .hotkeys kbd { margin-right: 4px; }
 .hotkeys { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 
+/* ---------- сравнение движков ---------- */
+.review-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.compare-wrap { overflow-x: auto; }
+.cmp { table-layout: auto; }
+.cmp th { white-space: nowrap; }
+.cmp th .mono { text-transform: none; letter-spacing: 0; display: block; color: var(--text); font-weight: 600; font-size: 12.5px; }
+.cmp th .muted { display: block; font-weight: 400; text-transform: none; letter-spacing: 0; }
+.cmp td { vertical-align: middle; }
+.cmp td.an { font-weight: 500; white-space: nowrap; }
+.cmp td.cell { white-space: nowrap; }
+.cmp td.cell .raw { white-space: normal; max-width: 220px; }
+.cmp tr.diff td { background: color-mix(in srgb, var(--warn-soft) 55%, var(--surface)); }
+.cmp td.cell.miss { color: var(--muted); }
+.cmp .chip { vertical-align: middle; }
+.cmp .pending { color: var(--muted); font-style: italic; }
+.cmp-form { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
+.cmp-form select { min-width: 280px; }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; margin: 6px 0 12px; }
+.legend .swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin-right: 5px; background: color-mix(in srgb, var(--warn-soft) 55%, var(--surface)); border: 1px solid var(--warn-line); }
+
 /* ---------- карта пациента ---------- */
 .patient-head { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .patient-head .stats { margin-left: auto; }

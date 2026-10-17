@@ -156,3 +156,35 @@ def test_old_database_gets_new_columns(tmp_path):
     make_session_factory(f"sqlite:///{db.as_posix()}")
     cols = {row[1] for row in sqlite3.connect(db).execute("PRAGMA table_info(documents)")}
     assert "error" in cols
+
+
+def test_compare_engines_on_one_document(client, monkeypatch):
+    import labscan.web.app as appmod
+    from labscan.extractors.base import Extraction
+    from labscan.schema import RawReport, RawResult
+
+    class OtherStub:
+        name = "other"
+        model = "m"
+
+        def extract(self, pages):
+            return Extraction(RawReport(patient_name="Иванова", results=[
+                RawResult(name="Гемоглобин", value="121", unit="г/л", reference="120 - 160"),  # расходится со 118
+                RawResult(name="Лейкоциты", value="6,1", unit="×10⁹/л")]), "other:m", 0.2, 0.001)  # глюкозы нет
+
+    r = client.post("/upload", files={"file": ("scan.png", _png(), "image/png")}, follow_redirects=False)
+    page = client.get("/documents/1/compare").text
+    assert "Сравнение движков" in page and "stub" in page
+    monkeypatch.setattr(appmod, "get_extractor", lambda name, model=None: OtherStub())
+    r = client.post("/documents/1/compare", data={"engine": "openrouter", "model": "m"}, follow_redirects=False)
+    assert r.status_code == 303
+    assert client.get("/api/engine-runs/1/status").json()["status"] == "done"
+    page = client.get("/documents/1/compare").text
+    assert "other:m" in page and "Лейкоциты" in page and "— пропущен" in page
+    s = appmod.SessionLocal()
+    rows = appmod.compare_matrix([{"norm": s.get(appmod.Document, 1).normalized},
+                                  {"norm": s.get(appmod.EngineRun, 1).normalized}])
+    by = {row["code"]: row for row in rows}
+    # 118 против 121; глюкоза только слева; лейкоциты только справа
+    assert by["HGB"]["diff"] and by["GLU"]["diff"] and by["WBC"]["diff"]
+    assert client.post("/documents/1/compare", data={"engine": "nope"}).status_code == 400
