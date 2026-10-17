@@ -356,6 +356,7 @@ def compare_matrix(columns: list[dict]) -> list[dict]:
             key = o["code"] or f"?{o['raw']['name']}"
             by.setdefault(key, o)
         per_col.append(by)
+    done = [c.get("norm") is not None for c in columns]  # колонки, которые ещё распознаются, в расхождениях не участвуют
     keys = [a.code for a in ANALYTES if any(a.code in by for by in per_col)]
     keys += sorted({k for by in per_col for k in by if k.startswith("?")})
     rows = []
@@ -364,7 +365,7 @@ def compare_matrix(columns: list[dict]) -> list[dict]:
         values = [c["value"] for c in cells if c and c["value"] is not None]
         ref = values[0] if values else None
         same = all(abs(v - ref) <= max(0.011, abs(ref) * 0.002) for v in values) if ref is not None else True
-        diff = any(c is None for c in cells) or not same
+        diff = any(c is None for c, ok in zip(cells, done, strict=True) if ok) or not same
         rows.append({"code": key, "name": BY_CODE[key].name_ru if key in BY_CODE else key[1:],
                      "unit": BY_CODE[key].unit if key in BY_CODE else None, "cells": cells, "diff": diff})
     return rows

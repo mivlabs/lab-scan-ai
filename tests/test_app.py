@@ -188,3 +188,13 @@ def test_compare_engines_on_one_document(client, monkeypatch):
     # 118 против 121; глюкоза только слева; лейкоциты только справа
     assert by["HGB"]["diff"] and by["GLU"]["diff"] and by["WBC"]["diff"]
     assert client.post("/documents/1/compare", data={"engine": "nope"}).status_code == 400
+
+
+def test_compare_matrix_ignores_pending_columns():
+    from labscan.web.app import compare_matrix
+
+    obs = {"observations": [{"code": "HGB", "value": 118.0, "status": "ok", "flag": None, "issues": [],
+                             "raw": {"name": "Гемоглобин", "value": "118", "unit": "г/л"}}]}
+    rows = compare_matrix([{"norm": obs}, {"norm": None}])  # вторая колонка ещё распознаётся
+    assert rows[0]["code"] == "HGB" and rows[0]["diff"] is False
+    assert compare_matrix([{"norm": obs}, {"norm": {"observations": []}}])[0]["diff"] is True
