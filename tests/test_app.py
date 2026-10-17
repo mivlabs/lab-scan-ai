@@ -74,3 +74,39 @@ def test_api_extract(client):
 def test_rejects_wrong_format(client):
     r = client.post("/upload", files={"file": ("x.exe", b"MZ", "application/octet-stream")})
     assert r.status_code == 400
+
+
+def test_index_lists_samples_and_try_runs_extractor(client):
+    page = client.get("/").text
+    assert "Попробовать на примере" in page and "/try/" in page
+    doc_id = next(line for line in page.splitlines() if 'action="/try/' in line).split('action="/try/')[1].split('"')[0]
+    thumb = client.get(f"/samples/{doc_id}/thumb.png")
+    assert thumb.status_code == 200 and thumb.headers["content-type"] == "image/png"
+    r = client.post(f"/try/{doc_id}", follow_redirects=False)
+    assert r.status_code == 303 and r.headers["location"] == "/documents/1"
+    assert client.post("/try/no_such_sample", follow_redirects=False).status_code == 404
+
+
+def test_review_groups_rows_and_counts(client):
+    r = client.post("/upload", files={"file": ("scan.png", _png(), "image/png")}, follow_redirects=False)
+    page = client.get(r.headers["location"]).text
+    assert "Требует внимания" in page and "Прочитано уверенно" in page
+    assert 'name="value_0"' in page and 'name="value_1"' in page  # индексы строк не меняются после группировки
+    assert 'class="need"' in page and 'class="row-ok"' in page
+
+
+def test_chart_svg():
+    from datetime import date
+    from types import SimpleNamespace
+
+    from labscan.catalog import BY_CODE
+    from labscan.web.app import chart
+
+    rows = [SimpleNamespace(value=v, ref_low=120.0, ref_high=160.0, flag=f, collected_at=date(2026, m, 1))
+            for v, f, m in ((118.0, "L", 1), (131.0, "N", 3), (165.0, "H", 6))]
+    svg = chart(rows, BY_CODE["HGB"])
+    assert svg.startswith("<svg") and svg.count("<circle") == 3 and 'class="band"' in svg and "<polyline" in svg
+    assert 'flag-H' in svg and "01.01.26" in svg and "01.06.26" in svg and ">165<" in svg
+    one = chart(rows[:1], BY_CODE["HGB"])
+    assert one.count("<circle") == 1 and "<polyline" not in one
+    assert chart([], BY_CODE["HGB"]) == ""

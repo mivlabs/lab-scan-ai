@@ -1,34 +1,82 @@
 {% extends "base.html" %}
 {% block body %}
-<section class="card">
-  <h1>Загрузить бланк анализа</h1>
-  <p class="muted">PDF, фото или скан. Движок распознавания: <b>{{ engine }}</b></p>
-  <form action="/upload" method="post" enctype="multipart/form-data" class="upload">
-    <input type="file" name="file" accept=".pdf,.png,.jpg,.jpeg,.webp" required>
-    <button>Распознать</button>
+<section class="hero">
+  <div class="hero-text">
+    <h1>Бланк анализа → карта пациента</h1>
+    <p class="lead">Загрузите PDF, скан или фото с телефона. Система перепишет показатели, приведёт их к справочнику и единицам, подсветит всё сомнительное. Вы подтверждаете, результат уходит в карту и в МИС.</p>
+    <p class="muted small">Движок распознавания: <span class="chip mono">{{ engine }}</span></p>
+  </div>
+  <form action="/upload" method="post" enctype="multipart/form-data" class="dropzone" id="dropzone">
+    <input type="file" name="file" id="file" accept=".pdf,.png,.jpg,.jpeg,.webp" required>
+    <svg class="icon big"><use href="#i-upload"/></svg>
+    <div class="dz-title">Перетащите бланк сюда</div>
+    <div class="muted small">PDF, PNG или JPG до 20 МБ</div>
+    <label for="file" class="btn primary">Выбрать файл</label>
+    <div class="dz-busy"><span class="spinner"></span> Распознаём…</div>
   </form>
 </section>
+
+{% if samples %}
+<section class="card">
+  <div class="card-head">
+    <h2>Попробовать на примере</h2>
+    <span class="muted small">три синтетических бланка с разной вёрсткой</span>
+  </div>
+  <div class="samples">
+    {% for smp in samples %}
+    <form method="post" action="/try/{{ smp.id }}" class="sample">
+      <button type="submit" class="sample-btn">
+        <img src="/samples/{{ smp.id }}/thumb.png" alt="" loading="lazy">
+        <span class="sample-text">
+          <b>{{ smp.layout }}</b>
+          <span class="muted small">{{ smp.kind }} · {{ smp.rows }} показателей</span>
+        </span>
+      </button>
+    </form>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 <div class="grid2">
 <section class="card">
-  <h2>Документы</h2>
-  {% if not docs %}<p class="muted">Пока пусто. Загрузите бланк из data/synth.</p>{% endif %}
+  <div class="card-head">
+    <h2>Документы</h2>
+    <div class="stats">
+      <span class="stat"><b>{{ stats.total }}</b> всего</span>
+      <span class="stat"><b>{{ stats.waiting }}</b> ждут проверки</span>
+      <span class="stat"><b>{{ stats.confirmed }}</b> в карте</span>
+    </div>
+  </div>
+  {% if not docs %}<p class="empty">Пока пусто. Загрузите бланк или нажмите на пример выше.</p>{% endif %}
   <table class="list">
   {% for d in docs %}
     {% set n = d.normalized %}
-    {% set review = n.issues or (n.observations | selectattr("status", "equalto", "review") | list) %}
+    {% set review = review_count(n) %}
     <tr>
-      <td><a href="/documents/{{ d.id }}">{{ d.filename }}</a><div class="muted small">{{ n.patient_name or "без ФИО" }} · {{ d.engine }} · {{ "%.1f"|format(d.seconds) }} с</div></td>
-      <td>{% if d.status == "confirmed" %}<span class="pill ok">в карте</span>
-          {% elif review %}<span class="pill warn">проверить: {{ review|length }}</span>
-          {% else %}<span class="pill">готово к подтверждению</span>{% endif %}</td>
+      <td class="doc-cell">
+        <svg class="icon muted"><use href="#i-doc"/></svg>
+        <div>
+          <a href="/documents/{{ d.id }}" class="doc-name">{{ d.filename }}</a>
+          <div class="muted small">{{ n.patient_name or "без ФИО" }} · {{ d.engine }} · {{ "%.1f"|format(d.seconds) }} с</div>
+        </div>
+      </td>
+      <td class="small muted nowrap">{{ d.created_at.strftime("%d.%m.%Y %H:%M") if d.created_at else "" }}</td>
+      <td class="right">
+        {% if d.status == "confirmed" %}<span class="pill ok"><svg class="icon"><use href="#i-check"/></svg>в карте</span>
+        {% elif review %}<span class="pill warn"><svg class="icon"><use href="#i-alert"/></svg>проверить {{ review }}</span>
+        {% else %}<span class="pill info">готово к подтверждению</span>{% endif %}
+      </td>
     </tr>
   {% endfor %}
   </table>
 </section>
 <section class="card">
-  <h2>Пациенты</h2>
-  {% if not patients %}<p class="muted">Появятся после подтверждения первого бланка.</p>{% endif %}
-  <ul class="plain">{% for p in patients %}<li><a href="/patients/{{ p.id }}">{{ p.full_name }}</a> <span class="muted small">{{ p.birth_date or "" }}</span></li>{% endfor %}</ul>
+  <div class="card-head"><h2>Пациенты</h2></div>
+  {% if not patients %}<p class="empty">Появятся после подтверждения первого бланка.</p>{% endif %}
+  <ul class="plain">{% for p in patients %}
+    <li><svg class="icon muted"><use href="#i-person"/></svg><a href="/patients/{{ p.id }}">{{ p.full_name }}</a> <span class="muted small">{{ p.birth_date|date_ru }}</span></li>
+  {% endfor %}</ul>
 </section>
 </div>
 {% endblock %}

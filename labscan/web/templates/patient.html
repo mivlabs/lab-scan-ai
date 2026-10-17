@@ -1,24 +1,68 @@
 {% extends "base.html" %}
 {% block title %}{{ p.full_name }}{% endblock %}
 {% block body %}
+<section class="card patient-head">
+  <div class="patient-id">
+    <div class="avatar"><svg class="icon"><use href="#i-person"/></svg></div>
+    <div>
+      <h1>{{ p.full_name }}</h1>
+      <p class="muted">Дата рождения {{ p.birth_date|date_ru or "не указана" }}{% if age is not none %} · {{ age }} лет{% endif %}</p>
+    </div>
+  </div>
+  <div class="stats">
+    <span class="stat"><b class="num">{{ p.observations|length }}</b> показателей в карте</span>
+    <span class="stat"><b class="num">{{ docs|length }}</b> документов</span>
+    {% if abnormal %}<span class="stat warn"><b class="num">{{ abnormal }}</b> вне референса</span>{% endif %}
+  </div>
+</section>
+
+{% for title, codes in panels %}
 <section class="card">
-  <h1>{{ p.full_name }}</h1>
-  <p class="muted">Дата рождения: {{ p.birth_date or "не указана" }} · показателей в карте: {{ p.observations|length }}</p>
-  <table class="obs card-table">
-    <thead><tr><th>Показатель</th><th>Последнее</th><th>Референс</th><th>Дата</th><th>Динамика</th><th>История</th></tr></thead>
-    <tbody>
-    {% for code in order %}
-      {% set rows = series[code] %}{% set last = rows[-1] %}
-      <tr>
-        <td>{{ by_code[code].name_ru }}<div class="muted small">LOINC {{ last.loinc }}</div></td>
-        <td class="num flag-{{ last.flag or 'none' }}"><b>{{ last.value|fmt(code) }}</b> {{ last.unit|unit_ru }}{% if last.flag in ('H','L') %} <span class="pill warn">{{ '↑' if last.flag == 'H' else '↓' }}</span>{% endif %}</td>
-        <td class="muted small">{% if last.ref_low is not none or last.ref_high is not none %}{{ last.ref_low|fmt(code) }}–{{ last.ref_high|fmt(code) }}{% endif %}</td>
-        <td class="small">{{ last.collected_at or "" }}</td>
-        <td>{{ sparkline(rows)|safe }}</td>
-        <td class="small muted">{% for r in rows[:-1]|reverse %}{{ r.value|fmt(code) }} ({{ r.collected_at or "?" }}){% if not loop.last %}, {% endif %}{% endfor %}</td>
-      </tr>
+  <div class="card-head"><h2>{{ title }}</h2><span class="muted small">{{ codes|length }} показателей</span></div>
+  <div class="analytes">
+    {% for code in codes %}{% set rows = series[code] %}{% set last = rows[-1] %}{% set a = by_code[code] %}
+    <article class="analyte flag-{{ last.flag or 'none' }}">
+      <header>
+        <div class="an-name">{{ a.name_ru }}<span class="muted small">LOINC {{ last.loinc }}</span></div>
+        <div class="an-value">
+          <b class="num">{{ last.value|fmt(code) }}</b> <span class="unit muted">{{ last.unit|unit_ru }}</span>
+          {% if last.flag == 'H' %}<span class="flag-badge H" title="выше референса"><svg class="icon"><use href="#i-up"/></svg>H</span>
+          {% elif last.flag == 'L' %}<span class="flag-badge L" title="ниже референса"><svg class="icon"><use href="#i-down"/></svg>L</span>{% endif %}
+        </div>
+      </header>
+      {{ chart(rows, a)|safe }}
+      <footer class="small muted">
+        <span>{% if last.ref_low is not none or last.ref_high is not none %}референс <span class="num">{{ last.ref_low|fmt(code) }}–{{ last.ref_high|fmt(code) }}</span>{% else %}без референса{% endif %}</span>
+        <span>{{ last.collected_at|date_ru }}</span>
+      </footer>
+      {% if rows|length > 1 %}
+      <div class="history small">{% for r in rows[:-1]|reverse %}<span><b class="num">{{ r.value|fmt(code) }}</b> <span class="muted">{{ r.collected_at|date_ru or "?" }}</span></span>{% endfor %}</div>
+      {% endif %}
+    </article>
     {% endfor %}
-    </tbody>
+  </div>
+</section>
+{% endfor %}
+
+<section class="card">
+  <div class="card-head"><h2>История документов</h2></div>
+  <table class="list">
+  {% for d in docs %}
+    <tr>
+      <td class="doc-cell">
+        <svg class="icon muted"><use href="#i-doc"/></svg>
+        <div>
+          <a href="/documents/{{ d.id }}" class="doc-name">{{ d.filename }}</a>
+          <div class="muted small">{% if d.normalized.lab_name %}{{ d.normalized.lab_name }} · {% endif %}{{ d.engine }}{% if d.normalized.collected_at %} · взято {{ d.normalized.collected_at }}{% endif %}</div>
+        </div>
+      </td>
+      <td class="small muted nowrap">{{ d.created_at.strftime("%d.%m.%Y %H:%M") if d.created_at else "" }}</td>
+      <td class="right nowrap">
+        {% if d.status == "confirmed" %}<span class="pill ok"><svg class="icon"><use href="#i-check"/></svg>в карте</span> <a class="btn ghost small-btn" href="/api/documents/{{ d.id }}/fhir">FHIR</a>
+        {% else %}<span class="pill warn">не подтверждён</span>{% endif %}
+      </td>
+    </tr>
+  {% endfor %}
   </table>
 </section>
 {% endblock %}
