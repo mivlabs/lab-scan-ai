@@ -255,6 +255,7 @@ input.flag-L { border-color: color-mix(in srgb, var(--low) 45%, var(--line-2)); 
 
 /* ---------- сравнение движков ---------- */
 .review-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.review-head .btn { white-space: nowrap; flex: none; }
 .compare-wrap { overflow-x: auto; }
 .cmp { table-layout: auto; }
 .cmp th { white-space: nowrap; }

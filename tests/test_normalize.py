@@ -89,8 +89,30 @@ def test_value_with_unit_in_one_field_is_split():
     assert split_value_unit("8.10 ×10¹²/л", None) == ("8.10", "×10¹²/л")
     assert split_value_unit("<5 мг/л", None) == ("<5", "мг/л")
     assert split_value_unit("156", None) == ("156", None)
-    assert split_value_unit("156 г/л", "г/л") == ("156 г/л", "г/л")  # unit задан: value не трогаем
+    assert split_value_unit("156 г/л", "г/л") == ("156", "г/л")  # единица целая, хвост в value — дубль
+    assert split_value_unit("8.10 ×10¹²", "/л") == ("8.10", "×10¹²/л")  # единица разрезана пополам (Qwen3-VL)
+    assert split_value_unit("8.10 ×10¹²", "мкл") == ("8.10 ×10¹²", "мкл")  # не склеивается в известную единицу
+    assert split_value_unit("4,5", "ммоль/л") == ("4,5", "ммоль/л")
     o = normalize_result(RawResult(name="Гемоглобин (HGB)", value="156 г/л", unit=None, reference="(120 - 160)"))
     assert o.code == "HGB" and o.value == 156 and o.unit == "g/L" and o.status == "ok" and o.ref_high == 160
     o = normalize_result(RawResult(name="Гемоглобин", value="156 попугаев", unit=None))
     assert o.value is None and "единица не распознана" in o.issues and o.status == "review"
+
+
+@pytest.mark.parametrize("raw, code", [
+    ("ACT", "AST"),  # латиница вместо кириллицы (Gemini)
+    ("АЛT", "ALT"),  # смесь
+    ("HGB", "HGB"),  # чистая латиница как была
+    ("Гемоглобин", "HGB"),
+])
+def test_homoglyphs_in_names(raw, code):
+    analyte, score = match_analyte(raw)
+    assert analyte is not None and analyte.code == code and score >= 0.85
+
+
+def test_homoglyphs_in_units():
+    assert normalize_unit("мME/л") == "mIU/L"  # «м» кириллицей, «ME» латиницей (Qwen2.5-VL)
+    assert normalize_unit("ммоль/л") == "mmol/L" and normalize_unit("mmol/L") == "mmol/L"
+    assert normalize_unit("попугаи") is None
+    o = normalize_result(RawResult(name="ТТГ (TSH)", value="2.72", unit="мME/л", reference="0.4 - 4.0"))
+    assert o.code == "TSH" and o.value == 2.72 and o.status == "ok"

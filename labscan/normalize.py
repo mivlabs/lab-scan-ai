@@ -28,14 +28,23 @@ def parse_number(s: str | None) -> float | None:
 
 
 def split_value_unit(value: str | None, unit: str | None) -> tuple[str | None, str | None]:
-    """Модель иногда пишет «156 г/л» в value, а unit оставляет пустым (видно в eval на фото).
-    Число впереди однозначно; хвост становится единицей и проходит обычную проверку."""
-    if unit or not value:
+    """Модель иногда пишет «156 г/л» в value и оставляет unit пустым, или режет единицу пополам:
+    «8.10 ×10¹²» в value и «/л» в unit (оба случая из eval). Число впереди однозначно; хвост
+    становится единицей или склеивается с ней, если из них получается известная единица."""
+    if not value:
         return value, unit
-    m = re.fullmatch(rf"\s*([<>≤≥]?{_NUM})\s+(\S.*?)\s*", value)
-    if not m:
+    m = re.fullmatch(rf"\s*([<>≤≥]?{_NUM})(?:\s*(\S.*?))?\s*", value)
+    if not m or not m.group(2):
         return value, unit
-    return m.group(1), m.group(2)
+    number, tail = m.group(1), m.group(2).strip()
+    if not unit:
+        return number, tail
+    if normalize_unit(unit):
+        return number, unit  # единица уже целая, хвост в value — её дубль
+    for candidate in (tail + unit, f"{tail} {unit}"):
+        if normalize_unit(candidate):
+            return number, candidate
+    return value, unit
 
 
 def parse_reference(s: str | None) -> tuple[float | None, float | None]:

@@ -110,6 +110,22 @@ UNIT_LABELS_RU: dict[str, str] = {
 }
 
 
+# Vision-модели путают похожие буквы кириллицы и латиницы: «ACT» вместо «АСТ», «мME/л» вместо «мМЕ/л».
+# Если прямое сопоставление не удалось, пробуем свернуть латиницу в кириллицу и наоборот.
+_LAT_TO_CYR = str.maketrans("ABCEHKMOPTXaceopxy", "АВСЕНКМОРТХасеорху")
+_CYR_TO_LAT = str.maketrans("АВСЕНКМОРТХасеорху", "ABCEHKMOPTXaceopxy")
+
+
+def homoglyph_variants(s: str) -> list[str]:
+    """Варианты строки со свёрнутыми омоглифами, отличные от исходной."""
+    out = []
+    for table in (_LAT_TO_CYR, _CYR_TO_LAT):
+        v = s.translate(table)
+        if v != s and v not in out:
+            out.append(v)
+    return out
+
+
 def _norm_text(s: str) -> str:
     s = s.lower().replace("ё", "е")
     s = re.sub(r"\(.*?\)", " ", s)  # «Гемоглобин (HGB)» -> «гемоглобин»
@@ -118,6 +134,16 @@ def _norm_text(s: str) -> str:
 
 
 def normalize_unit(raw: str | None) -> str | None:
+    unit = _normalize_unit(raw)
+    if unit is None and raw:
+        for variant in homoglyph_variants(raw):
+            unit = _normalize_unit(variant)
+            if unit:
+                break
+    return unit
+
+
+def _normalize_unit(raw: str | None) -> str | None:
     if not raw:
         return None
     key = raw.strip().lower().replace(" ", "").replace(",", ".")
@@ -148,6 +174,16 @@ for _a in ANALYTES:
 
 def match_analyte(raw_name: str) -> tuple[Analyte | None, float]:
     """Сопоставить название с бланка показателю справочника. Возвращает (показатель, уверенность)."""
+    analyte, score = _match_analyte(raw_name)
+    if analyte is None or score < 0.85:
+        for variant in homoglyph_variants(raw_name):
+            a2, s2 = _match_analyte(variant)
+            if a2 is not None and s2 > score:
+                analyte, score = a2, s2
+    return analyte, score
+
+
+def _match_analyte(raw_name: str) -> tuple[Analyte | None, float]:
     import difflib
 
     name = _norm_text(raw_name)

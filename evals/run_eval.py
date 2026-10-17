@@ -23,6 +23,7 @@ from labscan.env import load_dotenv
 from labscan.extractors import get_extractor
 from labscan.ingest import load_pages
 from labscan.normalize import normalize_report
+from labscan.schema import RawReport
 
 CATS = ("correct_auto", "correct_review", "caught", "silent", "missed")
 CAT_RU = {
@@ -63,31 +64,42 @@ def score_doc(truth: dict, norm) -> dict:
                          "issues": o.issues if o else [], "raw": o.raw.model_dump() if o else None})
     truth_codes = {t["code"] for t in truth["results"]}
     extras = [o.code or o.raw.name for o in norm.observations if (o.code or "") not in truth_codes]
+    extras_raw = [[o.code, o.raw.name, o.raw.value] for o in norm.observations if (o.code or "") not in truth_codes]
     silent_extras = [o.code for o in norm.observations if o.code and o.code not in truth_codes and o.status == "ok"]
     header_ok = (_name_key(norm.patient_name) == _name_key(truth["patient_name"])
                  and norm.collected_at == date.fromisoformat(truth["collected_at"]))
     perfect = cats["correct_auto"] + cats["correct_review"] == len(truth["results"]) and not extras and header_ok
     header = {"patient_name": norm.patient_name, "collected_at": str(norm.collected_at or ""),
               "truth_name": truth["patient_name"], "truth_collected_at": truth["collected_at"]}
-    return {"cats": dict(cats), "n": len(truth["results"]), "extras": extras, "silent_extras": silent_extras,
-            "header_ok": header_ok, "header": header, "perfect": perfect, "auto": not norm.needs_review, "errors": rows}
+    return {"cats": dict(cats), "n": len(truth["results"]), "extras": extras, "extras_raw": extras_raw,
+            "silent_extras": silent_extras, "header_ok": header_ok, "header": header, "perfect": perfect,
+            "auto": not norm.needs_review, "errors": rows}
 
 
 
 def run(engine: str, data: Path, limit: int | None, only: list[str] | None = None,
-        previous: dict | None = None) -> dict:
+        previous: dict | None = None, rescore: bool = False) -> dict:
     """previous — прошлый результат этого же движка: его удачные бланки не перепрогоняются (--retry),
-    заново идут только упавшие (сеть, лимиты) и те, которых в нём не было."""
+    заново идут только упавшие (сеть, лимиты) и те, которых в нём не было.
+    rescore — не звать модель вовсе: взять её сырой ответ из прошлого прогона и заново прогнать
+    через нормализацию. Так правки normalize.py и справочника проверяются бесплатно."""
     ex = get_extractor(engine)
     ids = json.loads((data / "index.json").read_text())
     ids = [i for i in ids if i in only] if only else ids[:limit]
     done = {d["doc_id"]: d for d in (previous or {}).get("docs", []) if not d.get("failed") and "seconds" in d}
     per_doc = []
     for doc_id in ids:
-        if doc_id in done:
+        truth = json.loads((data / f"{doc_id}.json").read_text(encoding="utf-8"))
+        if doc_id in done and rescore and done[doc_id].get("raw_report"):
+            old = done[doc_id]
+            s = score_doc(truth, normalize_report(RawReport.model_validate(old["raw_report"])))
+            s.update(doc_id=doc_id, kind=truth["kind"], layout=truth["layout"], seconds=old["seconds"],
+                     cost_usd=old["cost_usd"], pages=old["pages"], raw_report=old["raw_report"])
+            per_doc.append(s)
+            continue
+        if doc_id in done and not rescore:
             per_doc.append(done[doc_id])
             continue
-        truth = json.loads((data / f"{doc_id}.json").read_text(encoding="utf-8"))
         raw = (data / truth["file"]).read_bytes()
         pages = load_pages(raw, truth["file"])
         t0 = time.perf_counter()
@@ -102,7 +114,8 @@ def run(engine: str, data: Path, limit: int | None, only: list[str] | None = Non
             continue
         s = score_doc(truth, normalize_report(result.report))
         s.update(doc_id=doc_id, kind=truth["kind"], layout=truth["layout"],
-                 seconds=time.perf_counter() - t0, cost_usd=result.cost_usd, pages=len(pages))
+                 seconds=time.perf_counter() - t0, cost_usd=result.cost_usd, pages=len(pages),
+                 raw_report=result.report.model_dump())
         per_doc.append(s)
         print(f"{doc_id}: {s['cats']}{' лишние: ' + str(s['extras']) if s['extras'] else ''}"
               + ("" if s["header_ok"] else f" шапка: {s['header']['patient_name']!r} / {s['header']['collected_at']!r}"
@@ -179,17 +192,19 @@ def main() -> None:
     ap.add_argument("--only", help="id бланков через запятую, например 002_senim_scan,007_citolab_scan")
     ap.add_argument("--retry", action="store_true",
                     help="взять прошлый результат этого движка из --out и перепрогнать только упавшие бланки")
+    ap.add_argument("--rescore", action="store_true",
+                    help="не звать модель: пересчитать прошлый прогон из её сырых ответов новой нормализацией")
     ap.add_argument("--out", type=Path, default=Path("evals/results"))
     args = ap.parse_args()
     load_dotenv()
     ex = get_extractor(args.engine)
     tag = (getattr(ex, "model", None) and f"{ex.name}:{ex.model}" or ex.name).replace(":", "_").replace("/", "_")
     previous = None
-    if args.retry and (args.out / f"{tag}.json").exists():
+    if (args.retry or args.rescore) and (args.out / f"{tag}.json").exists():
         previous = json.loads((args.out / f"{tag}.json").read_text(encoding="utf-8"))
         ok = [d for d in previous["docs"] if not d.get("failed")]
         print(f"--retry: беру {len(ok)} удачных бланков из прошлого прогона, остальные заново")
-    res = run(args.engine, args.data, args.limit, args.only.split(",") if args.only else None, previous)
+    res = run(args.engine, args.data, args.limit, args.only.split(",") if args.only else None, previous, args.rescore)
     md = summarize(res)
     args.out.mkdir(parents=True, exist_ok=True)
     (args.out / f"{tag}.md").write_text(md, encoding="utf-8")

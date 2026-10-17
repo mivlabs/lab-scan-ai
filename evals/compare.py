@@ -33,15 +33,32 @@ def label(res: dict) -> str:
     return model.split("/", 1)[-1].replace("-instruct", "")
 
 
-def load(results: Path, only: set[str] | None) -> list[dict]:
+def load(results: Path, only: set[str] | None, limit: int | None = None, data: Path | None = None) -> list[dict]:
+    """limit: оставить у каждого прогона только первые N бланков из index.json и пересчитать сводку,
+    чтобы сравнивать движки на одном и том же наборе (Tesseract гоняли на 50, модели на 20)."""
+    from evals.run_eval import summarize
+
+    keep = None
+    if limit:
+        keep = set(json.loads(((data or Path("data/synth")) / "index.json").read_text(encoding="utf-8"))[:limit])
     runs = []
     for p in sorted(results.glob("*.json")):
         if only and p.stem not in only:
             continue
         res = json.loads(p.read_text(encoding="utf-8"))
-        if "summary" in res and "все" in res["summary"]:
-            res["_file"] = p.stem
-            runs.append(res)
+        if "summary" not in res or "все" not in res["summary"]:
+            continue
+        if keep is not None:
+            res["docs"] = [d for d in res["docs"] if d["doc_id"] in keep]
+            if not res["docs"]:
+                continue
+            if all("seconds" in d for d in res["docs"]):
+                pages = sum(d["pages"] for d in res["docs"]) or 1
+                res["seconds_per_page"] = sum(d["seconds"] for d in res["docs"]) / pages
+                res["cost_per_page"] = sum(d["cost_usd"] for d in res["docs"]) / pages
+            summarize(res)  # пересчитывает res["summary"] по оставшимся бланкам
+        res["_file"] = p.stem
+        runs.append(res)
     return sorted(runs, key=lambda r: (r["engine"] != "tesseract", r["engine"]))  # базовая линия первой
 
 
@@ -82,8 +99,10 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--results", type=Path, default=Path("evals/results"))
     ap.add_argument("--only", help="имена файлов без .json через запятую")
+    ap.add_argument("--limit", type=int, help="сравнивать только первые N бланков из index.json у каждого движка")
+    ap.add_argument("--data", type=Path, default=Path("data/synth"))
     args = ap.parse_args()
-    runs = load(args.results, set(args.only.split(",")) if args.only else None)
+    runs = load(args.results, set(args.only.split(",")) if args.only else None, args.limit, args.data)
     md = build(runs)
     (args.results / "comparison.md").write_text(md, encoding="utf-8")
     print(md)

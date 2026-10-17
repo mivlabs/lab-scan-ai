@@ -50,3 +50,23 @@ def test_retry_reruns_only_failed_docs(tmp_path, monkeypatch):
     assert all(d["perfect"] for d in second["docs"])
     assert second["pages"] == sum(d["pages"] for d in second["docs"])
     assert "Не распознаны" not in run_eval.summarize(second)
+
+
+def test_rescore_uses_stored_raw_report_without_calling_engine(tmp_path, monkeypatch):
+    docs = generate(2, tmp_path, seed=5)
+    ids = [d["doc_id"] for d in docs]
+    ex = FlakyTruth(tmp_path, fail=set())
+    monkeypatch.setattr(run_eval, "get_extractor", lambda engine: ex)
+    real_load = run_eval.load_pages
+
+    def load(raw, filename):
+        ex.current = Path(filename).stem
+        return real_load(raw, filename)
+
+    monkeypatch.setattr(run_eval, "load_pages", load)
+    first = run_eval.run("flaky", tmp_path, None)
+    assert all(d["raw_report"]["results"] for d in first["docs"])
+    ex.calls = []
+    again = run_eval.run("flaky", tmp_path, None, previous=first, rescore=True)
+    assert ex.calls == [] and [d["doc_id"] for d in again["docs"]] == ids and all(d["perfect"] for d in again["docs"])
+    assert again["pages"] == first["pages"] and again["cost_per_page"] == first["cost_per_page"]
